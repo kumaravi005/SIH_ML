@@ -14,13 +14,14 @@ from ayush_explainer import generate_ayush_explainability_report
 from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report, LongitudinalRiskEngine
 from patient_similarity_engine import find_similar_patient_cases, PatientSimilarityEngine
+from data_quality_engine import generate_data_quality_report, DataQualityEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
     Zero-dependency HTTP REST API handler for SIH_ML.
     Integrates clinical extraction, 10-parameter AYUSH assessment, recommendation engine,
-    longitudinal risk tracking, and patient similarity matching.
+    longitudinal risk tracking, patient similarity matching, and data quality validation.
     """
 
     def _set_headers(self, status_code=200, content_type="application/json"):
@@ -54,7 +55,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /recommendations",
                     "POST /risk-stratification",
                     "POST /longitudinal-track",
-                    "POST /similar-cases"
+                    "POST /similar-cases",
+                    "POST /validate-quality"
                 ]
             }).encode("utf-8"))
         else:
@@ -175,9 +177,25 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(sim_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/validate-quality":
+            patient_case = payload.get("patient_case")
+            if not patient_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                patient_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            quality_report = generate_data_quality_report(patient_case)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(quality_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
 
 
 

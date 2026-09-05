@@ -7,6 +7,7 @@ from ayush_explainer import generate_ayush_explainability_report
 from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report
 from patient_similarity_engine import find_similar_patient_cases
+from data_quality_engine import generate_data_quality_report
 
 
 EXPLAINABILITY_OUTPUT_FILE = (
@@ -32,6 +33,13 @@ SIMILARITY_OUTPUT_FILE = (
     / "output"
     / "patient_similarity_report.json"
 )
+
+QUALITY_OUTPUT_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "output"
+    / "data_quality_report.json"
+)
+
 
 
 
@@ -99,7 +107,12 @@ def run_pipeline(input_case_path=None, text_input=None, source="audio_transcript
     with open(SIMILARITY_OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(sim_report, f, indent=2, ensure_ascii=False)
 
-    return patient_case, report, rec_report, risk_report, sim_report
+    # Generate data quality & anomaly validation report
+    quality_report = generate_data_quality_report(patient_case)
+    with open(QUALITY_OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(quality_report, f, indent=2, ensure_ascii=False)
+
+    return patient_case, report, rec_report, risk_report, sim_report, quality_report
 
 
 def main():
@@ -114,7 +127,7 @@ def main():
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
     input_file = args.input or (str(default_sample) if default_sample.exists() else None)
 
-    patient_case, report, rec_report, risk_report, sim_report = run_pipeline(
+    patient_case, report, rec_report, risk_report, sim_report, quality_report = run_pipeline(
         input_case_path=input_file,
         text_input=args.text,
         source=args.source,
@@ -130,6 +143,8 @@ def main():
     print(f"Clinical Recommendation Output Saved: {RECOMMENDATION_OUTPUT_FILE}")
     print(f"Longitudinal Risk Report Saved: {LONGITUDINAL_RISK_OUTPUT_FILE}")
     print(f"Patient Similarity Report Saved: {SIMILARITY_OUTPUT_FILE}")
+    print(f"Data Quality Report Saved: {QUALITY_OUTPUT_FILE}")
+
 
 
 

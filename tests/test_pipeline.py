@@ -317,9 +317,44 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_data_quality_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        patient_case = build_complete_patient_case(
+            patient_answers=self.sample_cases[0]["questionnaire_answers"]
+        )
+
+        from data_quality_engine import generate_data_quality_report
+        quality_report = generate_data_quality_report(patient_case)
+        self.assertIn("data_integrity", quality_report)
+
+        server = HTTPServer(("127.0.0.1", 8092), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8092/validate-quality",
+                data=json.dumps({"patient_case": patient_case}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertIn("data_integrity", data)
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

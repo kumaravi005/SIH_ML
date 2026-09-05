@@ -1,0 +1,23 @@
+{
+  "patient_id": "UNKNOWN",
+  "assessment_summary": {
+    "active_parameters_evaluated": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ]
+  },
+  "data_integrity": {
+    "data_integrity_score": 40.0,
+    "quality_grade": "Requires Verification",
+    "parameter_completeness_percent": 0.0,
+    "assessed_parameters_count": 0,
+    "deductions_breakdown": [
+      "Missing 10 parameters: -60.0 pts"
+    ]
+  },
+  "consistency_warnings": [],
+  "evidence_source_conflicts": [],
+  "is_valid_for_clinical_use": false,
+  "timestamp": "2026-09-06T01:58:42.141537"
+}
