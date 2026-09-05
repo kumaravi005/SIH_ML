@@ -175,6 +175,7 @@ def main():
     parser.add_argument("--no-explain", action="store_true", help="Disable generating explainability report")
     parser.add_argument("--generate-dataset", type=int, nargs="?", const=500, help="Generate synthetic patient dataset (default N=500)")
     parser.add_argument("--train-baseline", action="store_true", help="Train and evaluate baseline ML models on synthetic dataset")
+    parser.add_argument("--train-advanced-ml", action="store_true", help="Train, compare, and benchmark advanced ML model candidates")
 
     args = parser.parse_args()
 
@@ -194,6 +195,15 @@ def main():
         eval_report = engine.train_and_evaluate()
         print("Baseline ML Training complete!")
         print(json.dumps(eval_report, indent=2))
+        return
+
+    if args.train_advanced_ml:
+        from advanced_ml_engine import AYUSHAdvancedMLEngine
+        print("Training and benchmarking Advanced ML Model Candidates...")
+        engine = AYUSHAdvancedMLEngine()
+        comp_report = engine.train_and_compare_all_models()
+        print("Advanced ML Comparative Evaluation complete!")
+        print(json.dumps(comp_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"

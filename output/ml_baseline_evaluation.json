@@ -16,15 +16,15 @@
       "recall": 0.8485,
       "f1_score": 0.8485
     },
-    "kapha": {
-      "precision": 0.8788,
-      "recall": 0.8286,
-      "f1_score": 0.853
-    },
     "vata": {
       "precision": 0.8529,
       "recall": 0.9062,
       "f1_score": 0.8787
+    },
+    "kapha": {
+      "precision": 0.8788,
+      "recall": 0.8286,
+      "f1_score": 0.853
     }
   },
   "status": "PASSED"

@@ -21,6 +21,7 @@ from regimen_optimizer_engine import generate_personalized_regimen_report, Regim
 from clinical_explainer_engine import AYUSHClinicalExplainerEngine
 from dataset_generator import AYUSHDatasetGeneratorEngine
 from ml_baseline_model import AYUSHBaselineMLEngine
+from advanced_ml_engine import AYUSHAdvancedMLEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -68,7 +69,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /optimize-regimen",
                     "POST /explain-case",
                     "POST /generate-dataset",
-                    "POST /train-baseline"
+                    "POST /train-baseline",
+                    "POST /train-advanced-ml"
                 ]
             }).encode("utf-8"))
         else:
@@ -274,6 +276,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(eval_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/train-advanced-ml":
+            engine = AYUSHAdvancedMLEngine()
+            comp_report = engine.train_and_compare_all_models()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(comp_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

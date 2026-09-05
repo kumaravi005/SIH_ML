@@ -1,0 +1,127 @@
+{
+  "training_samples": 400,
+  "testing_samples": 100,
+  "active_parameters_evaluated": 10,
+  "excluded_parameters": [
+    "agni",
+    "koshtha"
+  ],
+  "champion_model": "Model B (GNB)",
+  "champion_accuracy": 1.0,
+  "champion_macro_f1": 1.0,
+  "comparative_metrics_matrix": {
+    "Model A (KNN)": {
+      "model_name": "K-Nearest Neighbors (KNN)",
+      "accuracy": 0.86,
+      "precision": 0.8601,
+      "recall": 0.8611,
+      "macro_f1_score": 0.8601,
+      "micro_f1_score": 0.86,
+      "roc_auc_score": 0.8772,
+      "inference_latency_per_sample_ms": 1.221,
+      "fit_time_ms": 0.0,
+      "per_class_metrics": {
+        "pitta": {
+          "precision": 0.8485,
+          "recall": 0.8485,
+          "f1_score": 0.8485
+        },
+        "vata": {
+          "precision": 0.8529,
+          "recall": 0.9062,
+          "f1_score": 0.8787
+        },
+        "kapha": {
+          "precision": 0.8788,
+          "recall": 0.8286,
+          "f1_score": 0.853
+        }
+      }
+    },
+    "Model B (GNB)": {
+      "model_name": "Gaussian Naive Bayes (GNB)",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "macro_f1_score": 1.0,
+      "micro_f1_score": 1.0,
+      "roc_auc_score": 1.0,
+      "inference_latency_per_sample_ms": 0.039,
+      "fit_time_ms": 1.37,
+      "per_class_metrics": {
+        "pitta": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "vata": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "kapha": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        }
+      }
+    },
+    "Model C (RF/DT)": {
+      "model_name": "Random Forest / Decision Ensemble",
+      "accuracy": 0.39,
+      "precision": 0.6112,
+      "recall": 0.4035,
+      "macro_f1_score": 0.2863,
+      "micro_f1_score": 0.39,
+      "roc_auc_score": 0.3978,
+      "inference_latency_per_sample_ms": 0.0,
+      "fit_time_ms": 0.05,
+      "per_class_metrics": {
+        "pitta": {
+          "precision": 0.4615,
+          "recall": 0.1818,
+          "f1_score": 0.2608
+        },
+        "vata": {
+          "precision": 0.3721,
+          "recall": 1.0,
+          "f1_score": 0.5424
+        },
+        "kapha": {
+          "precision": 1.0,
+          "recall": 0.0286,
+          "f1_score": 0.0556
+        }
+      }
+    },
+    "Model D (Ensemble)": {
+      "model_name": "Soft-Voting Ensemble (KNN + GNB + RF)",
+      "accuracy": 0.9,
+      "precision": 0.9022,
+      "recall": 0.9025,
+      "macro_f1_score": 0.8996,
+      "micro_f1_score": 0.9,
+      "roc_auc_score": 0.918,
+      "inference_latency_per_sample_ms": 1.248,
+      "fit_time_ms": 0.0,
+      "per_class_metrics": {
+        "pitta": {
+          "precision": 0.9062,
+          "recall": 0.8788,
+          "f1_score": 0.8923
+        },
+        "vata": {
+          "precision": 0.8649,
+          "recall": 1.0,
+          "f1_score": 0.9276
+        },
+        "kapha": {
+          "precision": 0.9355,
+          "recall": 0.8286,
+          "f1_score": 0.8788
+        }
+      }
+    }
+  },
+  "status": "PASSED"
+}
