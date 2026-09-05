@@ -1,0 +1,25 @@
+{
+  "patient_id": "UNKNOWN",
+  "assessment_summary": {
+    "active_parameters_evaluated": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "assumed_adherence_level": "moderate"
+  },
+  "predicted_dosha_stabilization_probability": 70.0,
+  "predicted_dosha_stabilization_percentage": "70.0%",
+  "recovery_timeframe": {
+    "estimated_min_weeks": 4,
+    "estimated_max_weeks": 8,
+    "timeframe_display": "4–8 weeks",
+    "recovery_category": "Standard Recovery"
+  },
+  "prognostic_analysis": {
+    "positive_prognostic_indicators": [],
+    "risk_and_delay_factors": []
+  },
+  "timestamp": "2026-09-06T02:04:13.553044",
+  "disclaimer": "Predicted recovery outcomes are decision-support estimates based on AYUSH parameters and compliance. They do not constitute a medical prognosis guarantee."
+}

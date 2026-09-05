@@ -15,13 +15,14 @@ from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report, LongitudinalRiskEngine
 from patient_similarity_engine import find_similar_patient_cases, PatientSimilarityEngine
 from data_quality_engine import generate_data_quality_report, DataQualityEngine
+from clinical_prediction_engine import predict_clinical_outcome, ClinicalPredictionEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
     Zero-dependency HTTP REST API handler for SIH_ML.
     Integrates clinical extraction, 10-parameter AYUSH assessment, recommendation engine,
-    longitudinal risk tracking, patient similarity matching, and data quality validation.
+    longitudinal risk tracking, patient similarity matching, data quality validation, and outcome prediction.
     """
 
     def _set_headers(self, status_code=200, content_type="application/json"):
@@ -56,7 +57,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /risk-stratification",
                     "POST /longitudinal-track",
                     "POST /similar-cases",
-                    "POST /validate-quality"
+                    "POST /validate-quality",
+                    "POST /predict-outcome"
                 ]
             }).encode("utf-8"))
         else:
@@ -192,9 +194,26 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(quality_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/predict-outcome":
+            patient_case = payload.get("patient_case")
+            adherence_level = payload.get("adherence_level", "moderate")
+            if not patient_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                patient_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            pred_report = predict_clinical_outcome(patient_case, adherence_level=adherence_level)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(pred_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
 
 
 

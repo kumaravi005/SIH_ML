@@ -351,9 +351,44 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_predict_outcome_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        patient_case = build_complete_patient_case(
+            patient_answers=self.sample_cases[0]["questionnaire_answers"]
+        )
+
+        from clinical_prediction_engine import predict_clinical_outcome
+        pred_report = predict_clinical_outcome(patient_case, adherence_level="high")
+        self.assertIn("predicted_dosha_stabilization_probability", pred_report)
+
+        server = HTTPServer(("127.0.0.1", 8093), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8093/predict-outcome",
+                data=json.dumps({"patient_case": patient_case, "adherence_level": "high"}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertIn("predicted_dosha_stabilization_probability", data)
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

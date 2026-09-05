@@ -20,6 +20,10 @@ from .data_quality_engine import (
     DataQualityEngine,
     generate_data_quality_report
 )
+from .clinical_prediction_engine import (
+    ClinicalPredictionEngine,
+    predict_clinical_outcome
+)
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -42,8 +46,11 @@ __all__ = [
     "find_similar_patient_cases",
     "DataQualityEngine",
     "generate_data_quality_report",
+    "ClinicalPredictionEngine",
+    "predict_clinical_outcome",
     "LLMClinicalExtractor"
 ]
+
 
 
 

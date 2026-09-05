@@ -8,6 +8,7 @@ from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report
 from patient_similarity_engine import find_similar_patient_cases
 from data_quality_engine import generate_data_quality_report
+from clinical_prediction_engine import predict_clinical_outcome
 
 
 EXPLAINABILITY_OUTPUT_FILE = (
@@ -39,6 +40,13 @@ QUALITY_OUTPUT_FILE = (
     / "output"
     / "data_quality_report.json"
 )
+
+PREDICTION_OUTPUT_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "output"
+    / "clinical_outcome_prediction.json"
+)
+
 
 
 
@@ -112,7 +120,12 @@ def run_pipeline(input_case_path=None, text_input=None, source="audio_transcript
     with open(QUALITY_OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(quality_report, f, indent=2, ensure_ascii=False)
 
-    return patient_case, report, rec_report, risk_report, sim_report, quality_report
+    # Generate clinical outcome & recovery prediction report
+    pred_report = predict_clinical_outcome(patient_case, adherence_level="moderate")
+    with open(PREDICTION_OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(pred_report, f, indent=2, ensure_ascii=False)
+
+    return patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report
 
 
 def main():
@@ -127,7 +140,7 @@ def main():
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
     input_file = args.input or (str(default_sample) if default_sample.exists() else None)
 
-    patient_case, report, rec_report, risk_report, sim_report, quality_report = run_pipeline(
+    patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report = run_pipeline(
         input_case_path=input_file,
         text_input=args.text,
         source=args.source,
@@ -144,6 +157,8 @@ def main():
     print(f"Longitudinal Risk Report Saved: {LONGITUDINAL_RISK_OUTPUT_FILE}")
     print(f"Patient Similarity Report Saved: {SIMILARITY_OUTPUT_FILE}")
     print(f"Data Quality Report Saved: {QUALITY_OUTPUT_FILE}")
+    print(f"Clinical Outcome Prediction Saved: {PREDICTION_OUTPUT_FILE}")
+
 
 
 
