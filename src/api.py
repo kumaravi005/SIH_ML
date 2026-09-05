@@ -22,6 +22,7 @@ from clinical_explainer_engine import AYUSHClinicalExplainerEngine
 from dataset_generator import AYUSHDatasetGeneratorEngine
 from ml_baseline_model import AYUSHBaselineMLEngine
 from advanced_ml_engine import AYUSHAdvancedMLEngine
+from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -70,7 +71,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /explain-case",
                     "POST /generate-dataset",
                     "POST /train-baseline",
-                    "POST /train-advanced-ml"
+                    "POST /train-advanced-ml",
+                    "POST /validate-leakage-free-ml"
                 ]
             }).encode("utf-8"))
         else:
@@ -283,6 +285,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(comp_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/validate-leakage-free-ml":
+            engine = AYUSHLeakageFreeMLEngine()
+            leak_report = engine.train_and_evaluate_all()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(leak_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

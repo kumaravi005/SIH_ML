@@ -203,52 +203,16 @@ class AYUSHAdvancedMLEngine:
 
     def train_and_compare_all_models(self):
         """
-        Train and benchmark all 4 ML model families, selecting the champion model.
+        Train and benchmark all 4 ML model families on 100% leak-free raw features.
         """
-        splits = self.baseline_engine.load_dataset_splits(train_ratio=0.8)
-        X_train, y_train = splits["X_train"], splits["y_prakriti_train"]
-        X_test, y_test = splits["X_test"], splits["y_prakriti_test"]
+        from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
+        engine = AYUSHLeakageFreeMLEngine(dataset_path=self.dataset_path)
+        report = engine.train_and_evaluate_all()
 
-        # 1. Model A: KNN
-        knn = PurePythonKNNClassifier(k=3)
-        metrics_a = self.evaluate_model_performance(knn, X_train, y_train, X_test, y_test, "K-Nearest Neighbors (KNN)")
+        self.models = report.get("comparative_metrics_matrix", {})
+        self.champion_model_name = report.get("champion_model")
 
-        # 2. Model B: Gaussian Naive Bayes
-        nb = PurePythonGaussianNB()
-        metrics_b = self.evaluate_model_performance(nb, X_train, y_train, X_test, y_test, "Gaussian Naive Bayes (GNB)")
-
-        # 3. Model C: Random Forest / Decision Stumps
-        dt = PurePythonDecisionTree(depth=3)
-        metrics_c = self.evaluate_model_performance(dt, X_train, y_train, X_test, y_test, "Random Forest / Decision Ensemble")
-
-        # 4. Model D: Soft-Voting Ensemble
-        ensemble = PurePythonVotingEnsemble(knn, nb, dt)
-        metrics_d = self.evaluate_model_performance(ensemble, X_train, y_train, X_test, y_test, "Soft-Voting Ensemble (KNN + GNB + RF)")
-
-        self.models = {
-            "Model A (KNN)": metrics_a,
-            "Model B (GNB)": metrics_b,
-            "Model C (RF/DT)": metrics_c,
-            "Model D (Ensemble)": metrics_d
-        }
-
-        # Select Champion Model (highest Macro-F1 score)
-        champion_entry = max(self.models.items(), key=lambda item: item[1]["macro_f1_score"])
-        self.champion_model_name = champion_entry[0]
-        champion_metrics = champion_entry[1]
-
-        report = {
-            "training_samples": len(X_train),
-            "testing_samples": len(X_test),
-            "active_parameters_evaluated": len(ACTIVE_PARAMETERS),
-            "excluded_parameters": EXCLUDED_PARAMETERS,
-            "champion_model": self.champion_model_name,
-            "champion_accuracy": champion_metrics["accuracy"],
-            "champion_macro_f1": champion_metrics["macro_f1_score"],
-            "comparative_metrics_matrix": self.models,
-            "status": "PASSED" if champion_metrics["accuracy"] >= 0.80 else "NEEDS_TUNING"
-        }
-
+        # Save to advanced comparative report output file as well
         self.output_comparative_file.parent.mkdir(parents=True, exist_ok=True)
         with open(self.output_comparative_file, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)

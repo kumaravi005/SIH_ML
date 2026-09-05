@@ -176,6 +176,7 @@ def main():
     parser.add_argument("--generate-dataset", type=int, nargs="?", const=500, help="Generate synthetic patient dataset (default N=500)")
     parser.add_argument("--train-baseline", action="store_true", help="Train and evaluate baseline ML models on synthetic dataset")
     parser.add_argument("--train-advanced-ml", action="store_true", help="Train, compare, and benchmark advanced ML model candidates")
+    parser.add_argument("--validate-leakage-free-ml", action="store_true", help="Run 100% leak-free feature engineering and model validation")
 
     args = parser.parse_args()
 
@@ -204,6 +205,15 @@ def main():
         comp_report = engine.train_and_compare_all_models()
         print("Advanced ML Comparative Evaluation complete!")
         print(json.dumps(comp_report, indent=2))
+        return
+
+    if args.validate_leakage_free_ml:
+        from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
+        print("Executing Leakage-Free Model Training & Validation...")
+        engine = AYUSHLeakageFreeMLEngine()
+        leak_report = engine.train_and_evaluate_all()
+        print("Leakage-Free Model Validation complete!")
+        print(json.dumps(leak_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"

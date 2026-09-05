@@ -81,50 +81,11 @@ class AYUSHBaselineMLEngine:
 
     def extract_feature_vector(self, patient_case):
         """
-        Convert structured patient case into a domain-informed numerical feature vector.
+        Convert structured patient case into a 100% leakage-free numerical feature vector.
         """
-        features = []
-        dashavidha = (
-            patient_case.get("ayushAssessment", {})
-            .get("dashavidhaPariksha", {})
-        )
-
-        # 1. Accumulate Dosha score signals for Prakriti features
-        v_score, p_score, k_score = 0.0, 0.0, 0.0
-        p_evidence = dashavidha.get("prakriti", {}).get("evidence", [])
-        for ev in p_evidence:
-            q_id = ev.get("questionId")
-            ans = ev.get("answer")
-            if q_id in self.prakriti_mapping and ans in self.prakriti_mapping[q_id]:
-                scores = self.prakriti_mapping[q_id][ans]
-                v_score += scores.get("vata", 0.0)
-                p_score += scores.get("pitta", 0.0)
-                k_score += scores.get("kapha", 0.0)
-
-        total_d = (v_score + p_score + k_score) or 1.0
-        features.extend([
-            round(5.0 * v_score / total_d, 3),
-            round(5.0 * p_score / total_d, 3),
-            round(5.0 * k_score / total_d, 3)
-        ])
-
-        # 2. Add features for remaining active parameters
-        for param in ACTIVE_PARAMETERS:
-            p_res = dashavidha.get(param, {})
-            val = p_res.get("value") if isinstance(p_res, dict) else str(p_res)
-            conf = p_res.get("confidence", 0.5) if isinstance(p_res, dict) else 0.5
-            val_str = str(val).lower() if val is not None else ""
-
-            val_hash = (sum(ord(c) for c in val_str) % 100) / 100.0 if val_str else 0.0
-            features.append(val_hash)
-            features.append(float(conf) if conf is not None else 0.5)
-
-        # 3. Include age feature normalized
-        age = patient_case.get("patient", {}).get("age", 40)
-        norm_age = min(1.0, max(0.0, float(age) / 100.0))
-        features.append(norm_age)
-
-        return features
+        from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
+        engine = AYUSHLeakageFreeMLEngine()
+        return engine.extract_raw_features(patient_case)
 
     def load_dataset_splits(self, train_ratio=0.8):
         """

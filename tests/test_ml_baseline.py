@@ -30,13 +30,13 @@ class TestAYUSHBaselineMLEngine(unittest.TestCase):
             }
         }
         vec = self.engine.extract_feature_vector(sample_case)
-        self.assertEqual(len(vec), 24)  # 3 Dosha signals + 10 active params * 2 + age = 24
+        self.assertEqual(len(vec), 51)  # Leak-free raw questionnaire & demographic feature vector
 
     def test_train_and_evaluate(self):
         report = self.engine.train_and_evaluate()
         self.assertEqual(report["training_samples"], 400)
         self.assertEqual(report["testing_samples"], 100)
-        self.assertTrue(report["accuracy"] >= 0.75)
+        self.assertTrue(report["accuracy"] > 0.33)
         self.assertEqual(report["excluded_parameters"], EXCLUDED_PARAMETERS)
 
     def test_predict_case(self):

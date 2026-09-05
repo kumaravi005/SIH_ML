@@ -15,9 +15,14 @@
     "Model A (KNN)": {
       "accuracy": 0.41,
       "macro_f1_score": 0.4056,
-      "inference_latency_ms": 1.933,
+      "inference_latency_ms": 1.871,
       "fit_time_ms": 0.0,
       "per_class_metrics": {
+        "pitta": {
+          "precision": 0.3846,
+          "recall": 0.303,
+          "f1_score": 0.339
+        },
         "vata": {
           "precision": 0.4643,
           "recall": 0.4062,
@@ -27,20 +32,20 @@
           "precision": 0.3913,
           "recall": 0.5143,
           "f1_score": 0.4444
-        },
-        "pitta": {
-          "precision": 0.3846,
-          "recall": 0.303,
-          "f1_score": 0.339
         }
       }
     },
     "Model B (Gaussian Naive Bayes)": {
       "accuracy": 0.42,
       "macro_f1_score": 0.4141,
-      "inference_latency_ms": 0.08,
-      "fit_time_ms": 2.18,
+      "inference_latency_ms": 0.072,
+      "fit_time_ms": 2.26,
       "per_class_metrics": {
+        "pitta": {
+          "precision": 0.3448,
+          "recall": 0.303,
+          "f1_score": 0.3226
+        },
         "vata": {
           "precision": 0.4062,
           "recall": 0.4062,
@@ -50,11 +55,6 @@
           "precision": 0.4872,
           "recall": 0.5429,
           "f1_score": 0.5135
-        },
-        "pitta": {
-          "precision": 0.3448,
-          "recall": 0.303,
-          "f1_score": 0.3226
         }
       }
     },
@@ -64,6 +64,11 @@
       "inference_latency_ms": 0.0,
       "fit_time_ms": 0.05,
       "per_class_metrics": {
+        "pitta": {
+          "precision": 0.375,
+          "recall": 0.1818,
+          "f1_score": 0.2449
+        },
         "vata": {
           "precision": 0.3235,
           "recall": 0.6875,
@@ -73,20 +78,20 @@
           "precision": 0.3125,
           "recall": 0.1429,
           "f1_score": 0.1961
-        },
-        "pitta": {
-          "precision": 0.375,
-          "recall": 0.1818,
-          "f1_score": 0.2449
         }
       }
     },
     "Model D (Soft-Voting Ensemble)": {
       "accuracy": 0.41,
       "macro_f1_score": 0.3936,
-      "inference_latency_ms": 2.102,
+      "inference_latency_ms": 1.976,
       "fit_time_ms": 0.0,
       "per_class_metrics": {
+        "pitta": {
+          "precision": 0.3158,
+          "recall": 0.1818,
+          "f1_score": 0.2308
+        },
         "vata": {
           "precision": 0.4722,
           "recall": 0.5312,
@@ -96,11 +101,6 @@
           "precision": 0.4,
           "recall": 0.5143,
           "f1_score": 0.45
-        },
-        "pitta": {
-          "precision": 0.3158,
-          "recall": 0.1818,
-          "f1_score": 0.2308
         }
       }
     }
