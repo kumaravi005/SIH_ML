@@ -1,0 +1,150 @@
+{
+  "section": "Section 13 — ML Model Optimization, Cross-Validation & Robustness Validation",
+  "cross_validation_strategy": "Stratified 5-Fold Cross-Validation (K=5)",
+  "stratified_kfold_cv_results": {
+    "Model A (KNN)": {
+      "mean_accuracy": 0.9183,
+      "std_accuracy_sigma": 0.0283,
+      "mean_macro_f1": 0.9183,
+      "std_macro_f1_sigma": 0.0283,
+      "fold_accuracies": [
+        0.8725,
+        0.9208,
+        0.9596,
+        0.9091,
+        0.9293
+      ],
+      "fold_macro_f1s": [
+        0.8725,
+        0.9208,
+        0.9594,
+        0.9089,
+        0.9298
+      ]
+    },
+    "Model B (Gaussian Naive Bayes)": {
+      "mean_accuracy": 0.8181,
+      "std_accuracy_sigma": 0.0308,
+      "mean_macro_f1": 0.8163,
+      "std_macro_f1_sigma": 0.0315,
+      "fold_accuracies": [
+        0.7745,
+        0.8515,
+        0.7879,
+        0.8384,
+        0.8384
+      ],
+      "fold_macro_f1s": [
+        0.7686,
+        0.8536,
+        0.7909,
+        0.8302,
+        0.838
+      ]
+    },
+    "Model C (Random Forest / DT)": {
+      "mean_accuracy": 0.0961,
+      "std_accuracy_sigma": 0.019,
+      "mean_macro_f1": 0.0767,
+      "std_macro_f1_sigma": 0.014,
+      "fold_accuracies": [
+        0.0686,
+        0.1089,
+        0.1212,
+        0.0808,
+        0.101
+      ],
+      "fold_macro_f1s": [
+        0.0543,
+        0.0843,
+        0.0936,
+        0.0675,
+        0.0836
+      ]
+    },
+    "Model D (Soft-Voting Ensemble)": {
+      "mean_accuracy": 0.9183,
+      "std_accuracy_sigma": 0.0283,
+      "mean_macro_f1": 0.9183,
+      "std_macro_f1_sigma": 0.0283,
+      "fold_accuracies": [
+        0.8725,
+        0.9208,
+        0.9596,
+        0.9091,
+        0.9293
+      ],
+      "fold_macro_f1s": [
+        0.8725,
+        0.9208,
+        0.9594,
+        0.9089,
+        0.9298
+      ]
+    }
+  },
+  "hyperparameter_optimization": {
+    "knn_k_grid_search": {
+      "k=1": {
+        "mean_accuracy": 0.8901,
+        "std_accuracy_sigma": 0.0174,
+        "mean_macro_f1": 0.89
+      },
+      "k=3": {
+        "mean_accuracy": 0.9144,
+        "std_accuracy_sigma": 0.0369,
+        "mean_macro_f1": 0.9143
+      },
+      "k=5": {
+        "mean_accuracy": 0.9183,
+        "std_accuracy_sigma": 0.0283,
+        "mean_macro_f1": 0.9183
+      },
+      "k=7": {
+        "mean_accuracy": 0.9222,
+        "std_accuracy_sigma": 0.024,
+        "mean_macro_f1": 0.922
+      },
+      "k=9": {
+        "mean_accuracy": 0.9342,
+        "std_accuracy_sigma": 0.0233,
+        "mean_macro_f1": 0.9339
+      }
+    },
+    "optimal_knn_k": "k=9",
+    "optimal_cv_macro_f1": 0.9339
+  },
+  "noise_sensitivity_robustness": {
+    "noise_5pct": {
+      "noise_level_sigma": 0.05,
+      "perturbed_accuracy": 0.8,
+      "baseline_clean_accuracy": 0.95,
+      "robustness_retention_ratio": 0.8421
+    },
+    "noise_10pct": {
+      "noise_level_sigma": 0.1,
+      "perturbed_accuracy": 0.86,
+      "baseline_clean_accuracy": 0.95,
+      "robustness_retention_ratio": 0.9053
+    },
+    "noise_15pct": {
+      "noise_level_sigma": 0.15,
+      "perturbed_accuracy": 0.81,
+      "baseline_clean_accuracy": 0.95,
+      "robustness_retention_ratio": 0.8526
+    },
+    "noise_20pct": {
+      "noise_level_sigma": 0.2,
+      "perturbed_accuracy": 0.88,
+      "baseline_clean_accuracy": 0.95,
+      "robustness_retention_ratio": 0.9263
+    }
+  },
+  "active_parameters_evaluated": 10,
+  "excluded_parameters": [
+    "agni",
+    "koshtha"
+  ],
+  "synthetic_data_disclaimer": "Metrics evaluated on synthetic dataset (N=500). Clinical trial validation required before clinical deployment.",
+  "overall_status": "PASSED"
+}

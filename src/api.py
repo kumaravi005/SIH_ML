@@ -309,6 +309,14 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(feat_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/optimize-robustness":
+            from ml_robustness_engine import AYUSHMLRobustnessEngine
+            engine = AYUSHMLRobustnessEngine()
+            robustness_report = engine.run_full_optimization_and_robustness_suite()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(robustness_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))

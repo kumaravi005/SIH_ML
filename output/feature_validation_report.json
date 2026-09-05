@@ -84,7 +84,7 @@
       "Model A (KNN)": {
         "accuracy": 0.92,
         "macro_f1_score": 0.9221,
-        "inference_latency_ms": 2.204,
+        "inference_latency_ms": 2.196,
         "fit_time_ms": 0.0,
         "per_class_metrics": {
           "pitta": {
@@ -107,8 +107,8 @@
       "Model B (Gaussian Naive Bayes)": {
         "accuracy": 0.87,
         "macro_f1_score": 0.8642,
-        "inference_latency_ms": 0.079,
-        "fit_time_ms": 2.93,
+        "inference_latency_ms": 0.078,
+        "fit_time_ms": 2.81,
         "per_class_metrics": {
           "pitta": {
             "precision": 0.7872,
@@ -131,7 +131,7 @@
         "accuracy": 0.2,
         "macro_f1_score": 0.1498,
         "inference_latency_ms": 0.0,
-        "fit_time_ms": 0.06,
+        "fit_time_ms": 0.05,
         "per_class_metrics": {
           "pitta": {
             "precision": 0.0,
@@ -153,7 +153,7 @@
       "Model D (Soft-Voting Ensemble)": {
         "accuracy": 0.92,
         "macro_f1_score": 0.9221,
-        "inference_latency_ms": 2.26,
+        "inference_latency_ms": 2.276,
         "fit_time_ms": 0.0,
         "per_class_metrics": {
           "pitta": {

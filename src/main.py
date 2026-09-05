@@ -179,6 +179,7 @@ def main():
     parser.add_argument("--validate-leakage-free-ml", action="store_true", help="Run 100% leak-free feature engineering and model validation")
     parser.add_argument("--validate-dataset-quality", action="store_true", help="Run pre-training feature/label alignment and dataset quality audit")
     parser.add_argument("--validate-features", action="store_true", help="Run feature engineering & ground-truth target label validation audit")
+    parser.add_argument("--validate-robustness", action="store_true", help="Run K-Fold Cross-Validation, hyperparameter tuning & noise robustness audit")
 
     args = parser.parse_args()
 
@@ -234,6 +235,15 @@ def main():
         feat_report = engine.run_full_feature_validation_audit()
         print("Feature Validation & Ground-Truth Audit complete!")
         print(json.dumps(feat_report, indent=2))
+        return
+
+    if args.validate_robustness:
+        from ml_robustness_engine import AYUSHMLRobustnessEngine
+        print("Executing Section 13 ML Model Optimization, Cross-Validation & Robustness Validation Audit...")
+        engine = AYUSHMLRobustnessEngine()
+        robustness_report = engine.run_full_optimization_and_robustness_suite()
+        print("ML Optimization & Robustness Validation complete!")
+        print(json.dumps(robustness_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
