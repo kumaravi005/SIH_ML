@@ -506,6 +506,33 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_train_baseline_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        server = HTTPServer(("127.0.0.1", 8098), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8098/train-baseline",
+                data=json.dumps({}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertIn("accuracy", data)
+                self.assertEqual(data["status"], "PASSED")
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -260,13 +260,25 @@ class AYUSHDatasetGeneratorEngine:
             if score >= 70.0:
                 valid_count += 1
 
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(dataset, f, indent=2, ensure_ascii=False)
+        if save_path:
+            path = Path(save_path)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(dataset, f, indent=2, ensure_ascii=False)
+            saved_to_str = str(path)
+        elif num_samples == 500:
+            path = self.output_dataset_file
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(dataset, f, indent=2, ensure_ascii=False)
+            saved_to_str = str(path)
+        else:
+            saved_to_str = "in-memory (not saved to main dataset)"
 
         stats = self.get_dataset_statistics(dataset)
         stats["total_generated"] = len(dataset)
         stats["quality_validated_count"] = valid_count
-        stats["saved_to"] = str(path)
+        stats["saved_to"] = saved_to_str
 
         return stats
 

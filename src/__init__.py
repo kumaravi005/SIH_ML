@@ -34,6 +34,7 @@ from .regimen_optimizer_engine import (
 )
 from .clinical_explainer_engine import AYUSHClinicalExplainerEngine
 from .dataset_generator import AYUSHDatasetGeneratorEngine
+from .ml_baseline_model import AYUSHBaselineMLEngine
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -64,6 +65,7 @@ __all__ = [
     "generate_personalized_regimen_report",
     "AYUSHClinicalExplainerEngine",
     "AYUSHDatasetGeneratorEngine",
+    "AYUSHBaselineMLEngine",
     "LLMClinicalExtractor"
 ]
 

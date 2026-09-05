@@ -20,6 +20,7 @@ from eval_framework import run_full_benchmark_suite, MLEvaluationFramework
 from regimen_optimizer_engine import generate_personalized_regimen_report, RegimenOptimizerEngine
 from clinical_explainer_engine import AYUSHClinicalExplainerEngine
 from dataset_generator import AYUSHDatasetGeneratorEngine
+from ml_baseline_model import AYUSHBaselineMLEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -66,7 +67,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /evaluate-pipeline",
                     "POST /optimize-regimen",
                     "POST /explain-case",
-                    "POST /generate-dataset"
+                    "POST /generate-dataset",
+                    "POST /train-baseline"
                 ]
             }).encode("utf-8"))
         else:
@@ -265,6 +267,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(stats, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/train-baseline":
+            engine = AYUSHBaselineMLEngine()
+            eval_report = engine.train_and_evaluate()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(eval_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

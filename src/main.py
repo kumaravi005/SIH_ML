@@ -174,6 +174,7 @@ def main():
     parser.add_argument("--source", type=str, default="audio_transcript", choices=["text", "audio_transcript", "questionnaire", "prescription"])
     parser.add_argument("--no-explain", action="store_true", help="Disable generating explainability report")
     parser.add_argument("--generate-dataset", type=int, nargs="?", const=500, help="Generate synthetic patient dataset (default N=500)")
+    parser.add_argument("--train-baseline", action="store_true", help="Train and evaluate baseline ML models on synthetic dataset")
 
     args = parser.parse_args()
 
@@ -184,6 +185,15 @@ def main():
         stats = generator.generate_dataset(num_samples=args.generate_dataset)
         print("Dataset generation complete!")
         print(json.dumps(stats, indent=2))
+        return
+
+    if args.train_baseline:
+        from ml_baseline_model import AYUSHBaselineMLEngine
+        print("Training baseline ML models on dataset...")
+        engine = AYUSHBaselineMLEngine()
+        eval_report = engine.train_and_evaluate()
+        print("Baseline ML Training complete!")
+        print(json.dumps(eval_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
