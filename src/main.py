@@ -178,6 +178,7 @@ def main():
     parser.add_argument("--train-advanced-ml", action="store_true", help="Train, compare, and benchmark advanced ML model candidates")
     parser.add_argument("--validate-leakage-free-ml", action="store_true", help="Run 100% leak-free feature engineering and model validation")
     parser.add_argument("--validate-dataset-quality", action="store_true", help="Run pre-training feature/label alignment and dataset quality audit")
+    parser.add_argument("--validate-features", action="store_true", help="Run feature engineering & ground-truth target label validation audit")
 
     args = parser.parse_args()
 
@@ -224,6 +225,15 @@ def main():
         audit_report = engine.run_full_alignment_audit()
         print("Dataset Quality & Alignment Audit complete!")
         print(json.dumps(audit_report, indent=2))
+        return
+
+    if args.validate_features:
+        from feature_validation_engine import AYUSHFeatureValidationEngine
+        print("Executing Section 12 ML Feature Engineering & Ground-Truth Label Validation Audit...")
+        engine = AYUSHFeatureValidationEngine()
+        feat_report = engine.run_full_feature_validation_audit()
+        print("Feature Validation & Ground-Truth Audit complete!")
+        print(json.dumps(feat_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"

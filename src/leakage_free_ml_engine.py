@@ -68,6 +68,10 @@ class AYUSHLeakageFreeMLEngine:
         for param in ACTIVE_PARAMETERS:
             q_list = self.question_tree.get(param, {}).get("questions", [])
             user_ans_list = answers_by_param.get(param, [])
+            if not user_ans_list:
+                dashavidha = patient_case.get("ayushAssessment", {}).get("dashavidhaPariksha", {})
+                param_obj = dashavidha.get(param, {})
+                user_ans_list = param_obj.get("evidence", []) if isinstance(param_obj, dict) else []
 
             ans_map = {}
             for u_item in user_ans_list:

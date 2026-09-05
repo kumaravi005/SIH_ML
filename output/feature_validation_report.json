@@ -1,0 +1,180 @@
+{
+  "section": "Section 12 — ML Feature Engineering & Ground-Truth Label Validation",
+  "questionnaire_to_label_agreement": {
+    "total_cases_audited": 500,
+    "overall_questionnaire_label_agreement_pct": 100.0,
+    "per_class_breakdown": {
+      "vata": {
+        "matches": 167,
+        "total": 167,
+        "agreement_pct": 100.0
+      },
+      "pitta": {
+        "matches": 172,
+        "total": 172,
+        "agreement_pct": 100.0
+      },
+      "kapha": {
+        "matches": 161,
+        "total": 161,
+        "agreement_pct": 100.0
+      }
+    }
+  },
+  "feature_information_gain_audit": {
+    "target_entropy_bits": 1.5844,
+    "top_predictive_features": [
+      {
+        "feature_index": 40,
+        "information_gain": 0.6949
+      },
+      {
+        "feature_index": 41,
+        "information_gain": 0.6703
+      },
+      {
+        "feature_index": 42,
+        "information_gain": 0.6557
+      },
+      {
+        "feature_index": 48,
+        "information_gain": 0.4455
+      },
+      {
+        "feature_index": 45,
+        "information_gain": 0.4122
+      },
+      {
+        "feature_index": 49,
+        "information_gain": 0.3875
+      },
+      {
+        "feature_index": 8,
+        "information_gain": 0.3553
+      },
+      {
+        "feature_index": 46,
+        "information_gain": 0.297
+      },
+      {
+        "feature_index": 47,
+        "information_gain": 0.297
+      },
+      {
+        "feature_index": 7,
+        "information_gain": 0.2718
+      }
+    ],
+    "average_information_gain": 0.1176
+  },
+  "retrained_leakage_free_evaluation": {
+    "leakage_free_verified": true,
+    "training_samples": 400,
+    "testing_samples": 100,
+    "raw_feature_dimensions": 51,
+    "active_parameters_evaluated": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "champion_model": "Model A (KNN)",
+    "champion_accuracy": 0.92,
+    "champion_macro_f1": 0.9221,
+    "comparative_metrics_matrix": {
+      "Model A (KNN)": {
+        "accuracy": 0.92,
+        "macro_f1_score": 0.9221,
+        "inference_latency_ms": 2.204,
+        "fit_time_ms": 0.0,
+        "per_class_metrics": {
+          "pitta": {
+            "precision": 0.9167,
+            "recall": 0.8919,
+            "f1_score": 0.9041
+          },
+          "vata": {
+            "precision": 0.9286,
+            "recall": 0.963,
+            "f1_score": 0.9455
+          },
+          "kapha": {
+            "precision": 0.9167,
+            "recall": 0.9167,
+            "f1_score": 0.9167
+          }
+        }
+      },
+      "Model B (Gaussian Naive Bayes)": {
+        "accuracy": 0.87,
+        "macro_f1_score": 0.8642,
+        "inference_latency_ms": 0.079,
+        "fit_time_ms": 2.93,
+        "per_class_metrics": {
+          "pitta": {
+            "precision": 0.7872,
+            "recall": 1.0,
+            "f1_score": 0.8809
+          },
+          "vata": {
+            "precision": 1.0,
+            "recall": 0.7037,
+            "f1_score": 0.8261
+          },
+          "kapha": {
+            "precision": 0.9118,
+            "recall": 0.8611,
+            "f1_score": 0.8857
+          }
+        }
+      },
+      "Model C (Random Forest / DT)": {
+        "accuracy": 0.2,
+        "macro_f1_score": 0.1498,
+        "inference_latency_ms": 0.0,
+        "fit_time_ms": 0.06,
+        "per_class_metrics": {
+          "pitta": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+          },
+          "vata": {
+            "precision": 0.3226,
+            "recall": 0.7407,
+            "f1_score": 0.4494
+          },
+          "kapha": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+          }
+        }
+      },
+      "Model D (Soft-Voting Ensemble)": {
+        "accuracy": 0.92,
+        "macro_f1_score": 0.9221,
+        "inference_latency_ms": 2.26,
+        "fit_time_ms": 0.0,
+        "per_class_metrics": {
+          "pitta": {
+            "precision": 0.9167,
+            "recall": 0.8919,
+            "f1_score": 0.9041
+          },
+          "vata": {
+            "precision": 0.9286,
+            "recall": 0.963,
+            "f1_score": 0.9455
+          },
+          "kapha": {
+            "precision": 0.9167,
+            "recall": 0.9167,
+            "f1_score": 0.9167
+          }
+        }
+      }
+    },
+    "status": "PASSED"
+  },
+  "overall_status": "PASSED"
+}

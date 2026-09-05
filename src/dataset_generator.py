@@ -282,6 +282,8 @@ class AYUSHDatasetGeneratorEngine:
         patient_case["patient"]["name"] = demographics["name"]
         patient_case["patient"]["age"] = demographics["age"]
         patient_case["patient"]["gender"] = demographics["gender"]
+        patient_case["questionnaire_answers"] = questionnaire_answers
+        patient_case["unstructured_inputs"] = unstructured_inputs
 
         return patient_case
 
