@@ -11,12 +11,19 @@ from data_quality_engine import generate_data_quality_report
 from clinical_prediction_engine import predict_clinical_outcome
 from eval_framework import run_full_benchmark_suite
 from regimen_optimizer_engine import generate_personalized_regimen_report
+from clinical_explainer_engine import AYUSHClinicalExplainerEngine
 
 
 EXPLAINABILITY_OUTPUT_FILE = (
     Path(__file__).resolve().parent.parent
     / "output"
     / "ayush_explainability_report.json"
+)
+
+EXPLAINER_SYNTHESIS_OUTPUT_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "output"
+    / "clinical_explainer_synthesis.json"
 )
 
 RECOMMENDATION_OUTPUT_FILE = (
@@ -151,7 +158,13 @@ def run_pipeline(input_case_path=None, text_input=None, source="audio_transcript
     with open(REGIMEN_OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(reg_report, f, indent=2, ensure_ascii=False)
 
-    return patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report, eval_report, reg_report
+    # Generate interactive clinical explainer & reasoning synthesis report
+    explainer = AYUSHClinicalExplainerEngine()
+    synthesis_report = explainer.explain_case(patient_case, practitioner_query="Explain Dosha dynamics and Ahara Shakti status.")
+    with open(EXPLAINER_SYNTHESIS_OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(synthesis_report, f, indent=2, ensure_ascii=False)
+
+    return patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report, eval_report, reg_report, synthesis_report
 
 
 def main():
@@ -166,7 +179,7 @@ def main():
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
     input_file = args.input or (str(default_sample) if default_sample.exists() else None)
 
-    patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report, eval_report, reg_report = run_pipeline(
+    patient_case, report, rec_report, risk_report, sim_report, quality_report, pred_report, eval_report, reg_report, synthesis_report = run_pipeline(
         input_case_path=input_file,
         text_input=args.text,
         source=args.source,
@@ -186,6 +199,7 @@ def main():
     print(f"Clinical Outcome Prediction Saved: {PREDICTION_OUTPUT_FILE}")
     print(f"ML Evaluation Report Saved: {EVALUATION_OUTPUT_FILE}")
     print(f"Personalized Regimen Report Saved: {REGIMEN_OUTPUT_FILE}")
+    print(f"Clinical Explainer Synthesis Saved: {EXPLAINER_SYNTHESIS_OUTPUT_FILE}")
 
 
 

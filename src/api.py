@@ -18,6 +18,7 @@ from data_quality_engine import generate_data_quality_report, DataQualityEngine
 from clinical_prediction_engine import predict_clinical_outcome, ClinicalPredictionEngine
 from eval_framework import run_full_benchmark_suite, MLEvaluationFramework
 from regimen_optimizer_engine import generate_personalized_regimen_report, RegimenOptimizerEngine
+from clinical_explainer_engine import AYUSHClinicalExplainerEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -62,7 +63,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /validate-quality",
                     "POST /predict-outcome",
                     "POST /evaluate-pipeline",
-                    "POST /optimize-regimen"
+                    "POST /optimize-regimen",
+                    "POST /explain-case"
                 ]
             }).encode("utf-8"))
         else:
@@ -236,6 +238,23 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(reg_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/explain-case":
+            patient_case = payload.get("patient_case")
+            query = payload.get("query")
+            if not patient_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                patient_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            explainer = AYUSHClinicalExplainerEngine()
+            explain_report = explainer.explain_case(patient_case, practitioner_query=query)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(explain_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)
