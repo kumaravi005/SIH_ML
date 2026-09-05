@@ -1,0 +1,11 @@
+{
+  "vikriti": {
+    "assessmentType": "current_condition",
+    "supportedOutputs": [
+      "current_changes",
+      "primary_concern",
+      "onset",
+      "progression"
+    ]
+  }
+}

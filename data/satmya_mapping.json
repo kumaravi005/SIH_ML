@@ -1,0 +1,23 @@
+{
+  "satmya": {
+    "questions": {
+      "satmya_q04": {
+        "Very well": {
+          "tolerance": 1.0
+        },
+        "Mostly well": {
+          "tolerance": 0.75
+        },
+        "Sometimes causes discomfort": {
+          "tolerance": 0.50
+        },
+        "Frequently causes discomfort": {
+          "tolerance": 0.25
+        },
+        "Not sure": {
+          "tolerance": 0.0
+        }
+      }
+    }
+  }
+}

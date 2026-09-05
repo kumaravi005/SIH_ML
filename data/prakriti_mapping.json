@@ -1,0 +1,168 @@
+{
+  "prakriti": {
+    "questions": {
+      "prakriti_q01": {
+        "Thin/light build": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Medium build": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "Broad/heavy build": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      },
+
+      "prakriti_q02": {
+        "Usually dry": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Usually warm or sensitive": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "Usually soft/oily": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "Mixed or variable": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      },
+
+      "prakriti_q03": {
+        "Variable or irregular": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Strong and regular": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "Moderate or steady": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "Variable": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      },
+
+      "prakriti_q04": {
+        "Light or easily disturbed": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Moderate": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "Deep and prolonged": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "Variable": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      },
+
+      "prakriti_q05": {
+        "I usually feel cold easily": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "I generally tolerate cold well": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "I prefer warmer conditions": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "No particular preference": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      },
+
+      "prakriti_q06": {
+        "Variable and quick bursts of activity": {
+          "vata": 1.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Consistent and active": {
+          "vata": 0.0,
+          "pitta": 1.0,
+          "kapha": 0.0
+        },
+        "Steady but slower-paced": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 1.0
+        },
+        "Variable": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        },
+        "Not sure": {
+          "vata": 0.0,
+          "pitta": 0.0,
+          "kapha": 0.0
+        }
+      }
+    }
+  }
+}

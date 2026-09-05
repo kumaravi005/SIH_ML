@@ -1,0 +1,84 @@
+{
+  "samhanana": {
+    "questions": {
+      "samhanana_q01": {
+        "Well-proportioned and well-developed": {
+          "strong": 1.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        },
+        "Thin or lightly built": {
+          "strong": 0.0,
+          "moderate": 0.5,
+          "weak": 1.0
+        },
+        "Moderately built": {
+          "strong": 0.0,
+          "moderate": 1.0,
+          "weak": 0.0
+        },
+        "Broad or heavily built": {
+          "strong": 1.0,
+          "moderate": 0.5,
+          "weak": 0.0
+        },
+        "Not sure": {
+          "strong": 0.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        }
+      },
+
+      "samhanana_q02": {
+        "Well developed": {
+          "strong": 1.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        },
+        "Moderately developed": {
+          "strong": 0.0,
+          "moderate": 1.0,
+          "weak": 0.0
+        },
+        "Less developed": {
+          "strong": 0.0,
+          "moderate": 0.0,
+          "weak": 1.0
+        },
+        "Variable": {
+          "strong": 0.0,
+          "moderate": 0.5,
+          "weak": 0.5
+        },
+        "Not sure": {
+          "strong": 0.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        }
+      },
+
+      "samhanana_q03": {
+        "Yes": {
+          "strong": 1.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        },
+        "Mostly": {
+          "strong": 0.0,
+          "moderate": 1.0,
+          "weak": 0.0
+        },
+        "No": {
+          "strong": 0.0,
+          "moderate": 0.0,
+          "weak": 1.0
+        },
+        "Not sure": {
+          "strong": 0.0,
+          "moderate": 0.0,
+          "weak": 0.0
+        }
+      }
+    }
+  }
+}

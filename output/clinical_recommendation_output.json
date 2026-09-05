@@ -1,0 +1,376 @@
+{
+  "patientId": null,
+  "patientName": null,
+  "active_parameters_evaluated": 10,
+  "agni_koshtha_excluded": true,
+  "clinical_interpretation": {
+    "prakriti": {
+      "status": "assessed",
+      "summary": "Primary constitutional trait evaluated as 'Vata' based on constitutional evidence.",
+      "value": "vata",
+      "confidence": 1.0
+    },
+    "vikriti": {
+      "status": "assessed",
+      "summary": "Active symptom alterations detected: Headache and fatigue for 3 days and it is getting worse. Progression noted as 'Getting worse'.",
+      "value": {
+        "current_changes": [
+          "Headache and fatigue for 3 days and it is getting worse"
+        ],
+        "primary_concern": null,
+        "onset": null,
+        "progression": "Getting worse"
+      },
+      "confidence": 0.935
+    },
+    "sara": {
+      "status": "assessed",
+      "summary": "Overall tissue essence and constitutional strength (Dhatu Sara) evaluated as 'strong'.",
+      "value": "strong",
+      "confidence": 0.9
+    },
+    "samhanana": {
+      "status": "assessed",
+      "summary": "Musculoskeletal build and structural compactness (Samhanana) evaluated as 'strong'.",
+      "value": "strong",
+      "confidence": 0.9
+    },
+    "pramana": {
+      "status": "assessed",
+      "summary": "Body proportions and anthropometric balance (Pramana) evaluated as 'balanced'. Measurements: Height: 170 cm, Weight: 65 kg",
+      "value": "balanced",
+      "confidence": 0.89
+    },
+    "satmya": {
+      "status": "assessed",
+      "summary": "Dietary habituation and food tolerance (Satmya) evaluated as 'well_tolerated'.",
+      "value": "well_tolerated",
+      "confidence": 0.9
+    },
+    "sattva": {
+      "status": "assessed",
+      "summary": "Mental strength, emotional resilience, and coping capacity (Sattva) evaluated as 'strong'.",
+      "value": "strong",
+      "confidence": 0.893
+    },
+    "aharaShakti": {
+      "status": "assessed",
+      "summary": "Appetite and digestive ingestion capacity (Ahara Shakti) evaluated as 'strong'.",
+      "value": "strong",
+      "confidence": 0.9
+    },
+    "vyayamaShakti": {
+      "status": "assessed",
+      "summary": "Physical exertion capacity and workout tolerance (Vyayama Shakti) evaluated as 'strong'.",
+      "value": "strong",
+      "confidence": 0.9
+    },
+    "vaya": {
+      "status": "assessed",
+      "summary": "Biological age stage evaluated as 'adulthood' (Age 35).",
+      "value": "adulthood",
+      "confidence": 0.95
+    }
+  },
+  "structured_recommendations": [
+    {
+      "parameter": "prakriti",
+      "category": "dietary",
+      "recommendation": "Favor warm, freshly cooked, well-seasoned meals with healthy fats (like Ghee or sesame oil). Avoid cold, raw, or dry foods.",
+      "rationale": "Warm and moist dietary habits help balance cold and dry Vata attributes.",
+      "evidence_references": [
+        {
+          "questionId": "prakriti_q01",
+          "answer": "Thin/light build",
+          "source": "questionnaire",
+          "confidence": 1.0
+        },
+        {
+          "questionId": "prakriti_q02",
+          "answer": "Usually dry",
+          "source": "questionnaire",
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "parameter": "prakriti",
+      "category": "lifestyle",
+      "recommendation": "Maintain a consistent daily routine (Dinacharya) for meals, sleep, and gentle daily activities.",
+      "rationale": "Regular schedules stabilize erratic Vata energy.",
+      "evidence_references": [
+        {
+          "questionId": "prakriti_q01",
+          "answer": "Thin/light build",
+          "source": "questionnaire",
+          "confidence": 1.0
+        },
+        {
+          "questionId": "prakriti_q02",
+          "answer": "Usually dry",
+          "source": "questionnaire",
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "parameter": "vikriti",
+      "category": "lifestyle",
+      "recommendation": "Ensure adequate rest, hydration, and temporary reduction of heavy physical or mental strain during active symptoms.",
+      "rationale": "Allows the body's natural healing mechanisms to address current health alterations (Vikriti).",
+      "evidence_references": [
+        {
+          "questionId": "vikriti_q01",
+          "answer": "Headache and fatigue for 3 days and it is getting worse",
+          "source": "audio_transcript",
+          "confidence": 0.91
+        },
+        {
+          "questionId": "vikriti_q04",
+          "answer": "Getting worse",
+          "source": "audio_transcript",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "parameter": "sara",
+      "category": "general_care",
+      "recommendation": "Maintain balanced nutrition to support naturally strong tissue quality (Dhatu Sara).",
+      "rationale": "Sustains healthy tissue nourishment and natural immunity.",
+      "evidence_references": [
+        {
+          "questionId": "sara_q01",
+          "answer": "Moderate overall strength",
+          "source": "questionnaire",
+          "confidence": 0.84
+        },
+        {
+          "questionId": "sara_q02",
+          "answer": "Generally healthy appearance",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "sara_q03",
+          "answer": "Mostly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "parameter": "samhanana",
+      "category": "physical_activity",
+      "recommendation": "Continue well-proportioned strength training or moderate exercise matching your robust body build.",
+      "rationale": "Supports naturally well-developed muscular build and structural stability.",
+      "evidence_references": [
+        {
+          "questionId": "samhanana_q01",
+          "answer": "Well-proportioned and well-developed",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "samhanana_q02",
+          "answer": "Well developed",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "samhanana_q03",
+          "answer": "Yes",
+          "source": "questionnaire",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "parameter": "pramana",
+      "category": "general_care",
+      "recommendation": "Maintain your current proportionate height-weight balance with balanced caloric intake.",
+      "rationale": "Proportionate anthropometric measurements correlate with systemic metabolic stability.",
+      "evidence_references": [
+        {
+          "questionId": "pramana_q01",
+          "answer": "Height: 170 cm, Weight: 65 kg",
+          "source": "questionnaire",
+          "confidence": 0.95
+        },
+        {
+          "questionId": "pramana_q02",
+          "answer": "Generally proportionate",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "pramana_q03",
+          "answer": "No significant change",
+          "source": "questionnaire",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "parameter": "satmya",
+      "category": "dietary",
+      "recommendation": "Continue eating wholesome, familiar home-cooked meals that suit your digestive habituation.",
+      "rationale": "Preserves individual dietary adaptation (Okasatmya).",
+      "evidence_references": [
+        {
+          "questionId": "satmya_q01",
+          "answer": "Mostly home-cooked food",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "satmya_q02",
+          "answer": "I tolerate my usual meals well",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "satmya_q03",
+          "answer": "Very spicy food sometimes causes discomfort",
+          "source": "questionnaire",
+          "confidence": 0.87
+        },
+        {
+          "questionId": "satmya_q04",
+          "answer": "Very well",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "parameter": "sattva",
+      "category": "stress_management",
+      "recommendation": "Continue mindfulness practices, structured daily focus, and positive coping strategies.",
+      "rationale": "Strong Sattva indicates high mental resilience and emotional stability.",
+      "evidence_references": [
+        {
+          "questionId": "sattva_q01",
+          "answer": "I usually stay calm and try to solve the problem",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "sattva_q02",
+          "answer": "Usually calm and focused",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "sattva_q03",
+          "answer": "Generally confident",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "sattva_q04",
+          "answer": "Rarely",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "parameter": "aharaShakti",
+      "category": "dietary",
+      "recommendation": "Maintain regular meal times and eat according to hunger capacity without overeating.",
+      "rationale": "Strong digestive capacity (Abhyavaharana Shakti) functions best with regular meal schedules.",
+      "evidence_references": [
+        {
+          "questionId": "aharaShakti_q01",
+          "answer": "Good",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "aharaShakti_q02",
+          "answer": "I can comfortably eat a normal meal",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "aharaShakti_q03",
+          "answer": "Comfortable and satisfied",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "aharaShakti_q04",
+          "answer": "Mostly regularly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "parameter": "vyayamaShakti",
+      "category": "physical_activity",
+      "recommendation": "Perform 30-45 minutes of moderate physical exercise daily (e.g. brisk walking, cycling, yoga).",
+      "rationale": "High exercise tolerance allows effective physical conditioning without fatigue.",
+      "evidence_references": [
+        {
+          "questionId": "vyayamaShakti_q01",
+          "answer": "Moderately active",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vyayamaShakti_q02",
+          "answer": "Around 30 minutes",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "vyayamaShakti_q03",
+          "answer": "Mildly tired but recover quickly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vyayamaShakti_q04",
+          "answer": "Quickly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "parameter": "vaya",
+      "category": "lifestyle",
+      "recommendation": "Maintain balanced work-life routines, regular sleep (7-8 hours), and periodic health checkups.",
+      "rationale": "Adulthood (Middle age/Yuva-Madhya Vaya) requires balanced activity to sustain career and physical health.",
+      "evidence_references": [
+        {
+          "questionId": "vaya_q01",
+          "answer": 35,
+          "source": "questionnaire",
+          "confidence": 1.0
+        },
+        {
+          "questionId": "vaya_q02",
+          "answer": "Adulthood",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vaya_q03",
+          "answer": "No major age-related changes",
+          "source": "questionnaire",
+          "confidence": 0.85
+        }
+      ]
+    }
+  ],
+  "safety_and_cautions": {
+    "disclaimer": "DISCLAIMER: This clinical interpretation and recommendation output provides supportive AYUSH lifestyle, dietary, and habituation guidance based on patient-reported parameters. It does NOT constitute a formal medical diagnosis, clinical prescription, or emergency medical advice. Consult a qualified medical practitioner for acute medical concerns.",
+    "alerts": [
+      "Patient symptoms are reported as worsening; recommend clinical review by a registered healthcare professional.",
+      "Patient has reported allergies: Penicillin. Avoid allergen exposure in dietary or lifestyle interventions."
+    ]
+  }
+}

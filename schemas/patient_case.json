@@ -1,0 +1,220 @@
+{
+  "patient": {
+    "patientId": null,
+    "name": null,
+    "age": null,
+    "gender": null,
+    "preferredLanguage": null
+  },
+
+  "visit": {
+    "visitId": null,
+    "date": null,
+    "department": null
+  },
+
+  "chiefComplaint": {
+    "complaints": [
+      {
+        "description": null,
+        "duration": null,
+        "onset": null
+      }
+    ]
+  },
+
+  "historyOfPresentIllness": [
+    {
+      "complaint": null,
+      "onset": null,
+      "duration": null,
+      "location": null,
+      "character": null,
+      "severity": null,
+      "radiation": null,
+      "aggravatingFactors": [],
+      "relievingFactors": [],
+      "associatedSymptoms": [],
+      "progression": null,
+      "rawStatement": null
+    }
+  ],
+
+  "pastMedicalHistory": [
+    {
+      "condition": null,
+      "since": null,
+      "status": null,
+      "details": null
+    }
+  ],
+
+  "medications": [
+    {
+      "name": null,
+      "dose": null,
+      "frequency": null,
+      "duration": null,
+      "source": null
+    }
+  ],
+
+  "allergies": [
+    {
+      "substance": null,
+      "reaction": null,
+      "source": null
+    }
+  ],
+
+  "familyHistory": [
+    {
+      "condition": null,
+      "relation": null,
+      "details": null
+    }
+  ],
+
+  "personalHistory": {
+    "diet": null,
+    "appetite": null,
+    "sleep": null,
+    "bowelHabits": null,
+    "urination": null,
+    "physicalActivity": null,
+    "substanceUse": []
+  },
+
+  "reviewOfSystems": {
+  "general": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "respiratory": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "cardiovascular": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "gastrointestinal": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "neurological": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "genitourinary": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "musculoskeletal": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "skin": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "other": [
+    {
+      "symptom": null,
+      "status": null,
+      "details": null
+    }
+  ]
+},
+
+"ayushAssessment": {
+  "dashavidhaPariksha": {
+    "prakriti": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "vikriti": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "sara": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "samhanana": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "pramana": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "satmya": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "sattva": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "aharaShakti": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "vyayamaShakti": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "vaya": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    }
+  },
+
+  "agni": {
+    "value": null,
+    "evidence": [],
+    "confidence": null
+  },
+
+  "koshtha": {
+    "value": null,
+    "evidence": [],
+    "confidence": null
+  }
+}
+}

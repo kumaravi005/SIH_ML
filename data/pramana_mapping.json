@@ -1,0 +1,38 @@
+{
+  "pramana": {
+    "questions": {
+      "pramana_q02": {
+        "Generally proportionate": {
+          "proportion": 1.0
+        },
+        "Mostly proportionate": {
+          "proportion": 0.75
+        },
+        "Somewhat disproportionate": {
+          "proportion": 0.25
+        },
+        "Not sure": {
+          "proportion": 0.0
+        }
+      },
+
+      "pramana_q03": {
+        "No significant change": {
+          "stability": 1.0
+        },
+        "Weight has increased": {
+          "stability": 0.5
+        },
+        "Weight has decreased": {
+          "stability": 0.5
+        },
+        "Other significant change": {
+          "stability": 0.25
+        },
+        "Not sure": {
+          "stability": 0.0
+        }
+      }
+    }
+  }
+}

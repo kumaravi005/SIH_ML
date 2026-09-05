@@ -1,0 +1,495 @@
+{
+  "ayushQuestionTree": {
+    "prakriti": {
+      "questions": [
+        {
+          "id": "prakriti_q01",
+          "parameter": "prakriti",
+          "question": "How would you describe your usual body build?",
+          "answerType": "single_choice",
+          "options": [
+            "Thin/light build",
+            "Medium build",
+            "Broad/heavy build",
+            "Not sure"
+          ],
+          "required": true
+        },
+        {
+          "id": "prakriti_q02",
+          "parameter": "prakriti",
+          "question": "How would you describe your skin under normal conditions?",
+          "answerType": "single_choice",
+          "options": [
+            "Usually dry",
+            "Usually warm or sensitive",
+            "Usually soft/oily",
+            "Mixed or variable",
+            "Not sure"
+          ],
+          "required": true
+        },
+        {
+          "id": "prakriti_q03",
+          "parameter": "prakriti",
+          "question": "How is your usual appetite?",
+          "answerType": "single_choice",
+          "options": [
+            "Variable or irregular",
+            "Strong and regular",
+            "Moderate or steady",
+            "Variable",
+            "Not sure"
+          ],
+          "required": true
+        },
+        {
+          "id": "prakriti_q04",
+          "parameter": "prakriti",
+          "question": "How would you describe your usual sleep?",
+          "answerType": "single_choice",
+          "options": [
+            "Light or easily disturbed",
+            "Moderate",
+            "Deep and prolonged",
+            "Variable",
+            "Not sure"
+          ],
+          "required": true
+        },
+        {
+          "id": "prakriti_q05",
+          "parameter": "prakriti",
+          "question": "How do you generally respond to cold weather?",
+          "answerType": "single_choice",
+          "options": [
+            "I usually feel cold easily",
+            "I generally tolerate cold well",
+            "I prefer warmer conditions",
+            "No particular preference",
+            "Not sure"
+          ],
+          "required": true
+        },
+        {
+          "id": "prakriti_q06",
+          "parameter": "prakriti",
+          "question": "How would you describe your usual energy and activity level?",
+          "answerType": "single_choice",
+          "options": [
+            "Variable and quick bursts of activity",
+            "Consistent and active",
+            "Steady but slower-paced",
+            "Variable",
+            "Not sure"
+          ],
+          "required": true
+        }
+      ]
+    },
+
+    "vikriti": {
+      "questions": [
+        {
+          "id": "vikriti_q01",
+          "parameter": "vikriti",
+          "question": "What changes or health problems have you noticed recently compared with your usual condition?",
+          "answerType": "free_text",
+          "options": [],
+          "required": true
+        },
+        {
+          "id": "vikriti_q02",
+          "parameter": "vikriti",
+          "question": "Which of these changes are currently troubling you the most?",
+          "answerType": "free_text",
+          "options": [],
+          "required": true
+        },
+        {
+          "id": "vikriti_q03",
+          "parameter": "vikriti",
+          "question": "When did these recent changes begin?",
+          "answerType": "free_text",
+          "options": [],
+          "required": true
+        },
+        {
+          "id": "vikriti_q04",
+          "parameter": "vikriti",
+          "question": "Have these changes been getting better, worse, or staying about the same?",
+          "answerType": "single_choice",
+          "options": [
+            "Getting better",
+            "Getting worse",
+            "About the same",
+            "Comes and goes",
+            "Not sure"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "sara": {
+  "questions": [
+    {
+      "id": "sara_q01",
+      "parameter": "sara",
+      "question": "How would you describe the overall strength and quality of your body tissues?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "sara_q02",
+      "parameter": "sara",
+      "question": "How would you describe the condition of your skin, hair, nails, teeth, and overall physical appearance?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "sara_q03",
+      "parameter": "sara",
+      "question": "Do you generally feel that your body tissues are well nourished and healthy?",
+      "answerType": "single_choice",
+      "options": [
+        "Yes",
+        "Mostly",
+        "No",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},  
+"samhanana": {
+  "questions": [
+    {
+      "id": "samhanana_q01",
+      "parameter": "samhanana",
+      "question": "How would you describe your overall body structure and physical build?",
+      "answerType": "single_choice",
+      "options": [
+        "Well-proportioned and well-developed",
+        "Thin or lightly built",
+        "Moderately built",
+        "Broad or heavily built",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "samhanana_q02",
+      "parameter": "samhanana",
+      "question": "How would you describe the development of your muscles and joints?",
+      "answerType": "single_choice",
+      "options": [
+        "Well developed",
+        "Moderately developed",
+        "Less developed",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "samhanana_q03",
+      "parameter": "samhanana",
+      "question": "Do you generally consider your body structure to be proportionate?",
+      "answerType": "single_choice",
+      "options": [
+        "Yes",
+        "Mostly",
+        "No",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"pramana": {
+  "questions": [
+    {
+      "id": "pramana_q01",
+      "parameter": "pramana",
+      "question": "What are your current height and weight, if known?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "pramana_q02",
+      "parameter": "pramana",
+      "question": "How would you describe your overall body proportions?",
+      "answerType": "single_choice",
+      "options": [
+        "Generally proportionate",
+        "Mostly proportionate",
+        "Somewhat disproportionate",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "pramana_q03",
+      "parameter": "pramana",
+      "question": "Have you noticed any significant recent change in your body weight or physical measurements?",
+      "answerType": "single_choice",
+      "options": [
+        "No significant change",
+        "Weight has increased",
+        "Weight has decreased",
+        "Other significant change",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"satmya": {
+  "questions": [
+    {
+      "id": "satmya_q01",
+      "parameter": "satmya",
+      "question": "What types of food do you usually eat as part of your regular diet?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "satmya_q02",
+      "parameter": "satmya",
+      "question": "Are there any foods or dietary patterns that you regularly consume and feel comfortable with?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "satmya_q03",
+      "parameter": "satmya",
+      "question": "Are there any foods that you avoid because they do not suit you or cause discomfort?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "satmya_q04",
+      "parameter": "satmya",
+      "question": "How well does your body generally tolerate your usual diet?",
+      "answerType": "single_choice",
+      "options": [
+        "Very well",
+        "Mostly well",
+        "Sometimes causes discomfort",
+        "Frequently causes discomfort",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"sattva": {
+  "questions": [
+    {
+      "id": "sattva_q01",
+      "parameter": "sattva",
+      "question": "How do you generally cope when you face stressful or difficult situations?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "sattva_q02",
+      "parameter": "sattva",
+      "question": "How would you describe your usual ability to stay calm and focused when facing difficulties?",
+      "answerType": "single_choice",
+      "options": [
+        "Usually calm and focused",
+        "Mostly calm and focused",
+        "Sometimes difficult",
+        "Often difficult",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "sattva_q03",
+      "parameter": "sattva",
+      "question": "How would you describe your usual confidence in dealing with challenging situations?",
+      "answerType": "single_choice",
+      "options": [
+        "Very confident",
+        "Generally confident",
+        "Sometimes confident",
+        "Often lack confidence",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "sattva_q04",
+      "parameter": "sattva",
+      "question": "How easily do you usually become emotionally disturbed by stressful events?",
+      "answerType": "single_choice",
+      "options": [
+        "Rarely",
+        "Sometimes",
+        "Often",
+        "Very easily",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"aharaShakti": {
+  "questions": [
+    {
+      "id": "aharaShakti_q01",
+      "parameter": "aharaShakti",
+      "question": "How would you describe your usual appetite and ability to eat a normal meal?",
+      "answerType": "single_choice",
+      "options": [
+        "Very good",
+        "Good",
+        "Moderate",
+        "Poor",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "aharaShakti_q02",
+      "parameter": "aharaShakti",
+      "question": "How much food can you usually eat comfortably at one meal?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "aharaShakti_q03",
+      "parameter": "aharaShakti",
+      "question": "How do you generally feel after eating a normal meal?",
+      "answerType": "single_choice",
+      "options": [
+        "Comfortable and satisfied",
+        "Sometimes heavy or uncomfortable",
+        "Frequently heavy or uncomfortable",
+        "Still hungry after eating",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "aharaShakti_q04",
+      "parameter": "aharaShakti",
+      "question": "How regularly are you able to take your meals?",
+      "answerType": "single_choice",
+      "options": [
+        "Very regularly",
+        "Mostly regularly",
+        "Irregularly",
+        "Highly variable",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"vyayamaShakti": {
+  "questions": [
+    {
+      "id": "vyayamaShakti_q01",
+      "parameter": "vyayamaShakti",
+      "question": "How would you describe your usual physical activity level?",
+      "answerType": "single_choice",
+      "options": [
+        "Very active",
+        "Moderately active",
+        "Lightly active",
+        "Mostly inactive",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "vyayamaShakti_q02",
+      "parameter": "vyayamaShakti",
+      "question": "How long can you usually perform moderate physical activity comfortably?",
+      "answerType": "free_text",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "vyayamaShakti_q03",
+      "parameter": "vyayamaShakti",
+      "question": "How do you usually feel after moderate physical activity?",
+      "answerType": "single_choice",
+      "options": [
+        "Comfortable and energetic",
+        "Mildly tired but recover quickly",
+        "Moderately tired",
+        "Very tired",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    },
+    {
+      "id": "vyayamaShakti_q04",
+      "parameter": "vyayamaShakti",
+      "question": "How quickly do you usually recover after physical activity?",
+      "answerType": "single_choice",
+      "options": [
+        "Very quickly",
+        "Quickly",
+        "Moderately",
+        "Slowly",
+        "Variable",
+        "Not sure"
+      ],
+      "required": true
+    }
+  ]
+},
+"vaya": {
+  "questions": [
+    {
+      "id": "vaya_q01",
+      "parameter": "vaya",
+      "question": "What is your current age?",
+      "answerType": "number",
+      "options": [],
+      "required": true
+    },
+    {
+      "id": "vaya_q02",
+      "parameter": "vaya",
+      "question": "How would you describe your current stage of life?",
+      "answerType": "single_choice",
+      "options": [
+        "Childhood",
+        "Adolescence",
+        "Adulthood",
+        "Middle age",
+        "Older adulthood",
+        "Prefer not to say"
+      ],
+      "required": true
+    },
+    {
+      "id": "vaya_q03",
+      "parameter": "vaya",
+      "question": "Have you noticed any age-related changes in your physical strength, activity, or daily functioning?",
+      "answerType": "free_text",
+      "options": [],
+      "required": false
+    }
+  ]
+}
+  }
+}

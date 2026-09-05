@@ -1,0 +1,165 @@
+{
+  "rules": {
+    "prakriti": {
+      "vata": [
+        {
+          "category": "dietary",
+          "recommendation": "Favor warm, freshly cooked, well-seasoned meals with healthy fats (like Ghee or sesame oil). Avoid cold, raw, or dry foods.",
+          "rationale": "Warm and moist dietary habits help balance cold and dry Vata attributes."
+        },
+        {
+          "category": "lifestyle",
+          "recommendation": "Maintain a consistent daily routine (Dinacharya) for meals, sleep, and gentle daily activities.",
+          "rationale": "Regular schedules stabilize erratic Vata energy."
+        }
+      ],
+      "pitta": [
+        {
+          "category": "dietary",
+          "recommendation": "Favor naturally cooling, sweet, bitter, and astringent foods. Minimize excessively spicy, salty, or sour foods.",
+          "rationale": "Cooling foods regulate internal metabolic heat associated with Pitta."
+        },
+        {
+          "category": "lifestyle",
+          "recommendation": "Avoid excessive direct sun exposure and take adequate breaks during intense mental or physical tasks.",
+          "rationale": "Prevents overheating and mental exhaustion."
+        }
+      ],
+      "kapha": [
+        {
+          "category": "dietary",
+          "recommendation": "Prefer light, warm, dry, and well-spiced foods. Limit heavy, oily, chilled, or excessively sweet foods.",
+          "rationale": "Light, warm foods stimulate digestion and reduce Kapha heaviness."
+        },
+        {
+          "category": "physical_activity",
+          "recommendation": "Engage in regular, brisk physical exercise daily.",
+          "rationale": "Active movement balances Kapha lethargy and maintains optimal metabolism."
+        }
+      ]
+    },
+    "vikriti": {
+      "present": [
+        {
+          "category": "lifestyle",
+          "recommendation": "Ensure adequate rest, hydration, and temporary reduction of heavy physical or mental strain during active symptoms.",
+          "rationale": "Allows the body's natural healing mechanisms to address current health alterations (Vikriti)."
+        }
+      ]
+    },
+    "sara": {
+      "strong": [
+        {
+          "category": "general_care",
+          "recommendation": "Maintain balanced nutrition to support naturally strong tissue quality (Dhatu Sara).",
+          "rationale": "Sustains healthy tissue nourishment and natural immunity."
+        }
+      ],
+      "moderate": [
+        {
+          "category": "dietary",
+          "recommendation": "Include wholesome, nutrient-dense foods (whole grains, fresh produce, legumes) to optimize tissue nourishment.",
+          "rationale": "Enhances tissue strength over time."
+        }
+      ]
+    },
+    "samhanana": {
+      "strong": [
+        {
+          "category": "physical_activity",
+          "recommendation": "Continue well-proportioned strength training or moderate exercise matching your robust body build.",
+          "rationale": "Supports naturally well-developed muscular build and structural stability."
+        }
+      ]
+    },
+    "pramana": {
+      "balanced": [
+        {
+          "category": "general_care",
+          "recommendation": "Maintain your current proportionate height-weight balance with balanced caloric intake.",
+          "rationale": "Proportionate anthropometric measurements correlate with systemic metabolic stability."
+        }
+      ]
+    },
+    "satmya": {
+      "well_tolerated": [
+        {
+          "category": "dietary",
+          "recommendation": "Continue eating wholesome, familiar home-cooked meals that suit your digestive habituation.",
+          "rationale": "Preserves individual dietary adaptation (Okasatmya)."
+        }
+      ],
+      "sometimes_intolerant": [
+        {
+          "category": "dietary",
+          "recommendation": "Identify and temporarily minimize known trigger foods (such as overly spicy or fried foods) that cause mild discomfort.",
+          "rationale": "Protects digestive comfort and prevents metabolic irritation."
+        }
+      ]
+    },
+    "sattva": {
+      "strong": [
+        {
+          "category": "stress_management",
+          "recommendation": "Continue mindfulness practices, structured daily focus, and positive coping strategies.",
+          "rationale": "Strong Sattva indicates high mental resilience and emotional stability."
+        }
+      ],
+      "moderate": [
+        {
+          "category": "stress_management",
+          "recommendation": "Incorporate daily gentle breathing exercises (Pranayama) or short walks to manage mental stress.",
+          "rationale": "Supports mental clarity and emotional equilibrium."
+        }
+      ]
+    },
+    "aharaShakti": {
+      "strong": [
+        {
+          "category": "dietary",
+          "recommendation": "Maintain regular meal times and eat according to hunger capacity without overeating.",
+          "rationale": "Strong digestive capacity (Abhyavaharana Shakti) functions best with regular meal schedules."
+        }
+      ],
+      "moderate": [
+        {
+          "category": "dietary",
+          "recommendation": "Eat moderate portions at fixed intervals; avoid eating heavy snacks between main meals.",
+          "rationale": "Allows complete digestion of previous meals."
+        }
+      ]
+    },
+    "vyayamaShakti": {
+      "strong": [
+        {
+          "category": "physical_activity",
+          "recommendation": "Perform 30-45 minutes of moderate physical exercise daily (e.g. brisk walking, cycling, yoga).",
+          "rationale": "High exercise tolerance allows effective physical conditioning without fatigue."
+        }
+      ],
+      "moderate": [
+        {
+          "category": "physical_activity",
+          "recommendation": "Engage in 20-30 minutes of mild to moderate physical activity, stopping before onset of exhaustion.",
+          "rationale": "Protects energy reserve while maintaining cardiovascular fitness."
+        }
+      ]
+    },
+    "vaya": {
+      "adulthood": [
+        {
+          "category": "lifestyle",
+          "recommendation": "Maintain balanced work-life routines, regular sleep (7-8 hours), and periodic health checkups.",
+          "rationale": "Adulthood (Middle age/Yuva-Madhya Vaya) requires balanced activity to sustain career and physical health."
+        }
+      ],
+      "older_adulthood": [
+        {
+          "category": "lifestyle",
+          "recommendation": "Prioritize gentle movement (such as walking or light yoga), joint mobility, and easy-to-digest warm meals.",
+          "rationale": "Nourishes natural age-related Vata changes in later life stages."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "aharaShakti": {
+    "questions": {
+      "aharaShakti_q01": {
+        "Very good": {
+          "strength": 1.0
+        },
+        "Good": {
+          "strength": 0.80
+        },
+        "Moderate": {
+          "strength": 0.60
+        },
+        "Poor": {
+          "strength": 0.25
+        },
+        "Variable": {
+          "strength": 0.50
+        },
+        "Not sure": {
+          "strength": 0.0
+        }
+      },
+
+      "aharaShakti_q03": {
+        "Comfortable and satisfied": {
+          "strength": 1.0
+        },
+        "Sometimes heavy or uncomfortable": {
+          "strength": 0.60
+        },
+        "Frequently heavy or uncomfortable": {
+          "strength": 0.25
+        },
+        "Still hungry after eating": {
+          "strength": 0.50
+        },
+        "Variable": {
+          "strength": 0.50
+        },
+        "Not sure": {
+          "strength": 0.0
+        }
+      },
+
+      "aharaShakti_q04": {
+        "Very regularly": {
+          "strength": 1.0
+        },
+        "Mostly regularly": {
+          "strength": 0.75
+        },
+        "Irregularly": {
+          "strength": 0.50
+        },
+        "Highly variable": {
+          "strength": 0.25
+        },
+        "Not sure": {
+          "strength": 0.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "patient_id": "UNKNOWN",
+  "assessment_summary": {
+    "active_parameters_assessed": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "prakriti": null,
+    "vikriti_status": "Normal"
+  },
+  "health_resilience": {
+    "resilience_score": 50.0,
+    "sub_scores": {},
+    "evaluation_confidence": 0.0
+  },
+  "imbalance_severity": {
+    "imbalance_severity_score": 0.0,
+    "contributing_factors": [],
+    "aggravated_symptom_count": 0
+  },
+  "risk_stratification": {
+    "risk_tier": "Low",
+    "clinical_action_recommendation": "Maintain healthy routine (Swasthavritta) and seasonal regimen (Ritucharya).",
+    "resilience_score": 50.0,
+    "imbalance_severity_score": 0.0
+  },
+  "longitudinal_progress": {
+    "trajectory": "insufficient_history",
+    "visit_count": 1,
+    "vikriti_resolution_rate_percent": null,
+    "parameter_evolution_matrix": {},
+    "summary": "Baseline visit registered. Longitudinal progress tracking will activate on subsequent visits."
+  },
+  "timestamp": "2026-09-06T01:44:10.675037"
+}

@@ -1,0 +1,20 @@
+{
+  "sara": {
+    "questions": {
+      "sara_q03": {
+        "Yes": {
+          "sara": 1.0
+        },
+        "Mostly": {
+          "sara": 0.75
+        },
+        "No": {
+          "sara": 0.25
+        },
+        "Not sure": {
+          "sara": 0.0
+        }
+      }
+    }
+  }
+}

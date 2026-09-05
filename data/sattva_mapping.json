@@ -1,0 +1,59 @@
+{
+  "sattva": {
+    "questions": {
+      "sattva_q02": {
+        "Usually calm and focused": {
+          "sattva": 1.0
+        },
+        "Mostly calm and focused": {
+          "sattva": 0.75
+        },
+        "Sometimes difficult": {
+          "sattva": 0.50
+        },
+        "Often difficult": {
+          "sattva": 0.25
+        },
+        "Not sure": {
+          "sattva": 0.0
+        }
+      },
+
+      "sattva_q03": {
+        "Very confident": {
+          "sattva": 1.0
+        },
+        "Generally confident": {
+          "sattva": 0.75
+        },
+        "Sometimes confident": {
+          "sattva": 0.50
+        },
+        "Often lack confidence": {
+          "sattva": 0.25
+        },
+        "Not sure": {
+          "sattva": 0.0
+        }
+      },
+
+      "sattva_q04": {
+        "Rarely": {
+          "sattva": 1.0
+        },
+        "Sometimes": {
+          "sattva": 0.75
+        },
+        "Often": {
+          "sattva": 0.50
+        },
+        "Very easily": {
+          "sattva": 0.25
+        },
+        "Not sure": {
+          "sattva": 0.0
+        }
+      }
+    }
+  }
+}

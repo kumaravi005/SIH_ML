@@ -1,0 +1,425 @@
+{
+  "patient": {
+    "patientId": null,
+    "name": null,
+    "age": null,
+    "gender": null,
+    "preferredLanguage": null
+  },
+  "visit": {
+    "visitId": null,
+    "date": null,
+    "department": null
+  },
+  "chiefComplaint": {
+    "complaints": [
+      {
+        "description": "Headache, Fatigue",
+        "duration": "for 3 day",
+        "onset": null
+      }
+    ]
+  },
+  "historyOfPresentIllness": [
+    {
+      "complaint": "Headache, Fatigue",
+      "onset": null,
+      "duration": "for 3 day",
+      "location": "Head/General",
+      "character": "Dull/Aching",
+      "severity": "Moderate",
+      "radiation": null,
+      "aggravatingFactors": [
+        "Stress/Exertion"
+      ],
+      "relievingFactors": [
+        "Rest"
+      ],
+      "associatedSymptoms": [
+        "Fatigue"
+      ],
+      "progression": "getting worse",
+      "rawStatement": "I have had severe headache and fatigue for 3 days and it is getting worse. Taking Paracetamol 500 mg daily. Allergic to Penicillin."
+    }
+  ],
+  "pastMedicalHistory": [
+    {
+      "condition": null,
+      "since": null,
+      "status": null,
+      "details": null
+    }
+  ],
+  "medications": [
+    {
+      "name": "Paracetamol",
+      "dose": "500 mg",
+      "frequency": "As directed",
+      "duration": "for 3 day",
+      "source": "audio_transcript"
+    }
+  ],
+  "allergies": [
+    {
+      "substance": "Penicillin",
+      "reaction": "Adverse reaction reported",
+      "source": "audio_transcript"
+    }
+  ],
+  "familyHistory": [
+    {
+      "condition": null,
+      "relation": null,
+      "details": null
+    }
+  ],
+  "personalHistory": {
+    "diet": null,
+    "appetite": null,
+    "sleep": null,
+    "bowelHabits": null,
+    "urination": null,
+    "physicalActivity": null,
+    "substanceUse": []
+  },
+  "reviewOfSystems": {
+    "general": [
+      {
+        "symptom": "Fatigue/General weakness",
+        "status": "Present",
+        "details": "Reported in audio_transcript"
+      }
+    ],
+    "respiratory": [],
+    "cardiovascular": [],
+    "gastrointestinal": [],
+    "neurological": [
+      {
+        "symptom": "Headache/Dizziness",
+        "status": "Present",
+        "details": "Reported in audio_transcript"
+      }
+    ],
+    "genitourinary": [],
+    "musculoskeletal": [],
+    "skin": [],
+    "other": []
+  },
+  "ayushAssessment": {
+    "dashavidhaPariksha": {
+      "prakriti": {
+        "value": "vata",
+        "evidence": [
+          {
+            "questionId": "prakriti_q01",
+            "answer": "Thin/light build",
+            "source": "questionnaire",
+            "confidence": 1.0
+          },
+          {
+            "questionId": "prakriti_q02",
+            "answer": "Usually dry",
+            "source": "questionnaire",
+            "confidence": 1.0
+          }
+        ],
+        "confidence": 1.0
+      },
+      "vikriti": {
+        "value": {
+          "current_changes": [
+            "Headache and fatigue for 3 days and it is getting worse"
+          ],
+          "primary_concern": null,
+          "onset": null,
+          "progression": "Getting worse"
+        },
+        "evidence": [
+          {
+            "questionId": "vikriti_q01",
+            "answer": "Headache and fatigue for 3 days and it is getting worse",
+            "source": "audio_transcript",
+            "confidence": 0.91
+          },
+          {
+            "questionId": "vikriti_q04",
+            "answer": "Getting worse",
+            "source": "audio_transcript",
+            "confidence": 0.96
+          }
+        ],
+        "confidence": 0.935
+      },
+      "sara": {
+        "value": "strong",
+        "evidence": [
+          {
+            "questionId": "sara_q01",
+            "answer": "Moderate overall strength",
+            "source": "questionnaire",
+            "confidence": 0.84
+          },
+          {
+            "questionId": "sara_q02",
+            "answer": "Generally healthy appearance",
+            "source": "questionnaire",
+            "confidence": 0.85
+          },
+          {
+            "questionId": "sara_q03",
+            "answer": "Mostly",
+            "source": "questionnaire",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.9
+      },
+      "samhanana": {
+        "value": "strong",
+        "evidence": [
+          {
+            "questionId": "samhanana_q01",
+            "answer": "Well-proportioned and well-developed",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "samhanana_q02",
+            "answer": "Well developed",
+            "source": "questionnaire",
+            "confidence": 0.88
+          },
+          {
+            "questionId": "samhanana_q03",
+            "answer": "Yes",
+            "source": "questionnaire",
+            "confidence": 0.92
+          }
+        ],
+        "confidence": 0.9
+      },
+      "pramana": {
+        "value": "balanced",
+        "evidence": [
+          {
+            "questionId": "pramana_q01",
+            "answer": "Height: 170 cm, Weight: 65 kg",
+            "source": "questionnaire",
+            "confidence": 0.95
+          },
+          {
+            "questionId": "pramana_q02",
+            "answer": "Generally proportionate",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "pramana_q03",
+            "answer": "No significant change",
+            "source": "questionnaire",
+            "confidence": 0.88
+          }
+        ],
+        "confidence": 0.89,
+        "measurements": "Height: 170 cm, Weight: 65 kg"
+      },
+      "satmya": {
+        "value": "well_tolerated",
+        "evidence": [
+          {
+            "questionId": "satmya_q01",
+            "answer": "Mostly home-cooked food",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "satmya_q02",
+            "answer": "I tolerate my usual meals well",
+            "source": "questionnaire",
+            "confidence": 0.88
+          },
+          {
+            "questionId": "satmya_q03",
+            "answer": "Very spicy food sometimes causes discomfort",
+            "source": "questionnaire",
+            "confidence": 0.87
+          },
+          {
+            "questionId": "satmya_q04",
+            "answer": "Very well",
+            "source": "questionnaire",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.9,
+        "dietary_evidence": [
+          {
+            "questionId": "satmya_q01",
+            "answer": "Mostly home-cooked food",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "satmya_q02",
+            "answer": "I tolerate my usual meals well",
+            "confidence": 0.88
+          },
+          {
+            "questionId": "satmya_q03",
+            "answer": "Very spicy food sometimes causes discomfort",
+            "confidence": 0.87
+          }
+        ]
+      },
+      "sattva": {
+        "value": "strong",
+        "evidence": [
+          {
+            "questionId": "sattva_q01",
+            "answer": "I usually stay calm and try to solve the problem",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "sattva_q02",
+            "answer": "Usually calm and focused",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "sattva_q03",
+            "answer": "Generally confident",
+            "source": "questionnaire",
+            "confidence": 0.88
+          },
+          {
+            "questionId": "sattva_q04",
+            "answer": "Rarely",
+            "source": "questionnaire",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.893,
+        "free_text_evidence": [
+          {
+            "questionId": "sattva_q01",
+            "answer": "I usually stay calm and try to solve the problem",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "aharaShakti": {
+        "value": "strong",
+        "evidence": [
+          {
+            "questionId": "aharaShakti_q01",
+            "answer": "Good",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "aharaShakti_q02",
+            "answer": "I can comfortably eat a normal meal",
+            "source": "questionnaire",
+            "confidence": 0.85
+          },
+          {
+            "questionId": "aharaShakti_q03",
+            "answer": "Comfortable and satisfied",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "aharaShakti_q04",
+            "answer": "Mostly regularly",
+            "source": "questionnaire",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.9,
+        "free_text_evidence": [
+          {
+            "questionId": "aharaShakti_q02",
+            "answer": "I can comfortably eat a normal meal",
+            "confidence": 0.85
+          }
+        ]
+      },
+      "vyayamaShakti": {
+        "value": "strong",
+        "evidence": [
+          {
+            "questionId": "vyayamaShakti_q01",
+            "answer": "Moderately active",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "vyayamaShakti_q02",
+            "answer": "Around 30 minutes",
+            "source": "questionnaire",
+            "confidence": 0.85
+          },
+          {
+            "questionId": "vyayamaShakti_q03",
+            "answer": "Mildly tired but recover quickly",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "vyayamaShakti_q04",
+            "answer": "Quickly",
+            "source": "questionnaire",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.9,
+        "free_text_evidence": [
+          {
+            "questionId": "vyayamaShakti_q02",
+            "answer": "Around 30 minutes",
+            "confidence": 0.85
+          }
+        ]
+      },
+      "vaya": {
+        "value": "adulthood",
+        "evidence": [
+          {
+            "questionId": "vaya_q01",
+            "answer": 35,
+            "source": "questionnaire",
+            "confidence": 1.0
+          },
+          {
+            "questionId": "vaya_q02",
+            "answer": "Adulthood",
+            "source": "questionnaire",
+            "confidence": 0.9
+          },
+          {
+            "questionId": "vaya_q03",
+            "answer": "No major age-related changes",
+            "source": "questionnaire",
+            "confidence": 0.85
+          }
+        ],
+        "confidence": 0.95,
+        "age": 35.0,
+        "age_group": "adulthood",
+        "stage": "adulthood",
+        "age_evidence": 35,
+        "stage_evidence": "Adulthood"
+      }
+    },
+    "agni": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    },
+    "koshtha": {
+      "value": null,
+      "evidence": [],
+      "confidence": null
+    }
+  }
+}

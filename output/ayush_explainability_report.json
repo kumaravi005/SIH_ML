@@ -1,0 +1,296 @@
+{
+  "patientId": null,
+  "patientName": null,
+  "total_parameters_assessed": 10,
+  "explanations": {
+    "prakriti": {
+      "parameter": "prakriti",
+      "summary": "Prakriti assessed as 'vata' with overall confidence 1.0. Derived from 2 evidence item(s): 'Thin/light build' (via questionnaire, confidence 1.0), 'Usually dry' (via questionnaire, confidence 1.0).",
+      "value": "vata",
+      "confidence": 1.0,
+      "evidence_count": 2,
+      "traceability": [
+        {
+          "questionId": "prakriti_q01",
+          "answer": "Thin/light build",
+          "source": "questionnaire",
+          "confidence": 1.0
+        },
+        {
+          "questionId": "prakriti_q02",
+          "answer": "Usually dry",
+          "source": "questionnaire",
+          "confidence": 1.0
+        }
+      ]
+    },
+    "vikriti": {
+      "parameter": "vikriti",
+      "summary": "Vikriti assessed as '{'current_changes': ['Headache and fatigue for 3 days and it is getting worse'], 'primary_concern': None, 'onset': None, 'progression': 'Getting worse'}' with overall confidence 0.935. Derived from 2 evidence item(s): 'Headache and fatigue for 3 days and it is getting worse' (via audio_transcript, confidence 0.91), 'Getting worse' (via audio_transcript, confidence 0.96).",
+      "value": {
+        "current_changes": [
+          "Headache and fatigue for 3 days and it is getting worse"
+        ],
+        "primary_concern": null,
+        "onset": null,
+        "progression": "Getting worse"
+      },
+      "confidence": 0.935,
+      "evidence_count": 2,
+      "traceability": [
+        {
+          "questionId": "vikriti_q01",
+          "answer": "Headache and fatigue for 3 days and it is getting worse",
+          "source": "audio_transcript",
+          "confidence": 0.91
+        },
+        {
+          "questionId": "vikriti_q04",
+          "answer": "Getting worse",
+          "source": "audio_transcript",
+          "confidence": 0.96
+        }
+      ]
+    },
+    "sara": {
+      "parameter": "sara",
+      "summary": "Sara assessed as 'strong' with overall confidence 0.9. Derived from 3 evidence item(s): 'Moderate overall strength' (via questionnaire, confidence 0.84), 'Generally healthy appearance' (via questionnaire, confidence 0.85), 'Mostly' (via questionnaire, confidence 0.9).",
+      "value": "strong",
+      "confidence": 0.9,
+      "evidence_count": 3,
+      "traceability": [
+        {
+          "questionId": "sara_q01",
+          "answer": "Moderate overall strength",
+          "source": "questionnaire",
+          "confidence": 0.84
+        },
+        {
+          "questionId": "sara_q02",
+          "answer": "Generally healthy appearance",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "sara_q03",
+          "answer": "Mostly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "samhanana": {
+      "parameter": "samhanana",
+      "summary": "Samhanana assessed as 'strong' with overall confidence 0.9. Derived from 3 evidence item(s): 'Well-proportioned and well-developed' (via questionnaire, confidence 0.9), 'Well developed' (via questionnaire, confidence 0.88), 'Yes' (via questionnaire, confidence 0.92).",
+      "value": "strong",
+      "confidence": 0.9,
+      "evidence_count": 3,
+      "traceability": [
+        {
+          "questionId": "samhanana_q01",
+          "answer": "Well-proportioned and well-developed",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "samhanana_q02",
+          "answer": "Well developed",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "samhanana_q03",
+          "answer": "Yes",
+          "source": "questionnaire",
+          "confidence": 0.92
+        }
+      ]
+    },
+    "pramana": {
+      "parameter": "pramana",
+      "summary": "Pramana assessed as 'balanced' with overall confidence 0.89. Derived from 3 evidence item(s): 'Height: 170 cm, Weight: 65 kg' (via questionnaire, confidence 0.95), 'Generally proportionate' (via questionnaire, confidence 0.9), 'No significant change' (via questionnaire, confidence 0.88).",
+      "value": "balanced",
+      "confidence": 0.89,
+      "evidence_count": 3,
+      "traceability": [
+        {
+          "questionId": "pramana_q01",
+          "answer": "Height: 170 cm, Weight: 65 kg",
+          "source": "questionnaire",
+          "confidence": 0.95
+        },
+        {
+          "questionId": "pramana_q02",
+          "answer": "Generally proportionate",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "pramana_q03",
+          "answer": "No significant change",
+          "source": "questionnaire",
+          "confidence": 0.88
+        }
+      ]
+    },
+    "satmya": {
+      "parameter": "satmya",
+      "summary": "Satmya assessed as 'well_tolerated' with overall confidence 0.9. Derived from 4 evidence item(s): 'Mostly home-cooked food' (via questionnaire, confidence 0.9), 'I tolerate my usual meals well' (via questionnaire, confidence 0.88), 'Very spicy food sometimes causes discomfort' (via questionnaire, confidence 0.87), 'Very well' (via questionnaire, confidence 0.9).",
+      "value": "well_tolerated",
+      "confidence": 0.9,
+      "evidence_count": 4,
+      "traceability": [
+        {
+          "questionId": "satmya_q01",
+          "answer": "Mostly home-cooked food",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "satmya_q02",
+          "answer": "I tolerate my usual meals well",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "satmya_q03",
+          "answer": "Very spicy food sometimes causes discomfort",
+          "source": "questionnaire",
+          "confidence": 0.87
+        },
+        {
+          "questionId": "satmya_q04",
+          "answer": "Very well",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "sattva": {
+      "parameter": "sattva",
+      "summary": "Sattva assessed as 'strong' with overall confidence 0.893. Derived from 4 evidence item(s): 'I usually stay calm and try to solve the problem' (via questionnaire, confidence 0.9), 'Usually calm and focused' (via questionnaire, confidence 0.9), 'Generally confident' (via questionnaire, confidence 0.88), 'Rarely' (via questionnaire, confidence 0.9).",
+      "value": "strong",
+      "confidence": 0.893,
+      "evidence_count": 4,
+      "traceability": [
+        {
+          "questionId": "sattva_q01",
+          "answer": "I usually stay calm and try to solve the problem",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "sattva_q02",
+          "answer": "Usually calm and focused",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "sattva_q03",
+          "answer": "Generally confident",
+          "source": "questionnaire",
+          "confidence": 0.88
+        },
+        {
+          "questionId": "sattva_q04",
+          "answer": "Rarely",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "aharaShakti": {
+      "parameter": "aharaShakti",
+      "summary": "Aharashakti assessed as 'strong' with overall confidence 0.9. Derived from 4 evidence item(s): 'Good' (via questionnaire, confidence 0.9), 'I can comfortably eat a normal meal' (via questionnaire, confidence 0.85), 'Comfortable and satisfied' (via questionnaire, confidence 0.9), 'Mostly regularly' (via questionnaire, confidence 0.9).",
+      "value": "strong",
+      "confidence": 0.9,
+      "evidence_count": 4,
+      "traceability": [
+        {
+          "questionId": "aharaShakti_q01",
+          "answer": "Good",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "aharaShakti_q02",
+          "answer": "I can comfortably eat a normal meal",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "aharaShakti_q03",
+          "answer": "Comfortable and satisfied",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "aharaShakti_q04",
+          "answer": "Mostly regularly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "vyayamaShakti": {
+      "parameter": "vyayamaShakti",
+      "summary": "Vyayamashakti assessed as 'strong' with overall confidence 0.9. Derived from 4 evidence item(s): 'Moderately active' (via questionnaire, confidence 0.9), 'Around 30 minutes' (via questionnaire, confidence 0.85), 'Mildly tired but recover quickly' (via questionnaire, confidence 0.9), 'Quickly' (via questionnaire, confidence 0.9).",
+      "value": "strong",
+      "confidence": 0.9,
+      "evidence_count": 4,
+      "traceability": [
+        {
+          "questionId": "vyayamaShakti_q01",
+          "answer": "Moderately active",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vyayamaShakti_q02",
+          "answer": "Around 30 minutes",
+          "source": "questionnaire",
+          "confidence": 0.85
+        },
+        {
+          "questionId": "vyayamaShakti_q03",
+          "answer": "Mildly tired but recover quickly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vyayamaShakti_q04",
+          "answer": "Quickly",
+          "source": "questionnaire",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "vaya": {
+      "parameter": "vaya",
+      "summary": "Vaya assessed as 'adulthood' with overall confidence 0.95. Derived from 3 evidence item(s): '35' (via questionnaire, confidence 1.0), 'Adulthood' (via questionnaire, confidence 0.9), 'No major age-related changes' (via questionnaire, confidence 0.85).",
+      "value": "adulthood",
+      "confidence": 0.95,
+      "evidence_count": 3,
+      "traceability": [
+        {
+          "questionId": "vaya_q01",
+          "answer": 35,
+          "source": "questionnaire",
+          "confidence": 1.0
+        },
+        {
+          "questionId": "vaya_q02",
+          "answer": "Adulthood",
+          "source": "questionnaire",
+          "confidence": 0.9
+        },
+        {
+          "questionId": "vaya_q03",
+          "answer": "No major age-related changes",
+          "source": "questionnaire",
+          "confidence": 0.85
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "vyayamaShakti": {
+    "questions": {
+      "vyayamaShakti_q01": {
+        "Very active": {
+          "capacity": 1.0
+        },
+        "Moderately active": {
+          "capacity": 0.75
+        },
+        "Lightly active": {
+          "capacity": 0.50
+        },
+        "Mostly inactive": {
+          "capacity": 0.25
+        },
+        "Variable": {
+          "capacity": 0.50
+        },
+        "Not sure": {
+          "capacity": 0.0
+        }
+      },
+
+      "vyayamaShakti_q03": {
+        "Comfortable and energetic": {
+          "capacity": 1.0
+        },
+        "Mildly tired but recover quickly": {
+          "capacity": 0.75
+        },
+        "Moderately tired": {
+          "capacity": 0.50
+        },
+        "Very tired": {
+          "capacity": 0.25
+        },
+        "Variable": {
+          "capacity": 0.50
+        },
+        "Not sure": {
+          "capacity": 0.0
+        }
+      },
+
+      "vyayamaShakti_q04": {
+        "Very quickly": {
+          "capacity": 1.0
+        },
+        "Quickly": {
+          "capacity": 0.75
+        },
+        "Moderately": {
+          "capacity": 0.50
+        },
+        "Slowly": {
+          "capacity": 0.25
+        },
+        "Variable": {
+          "capacity": 0.50
+        },
+        "Not sure": {
+          "capacity": 0.0
+        }
+      }
+    }
+  }
+}

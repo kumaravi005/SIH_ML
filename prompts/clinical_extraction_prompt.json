@@ -1,0 +1,72 @@
+{
+  "system_prompt": "You are a clinical NLP entity extraction engine for an integrative AYUSH healthcare platform. Your task is to extract structured clinical entities and AYUSH diagnostic evidence from unstructured patient input (text or audio transcript).",
+  "extraction_targets": {
+    "chief_complaint": {
+      "description": "Primary reasons for seeking medical care",
+      "fields": ["description", "duration", "onset"]
+    },
+    "history_of_present_illness": {
+      "description": "Detailed narrative of current symptoms",
+      "fields": [
+        "complaint",
+        "onset",
+        "duration",
+        "location",
+        "character",
+        "severity",
+        "radiation",
+        "aggravatingFactors",
+        "relievingFactors",
+        "associatedSymptoms",
+        "progression",
+        "rawStatement"
+      ]
+    },
+    "past_medical_history": {
+      "description": "Pre-existing medical conditions or chronic illnesses",
+      "fields": ["condition", "since", "status", "details"]
+    },
+    "medications": {
+      "description": "Current active medications",
+      "fields": ["name", "dose", "frequency", "duration", "source"]
+    },
+    "allergies": {
+      "description": "Known allergies or adverse reactions",
+      "fields": ["substance", "reaction", "source"]
+    },
+    "personal_history": {
+      "description": "Lifestyle, diet, sleep, and personal habits",
+      "fields": [
+        "diet",
+        "appetite",
+        "sleep",
+        "bowelHabits",
+        "urination",
+        "physicalActivity",
+        "substanceUse"
+      ]
+    },
+    "ayush_evidence": {
+      "description": "Observed or reported symptoms relevant to the 10 AYUSH parameters",
+      "parameters": [
+        "prakriti",
+        "vikriti",
+        "sara",
+        "samhanana",
+        "pramana",
+        "satmya",
+        "sattva",
+        "aharaShakti",
+        "vyayamaShakti",
+        "vaya"
+      ]
+    }
+  },
+  "rules": [
+    "Do not invent information that is not present in the input text.",
+    "Preserve exact duration and temporal expressions as stated by the patient.",
+    "Assign a confidence score between 0.0 and 1.0 based on clinical clarity.",
+    "Preserve source provenance ('text' or 'audio_transcript').",
+    "Return null or empty lists for unmentioned clinical fields."
+  ]
+}

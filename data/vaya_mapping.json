@@ -1,0 +1,26 @@
+{
+  "vaya": {
+    "questions": {
+      "vaya_q02": {
+        "Childhood": {
+          "stage": "childhood"
+        },
+        "Adolescence": {
+          "stage": "adolescence"
+        },
+        "Adulthood": {
+          "stage": "adulthood"
+        },
+        "Middle age": {
+          "stage": "middle_age"
+        },
+        "Older adulthood": {
+          "stage": "older_adulthood"
+        },
+        "Prefer not to say": {
+          "stage": null
+        }
+      }
+    }
+  }
+}
