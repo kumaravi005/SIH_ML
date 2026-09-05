@@ -17,13 +17,14 @@ from patient_similarity_engine import find_similar_patient_cases, PatientSimilar
 from data_quality_engine import generate_data_quality_report, DataQualityEngine
 from clinical_prediction_engine import predict_clinical_outcome, ClinicalPredictionEngine
 from eval_framework import run_full_benchmark_suite, MLEvaluationFramework
+from regimen_optimizer_engine import generate_personalized_regimen_report, RegimenOptimizerEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
     Zero-dependency HTTP REST API handler for SIH_ML.
     Integrates clinical extraction, 10-parameter AYUSH assessment, recommendation engine,
-    longitudinal risk tracking, patient similarity matching, data quality validation, outcome prediction, and model evaluation framework.
+    longitudinal risk tracking, patient similarity matching, data quality validation, outcome prediction, model evaluation framework, and regimen optimization.
     """
 
     def _set_headers(self, status_code=200, content_type="application/json"):
@@ -60,7 +61,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /similar-cases",
                     "POST /validate-quality",
                     "POST /predict-outcome",
-                    "POST /evaluate-pipeline"
+                    "POST /evaluate-pipeline",
+                    "POST /optimize-regimen"
                 ]
             }).encode("utf-8"))
         else:
@@ -219,9 +221,26 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(eval_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/optimize-regimen":
+            patient_case = payload.get("patient_case")
+            season = payload.get("season", "Vasanta")
+            if not patient_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                patient_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            reg_report = generate_personalized_regimen_report(patient_case, season=season)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(reg_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
 
 
 

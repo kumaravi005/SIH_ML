@@ -28,6 +28,10 @@ from .eval_framework import (
     MLEvaluationFramework,
     run_full_benchmark_suite
 )
+from .regimen_optimizer_engine import (
+    RegimenOptimizerEngine,
+    generate_personalized_regimen_report
+)
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -54,8 +58,11 @@ __all__ = [
     "predict_clinical_outcome",
     "MLEvaluationFramework",
     "run_full_benchmark_suite",
+    "RegimenOptimizerEngine",
+    "generate_personalized_regimen_report",
     "LLMClinicalExtractor"
 ]
+
 
 
 

@@ -1,0 +1,42 @@
+{
+  "patient_id": "UNKNOWN",
+  "assessment_summary": {
+    "active_parameters_evaluated": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "current_season": "Vasanta"
+  },
+  "daily_dinacharya_routine": [
+    {
+      "time_block": "Morning (05:00 - 09:00)",
+      "phase": "Pratah Charya",
+      "recommended_routine": "Brahma Muhurta awakening (approx 05:30 AM), gentle warm water rinse, tongue scraping, and 15-minute mindfulness/Pranayama. Warm sesame oil self-massage (Abhyanga) followed by a warm bath."
+    },
+    {
+      "time_block": "Midday (11:30 - 13:30)",
+      "phase": "Madhyahna Charya",
+      "recommended_routine": "Main meal of the day (highest digestive period). Sit quietly for 10 minutes post-meal. Avoid immediate strenuous work."
+    },
+    {
+      "time_block": "Evening (17:00 - 19:00)",
+      "phase": "Sayam Charya",
+      "recommended_routine": "Unwind period: 15–20 minutes of gentle walking or calming Pranayama (Anulom Vilom). Light, warm dinner before 07:30 PM."
+    },
+    {
+      "time_block": "Night (21:00 - 22:30)",
+      "phase": "Ratri Charya",
+      "recommended_routine": "Digital detox 1 hour before sleep. Warm foot massage (Padabhyanga) with ghee/sesame oil. In-bed by 10:00 PM."
+    }
+  ],
+  "seasonal_ritucharya_plan": {
+    "season_name": "Spring (Vasanta Ritu)",
+    "dominant_dosha_impact": "Kapha liquefaction phase",
+    "dietary_guidelines": "Favor bitter, pungent, and astringent tastes. Avoid heavy, oily, sweet foods and daytime sleep.",
+    "lifestyle_guidelines": "Engage in active physical exercise, dry massage, and warm herbal tea consumption.",
+    "individualized_note": "Plan tailored for primary constitution: Vata."
+  },
+  "timestamp": "2026-09-06T02:15:30.099525",
+  "disclaimer": "This daily and seasonal regimen is supportive lifestyle advice based on AYUSH principles. It does not substitute clinical treatment directives."
+}

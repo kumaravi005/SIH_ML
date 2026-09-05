@@ -415,9 +415,44 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_optimize_regimen_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        patient_case = build_complete_patient_case(
+            patient_answers=self.sample_cases[0]["questionnaire_answers"]
+        )
+
+        from regimen_optimizer_engine import generate_personalized_regimen_report
+        reg_report = generate_personalized_regimen_report(patient_case, season="Vasanta")
+        self.assertIn("daily_dinacharya_routine", reg_report)
+
+        server = HTTPServer(("127.0.0.1", 8095), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8095/optimize-regimen",
+                data=json.dumps({"patient_case": patient_case, "season": "Vasanta"}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertIn("daily_dinacharya_routine", data)
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 
