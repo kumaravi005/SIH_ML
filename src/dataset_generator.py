@@ -1,12 +1,15 @@
 """
-Synthetic Clinical Patient Dataset Generation & Dataset Validation Engine (Section 7)
+Synthetic Clinical Patient Dataset Generation & Dataset Validation Engine (Section 7 & 11)
 
 Synthesizes N=500 realistic, diverse patient cases with multi-source evidence inputs
 (questionnaire answers + clinical text / audio transcripts) and ground-truth target labels
 based strictly on the 10 active AYUSH parameters:
 - prakriti, vikriti, sara, samhanana, pramana, satmya, sattva, aharaShakti, vyayamaShakti, vaya
 
-Strictly excludes Agni and Koshtha. Zero external mandatory dependencies.
+Section 11 Enhancements:
+- Latent Clinical Archetype Engine for probabilistic, noise-controlled feature-target alignment.
+- Zero feature leakage: latent archetype is used ONLY during synthetic generation and is NEVER passed into X or stored in patient cases.
+- Strictly excludes Agni and Koshtha. Zero external mandatory dependencies.
 """
 
 import json
@@ -21,6 +24,15 @@ ACTIVE_PARAMETERS = [
 
 EXCLUDED_PARAMETERS = ["agni", "koshtha"]
 
+ARCHETYPES = {
+    "vata_dominant": {"vata": 0.85, "pitta": 0.08, "kapha": 0.07},
+    "pitta_dominant": {"vata": 0.07, "pitta": 0.85, "kapha": 0.08},
+    "kapha_dominant": {"vata": 0.08, "pitta": 0.07, "kapha": 0.85},
+    "vata_pitta": {"vata": 0.50, "pitta": 0.45, "kapha": 0.05},
+    "pitta_kapha": {"vata": 0.05, "pitta": 0.50, "kapha": 0.45},
+    "vata_kapha": {"vata": 0.45, "pitta": 0.05, "kapha": 0.50}
+}
+
 
 class AYUSHDatasetGeneratorEngine:
     def __init__(self, seed=42):
@@ -28,14 +40,23 @@ class AYUSHDatasetGeneratorEngine:
         random.seed(seed)
         base_dir = Path(__file__).resolve().parent.parent
         self.questions_file = base_dir / "data" / "ayush_questions.json"
+        self.prakriti_map_file = base_dir / "data" / "prakriti_mapping.json"
         self.output_dataset_file = base_dir / "data" / "ayush_synthetic_dataset.json"
         self.question_tree = self._load_questions()
+        self.prakriti_rules = self._load_prakriti_rules()
 
     def _load_questions(self):
         if self.questions_file.exists():
             with open(self.questions_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 return data.get("ayushQuestionTree", {})
+        return {}
+
+    def _load_prakriti_rules(self):
+        if self.prakriti_map_file.exists():
+            with open(self.prakriti_map_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("prakriti", {}).get("questions", {})
         return {}
 
     def _generate_demographics(self, idx):
@@ -55,18 +76,39 @@ class AYUSHDatasetGeneratorEngine:
             "preferredLanguage": "English"
         }
 
-    def _generate_questionnaire_answers(self, age):
+    def _generate_questionnaire_answers(self, age, archetype_weights=None):
         answers = {}
+        if archetype_weights is None:
+            archetype_weights = {"vata": 0.33, "pitta": 0.33, "kapha": 0.33}
 
-        # 1. Prakriti
+        # 1. Prakriti Questions (probabilistically aligned with archetype)
         prakriti_q = self.question_tree.get("prakriti", {}).get("questions", [])
         answers["prakriti"] = []
         for q in prakriti_q:
             opts = q.get("options", [])
+            q_id = q["id"]
             if opts:
-                chosen = random.choice([o for o in opts if o != "Not sure"] or opts)
+                q_rules = self.prakriti_rules.get(q_id, {})
+                weights = []
+                for o in opts:
+                    if o == "Not sure":
+                        w = 0.01
+                    else:
+                        s = q_rules.get(o, {})
+                        w = (
+                            0.02
+                            + archetype_weights["vata"] * (s.get("vata", 0.0) ** 2)
+                            + archetype_weights["pitta"] * (s.get("pitta", 0.0) ** 2)
+                            + archetype_weights["kapha"] * (s.get("kapha", 0.0) ** 2)
+                        )
+                    weights.append(w)
+
+                tot = sum(weights) or 1.0
+                norm_weights = [w / tot for w in weights]
+                chosen = random.choices(opts, weights=norm_weights, k=1)[0]
+
                 answers["prakriti"].append({
-                    "questionId": q["id"],
+                    "questionId": q_id,
                     "answer": chosen,
                     "source": "questionnaire",
                     "confidence": round(random.uniform(0.85, 1.0), 2)
@@ -198,15 +240,16 @@ class AYUSHDatasetGeneratorEngine:
 
         return answers
 
-    def _generate_unstructured_inputs(self):
-        symptoms = [
-            "mild headache and fatigue for 2 days",
-            "dry skin, constipation, and anxiety",
-            "acidity, hyperacidity, and skin rash",
-            "heaviness in chest, lethargy, and cough",
-            "joint stiffness and body ache"
-        ]
-        chosen_symptom = random.choice(symptoms)
+    def _generate_unstructured_inputs(self, archetype_name):
+        symptoms_map = {
+            "vata_dominant": "dry skin, constipation, joint pain, and anxiety",
+            "pitta_dominant": "hyperacidity, skin rashes, burning sensation, and irritability",
+            "kapha_dominant": "lethargy, chest heaviness, weight gain, and excessive sleepiness",
+            "vata_pitta": "dry skin, hyperacidity, and mild joint pain",
+            "pitta_kapha": "acidity, lethargy, and skin sensitivity",
+            "vata_kapha": "dry skin, lethargy, and joint stiffness"
+        }
+        chosen_symptom = symptoms_map.get(archetype_name, "mild fatigue and body ache")
 
         return [
             {
@@ -218,11 +261,16 @@ class AYUSHDatasetGeneratorEngine:
 
     def generate_patient_case(self, idx):
         """
-        Generate a single synthetic patient case with questionnaire and unstructured transcript.
+        Generate a single synthetic patient case using latent archetype probabilistic sampling.
+        The archetype is used solely for response generation and is NOT saved in patient_case.
         """
+        archetypes_keys = list(ARCHETYPES.keys())
+        archetype_name = archetypes_keys[idx % len(archetypes_keys)]
+        archetype_weights = ARCHETYPES[archetype_name]
+
         demographics = self._generate_demographics(idx)
-        questionnaire_answers = self._generate_questionnaire_answers(demographics["age"])
-        unstructured_inputs = self._generate_unstructured_inputs()
+        questionnaire_answers = self._generate_questionnaire_answers(demographics["age"], archetype_weights)
+        unstructured_inputs = self._generate_unstructured_inputs(archetype_name)
 
         # Build full case using existing pipeline case builder
         from patient_case_builder import build_complete_patient_case
@@ -315,7 +363,7 @@ class AYUSHDatasetGeneratorEngine:
 
 if __name__ == "__main__":
     generator = AYUSHDatasetGeneratorEngine()
-    print("Generating synthetic AYUSH patient dataset (N=500)...")
+    print("Generating synthetic AYUSH patient dataset with latent archetype alignment (N=500)...")
     stats = generator.generate_dataset(num_samples=500)
     print("Dataset generation complete!")
     print(json.dumps(stats, indent=2))

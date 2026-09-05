@@ -293,6 +293,14 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(leak_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/validate-dataset-quality":
+            from dataset_quality_alignment_engine import AYUSHDatasetQualityAlignmentEngine
+            engine = AYUSHDatasetQualityAlignmentEngine()
+            audit_report = engine.run_full_alignment_audit()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(audit_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))

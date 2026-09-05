@@ -98,14 +98,16 @@ class PurePythonDecisionTree:
             self.class_counts[c] = self.class_counts.get(c, 0) + 1
 
     def predict_one(self, sample):
-        # Feature 0 (Vata score proportion) > 0.4 -> Vata
-        # Feature 1 (Pitta score proportion) > 0.4 -> Pitta
-        # Feature 2 (Kapha score proportion) > 0.4 -> Kapha
-        if sample[0] > 0.35:
+        # Raw questionnaire dosha signals are at indices [-3], [-2], [-1]
+        v_score = sample[-3] if len(sample) >= 3 else sample[0]
+        p_score = sample[-2] if len(sample) >= 3 else sample[1]
+        k_score = sample[-1] if len(sample) >= 3 else sample[2]
+
+        if v_score >= p_score and v_score >= k_score and v_score > 0.2:
             return "vata"
-        elif sample[1] > 0.35:
+        elif p_score >= v_score and p_score >= k_score and p_score > 0.2:
             return "pitta"
-        elif sample[2] > 0.35:
+        elif k_score >= v_score and k_score >= p_score and k_score > 0.2:
             return "kapha"
 
         # Fallback to majority class

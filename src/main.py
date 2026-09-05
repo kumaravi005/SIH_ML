@@ -177,6 +177,7 @@ def main():
     parser.add_argument("--train-baseline", action="store_true", help="Train and evaluate baseline ML models on synthetic dataset")
     parser.add_argument("--train-advanced-ml", action="store_true", help="Train, compare, and benchmark advanced ML model candidates")
     parser.add_argument("--validate-leakage-free-ml", action="store_true", help="Run 100% leak-free feature engineering and model validation")
+    parser.add_argument("--validate-dataset-quality", action="store_true", help="Run pre-training feature/label alignment and dataset quality audit")
 
     args = parser.parse_args()
 
@@ -214,6 +215,15 @@ def main():
         leak_report = engine.train_and_evaluate_all()
         print("Leakage-Free Model Validation complete!")
         print(json.dumps(leak_report, indent=2))
+        return
+
+    if args.validate_dataset_quality:
+        from dataset_quality_alignment_engine import AYUSHDatasetQualityAlignmentEngine
+        print("Executing Section 11 ML Dataset Quality & Feature/Label Alignment Audit...")
+        engine = AYUSHDatasetQualityAlignmentEngine()
+        audit_report = engine.run_full_alignment_audit()
+        print("Dataset Quality & Alignment Audit complete!")
+        print(json.dumps(audit_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
