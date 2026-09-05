@@ -317,6 +317,24 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(robustness_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/predict-prakriti-ml":
+            from final_model_trainer import AYUSHFinalModelTrainer
+            trainer = AYUSHFinalModelTrainer()
+
+            patient_case = payload.get("patient_case")
+            if not patient_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                patient_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            pred_res = trainer.predict_case(patient_case)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(pred_res, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))

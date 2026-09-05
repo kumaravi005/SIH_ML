@@ -1,0 +1,74 @@
+{
+  "section": "Section 14 — Final Model Training, Artifact Serialization & Independent Validation",
+  "model_metadata": {
+    "model_type": "PurePythonKNNClassifier",
+    "k": 9,
+    "num_training_samples": 500,
+    "feature_dimension": 51,
+    "active_parameters": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "classes": [
+      "kapha",
+      "pitta",
+      "vata"
+    ],
+    "training_dataset_seed": 42,
+    "target_leakage_present": false,
+    "disclaimer": "Trained on synthetic dataset (N=500). Clinical trial validation required before clinical deployment."
+  },
+  "serialized_artifact_path": "C:\\Users\\avina\\OneDrive\\Desktop\\SIH_ML\\ml\\models\\ayush_prakriti_knn_model.json",
+  "training_summary": {
+    "training_samples": 500,
+    "feature_dimension": 51,
+    "model_type": "KNN (k=9)",
+    "classes": [
+      "kapha",
+      "pitta",
+      "vata"
+    ]
+  },
+  "cross_validation_5fold_benchmark": {
+    "mean_cv_accuracy_500": 0.9342,
+    "mean_cv_macro_f1_500": 0.9339,
+    "cv_std_dev_sigma": 0.0233
+  },
+  "independent_out_of_sample_validation_100": {
+    "eval_dataset_seed": 999,
+    "independent_samples_eval": 100,
+    "independent_accuracy": 0.96,
+    "independent_macro_f1": 0.9581,
+    "inference_latency_ms_per_case": 3.027,
+    "per_class_metrics": {
+      "kapha": {
+        "precision": 1.0,
+        "recall": 0.8966,
+        "f1_score": 0.9455,
+        "support": 29
+      },
+      "pitta": {
+        "precision": 0.9118,
+        "recall": 1.0,
+        "f1_score": 0.9539,
+        "support": 31
+      },
+      "vata": {
+        "precision": 0.975,
+        "recall": 0.975,
+        "f1_score": 0.975,
+        "support": 40
+      }
+    },
+    "target_leakage_present": false,
+    "cross_validation_benchmark_acc_500": 0.9342,
+    "cross_validation_benchmark_f1_500": 0.9339
+  },
+  "active_parameters_evaluated": 10,
+  "excluded_parameters": [
+    "agni",
+    "koshtha"
+  ],
+  "overall_status": "PASSED"
+}

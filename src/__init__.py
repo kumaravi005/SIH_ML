@@ -40,6 +40,7 @@ from .leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
 from .dataset_quality_alignment_engine import AYUSHDatasetQualityAlignmentEngine
 from .feature_validation_engine import AYUSHFeatureValidationEngine
 from .ml_robustness_engine import AYUSHMLRobustnessEngine
+from .final_model_trainer import AYUSHFinalModelTrainer
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -76,6 +77,7 @@ __all__ = [
     "AYUSHDatasetQualityAlignmentEngine",
     "AYUSHFeatureValidationEngine",
     "AYUSHMLRobustnessEngine",
+    "AYUSHFinalModelTrainer",
     "LLMClinicalExtractor"
 ]
 

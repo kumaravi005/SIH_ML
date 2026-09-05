@@ -180,6 +180,7 @@ def main():
     parser.add_argument("--validate-dataset-quality", action="store_true", help="Run pre-training feature/label alignment and dataset quality audit")
     parser.add_argument("--validate-features", action="store_true", help="Run feature engineering & ground-truth target label validation audit")
     parser.add_argument("--validate-robustness", action="store_true", help="Run K-Fold Cross-Validation, hyperparameter tuning & noise robustness audit")
+    parser.add_argument("--predict-prakriti-ml", action="store_true", help="Run Section 14 final ML model inference on patient case")
 
     args = parser.parse_args()
 
@@ -244,6 +245,15 @@ def main():
         robustness_report = engine.run_full_optimization_and_robustness_suite()
         print("ML Optimization & Robustness Validation complete!")
         print(json.dumps(robustness_report, indent=2))
+        return
+
+    if args.predict_prakriti_ml:
+        from final_model_trainer import AYUSHFinalModelTrainer
+        print("Executing Section 14 Final Model Inference & Out-of-Sample Validation Pipeline...")
+        trainer = AYUSHFinalModelTrainer()
+        val_report = trainer.run_full_final_validation_pipeline()
+        print("Final Model Inference & Validation complete!")
+        print(json.dumps(val_report, indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
