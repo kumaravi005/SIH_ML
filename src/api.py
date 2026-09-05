@@ -16,13 +16,14 @@ from longitudinal_risk_engine import generate_longitudinal_risk_report, Longitud
 from patient_similarity_engine import find_similar_patient_cases, PatientSimilarityEngine
 from data_quality_engine import generate_data_quality_report, DataQualityEngine
 from clinical_prediction_engine import predict_clinical_outcome, ClinicalPredictionEngine
+from eval_framework import run_full_benchmark_suite, MLEvaluationFramework
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
     Zero-dependency HTTP REST API handler for SIH_ML.
     Integrates clinical extraction, 10-parameter AYUSH assessment, recommendation engine,
-    longitudinal risk tracking, patient similarity matching, data quality validation, and outcome prediction.
+    longitudinal risk tracking, patient similarity matching, data quality validation, outcome prediction, and model evaluation framework.
     """
 
     def _set_headers(self, status_code=200, content_type="application/json"):
@@ -58,7 +59,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /longitudinal-track",
                     "POST /similar-cases",
                     "POST /validate-quality",
-                    "POST /predict-outcome"
+                    "POST /predict-outcome",
+                    "POST /evaluate-pipeline"
                 ]
             }).encode("utf-8"))
         else:
@@ -210,9 +212,17 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(pred_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/evaluate-pipeline":
+            benchmark_samples = payload.get("benchmark_samples")
+            eval_report = run_full_benchmark_suite(benchmark_samples=benchmark_samples)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(eval_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
 
 
 

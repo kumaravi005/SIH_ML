@@ -1,0 +1,23 @@
+{
+  "benchmark_status": "PASSED",
+  "evaluated_components": {
+    "clinical_extraction": {
+      "precision": 0.94,
+      "recall": 0.91,
+      "f1_score": 0.925
+    },
+    "ayush_10_parameter_assessment": {
+      "accuracy": 0.95,
+      "accuracy_percentage": "95.0%",
+      "active_parameters_evaluated": 10,
+      "excluded_parameters": [
+        "agni",
+        "koshtha"
+      ]
+    },
+    "similarity_retrieval": {
+      "mean_reciprocal_rank": 1.0
+    }
+  },
+  "timestamp": "2026-09-06T02:08:26.137329"
+}

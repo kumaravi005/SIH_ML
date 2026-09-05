@@ -24,6 +24,10 @@ from .clinical_prediction_engine import (
     ClinicalPredictionEngine,
     predict_clinical_outcome
 )
+from .eval_framework import (
+    MLEvaluationFramework,
+    run_full_benchmark_suite
+)
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -48,8 +52,11 @@ __all__ = [
     "generate_data_quality_report",
     "ClinicalPredictionEngine",
     "predict_clinical_outcome",
+    "MLEvaluationFramework",
+    "run_full_benchmark_suite",
     "LLMClinicalExtractor"
 ]
+
 
 
 
