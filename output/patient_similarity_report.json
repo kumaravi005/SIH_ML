@@ -1,0 +1,26 @@
+{
+  "target_patient_id": "TARGET-001",
+  "assessment_summary": {
+    "active_parameters_evaluated": 10,
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "vector_dimensions": 12
+  },
+  "retrieved_similar_cases": [
+    {
+      "patient_id": "CASE-1",
+      "similarity_score": 1.0,
+      "similarity_percentage": "100.0%",
+      "prakriti": null,
+      "matched_case_summary": {
+        "age": null,
+        "gender": null,
+        "chief_complaint": null
+      }
+    }
+  ],
+  "top_match_similarity": "100.0%",
+  "clinical_decision_support_note": "Case retrieval matches similar historical profiles for physician reference. Does not replace individualized clinical judgement."
+}

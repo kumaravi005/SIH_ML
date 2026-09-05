@@ -12,6 +12,10 @@ from .longitudinal_risk_engine import (
     LongitudinalRiskEngine,
     generate_longitudinal_risk_report
 )
+from .patient_similarity_engine import (
+    PatientSimilarityEngine,
+    find_similar_patient_cases
+)
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -30,6 +34,9 @@ __all__ = [
     "generate_evidence_backed_recommendations",
     "LongitudinalRiskEngine",
     "generate_longitudinal_risk_report",
+    "PatientSimilarityEngine",
+    "find_similar_patient_cases",
     "LLMClinicalExtractor"
 ]
+
 

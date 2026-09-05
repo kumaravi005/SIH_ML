@@ -13,13 +13,14 @@ from clinical_extractor import process_unstructured_input
 from ayush_explainer import generate_ayush_explainability_report
 from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report, LongitudinalRiskEngine
+from patient_similarity_engine import find_similar_patient_cases, PatientSimilarityEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
     Zero-dependency HTTP REST API handler for SIH_ML.
     Integrates clinical extraction, 10-parameter AYUSH assessment, recommendation engine,
-    and longitudinal risk tracking.
+    longitudinal risk tracking, and patient similarity matching.
     """
 
     def _set_headers(self, status_code=200, content_type="application/json"):
@@ -52,7 +53,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /extract",
                     "POST /recommendations",
                     "POST /risk-stratification",
-                    "POST /longitudinal-track"
+                    "POST /longitudinal-track",
+                    "POST /similar-cases"
                 ]
             }).encode("utf-8"))
         else:
@@ -155,9 +157,28 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(track_report, ensure_ascii=False).encode("utf-8"))
 
+        elif self.path == "/similar-cases":
+            target_case = payload.get("target_case")
+            historical_cases = payload.get("historical_cases", [])
+            top_k = payload.get("top_k", 3)
+
+            if not target_case:
+                patient_answers = payload.get("questionnaire_answers")
+                unstructured_inputs = payload.get("unstructured_inputs")
+                target_case = build_complete_patient_case(
+                    patient_answers=patient_answers,
+                    unstructured_inputs=unstructured_inputs
+                )
+
+            sim_report = find_similar_patient_cases(target_case, historical_cases, top_k=top_k)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(sim_report, ensure_ascii=False).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
 
 
 

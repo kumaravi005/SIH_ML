@@ -283,8 +283,43 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_patient_similarity_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        patient_case = build_complete_patient_case(
+            patient_answers=self.sample_cases[0]["questionnaire_answers"]
+        )
+
+        from patient_similarity_engine import find_similar_patient_cases
+        sim_report = find_similar_patient_cases(patient_case, self.sample_cases, top_k=2)
+        self.assertIn("retrieved_similar_cases", sim_report)
+
+        server = HTTPServer(("127.0.0.1", 8091), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8091/similar-cases",
+                data=json.dumps({"target_case": patient_case, "historical_cases": self.sample_cases}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertIn("retrieved_similar_cases", data)
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 

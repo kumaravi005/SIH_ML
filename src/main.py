@@ -6,6 +6,7 @@ from patient_case_builder import build_complete_patient_case, save_patient_case,
 from ayush_explainer import generate_ayush_explainability_report
 from recommendation_engine import generate_clinical_recommendation_report
 from longitudinal_risk_engine import generate_longitudinal_risk_report
+from patient_similarity_engine import find_similar_patient_cases
 
 
 EXPLAINABILITY_OUTPUT_FILE = (
@@ -25,6 +26,13 @@ LONGITUDINAL_RISK_OUTPUT_FILE = (
     / "output"
     / "longitudinal_risk_report.json"
 )
+
+SIMILARITY_OUTPUT_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "output"
+    / "patient_similarity_report.json"
+)
+
 
 
 
@@ -80,7 +88,18 @@ def run_pipeline(input_case_path=None, text_input=None, source="audio_transcript
     with open(LONGITUDINAL_RISK_OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(risk_report, f, indent=2, ensure_ascii=False)
 
-    return patient_case, report, rec_report, risk_report
+    # Generate patient similarity & case retrieval report
+    sample_file = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
+    historical_cases = []
+    if sample_file.exists():
+        with open(sample_file, "r", encoding="utf-8") as f:
+            historical_cases = json.load(f)
+
+    sim_report = find_similar_patient_cases(patient_case, historical_cases, top_k=3)
+    with open(SIMILARITY_OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(sim_report, f, indent=2, ensure_ascii=False)
+
+    return patient_case, report, rec_report, risk_report, sim_report
 
 
 def main():
@@ -95,7 +114,7 @@ def main():
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
     input_file = args.input or (str(default_sample) if default_sample.exists() else None)
 
-    patient_case, report, rec_report, risk_report = run_pipeline(
+    patient_case, report, rec_report, risk_report, sim_report = run_pipeline(
         input_case_path=input_file,
         text_input=args.text,
         source=args.source,
@@ -110,6 +129,8 @@ def main():
         print(f"Explainability Report Saved: {EXPLAINABILITY_OUTPUT_FILE}")
     print(f"Clinical Recommendation Output Saved: {RECOMMENDATION_OUTPUT_FILE}")
     print(f"Longitudinal Risk Report Saved: {LONGITUDINAL_RISK_OUTPUT_FILE}")
+    print(f"Patient Similarity Report Saved: {SIMILARITY_OUTPUT_FILE}")
+
 
 
 
