@@ -19,6 +19,7 @@ from clinical_prediction_engine import predict_clinical_outcome, ClinicalPredict
 from eval_framework import run_full_benchmark_suite, MLEvaluationFramework
 from regimen_optimizer_engine import generate_personalized_regimen_report, RegimenOptimizerEngine
 from clinical_explainer_engine import AYUSHClinicalExplainerEngine
+from dataset_generator import AYUSHDatasetGeneratorEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -64,7 +65,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /predict-outcome",
                     "POST /evaluate-pipeline",
                     "POST /optimize-regimen",
-                    "POST /explain-case"
+                    "POST /explain-case",
+                    "POST /generate-dataset"
                 ]
             }).encode("utf-8"))
         else:
@@ -255,6 +257,14 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(explain_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/generate-dataset":
+            num_samples = payload.get("num_samples", 50)
+            generator = AYUSHDatasetGeneratorEngine()
+            stats = generator.generate_dataset(num_samples=num_samples)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(stats, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

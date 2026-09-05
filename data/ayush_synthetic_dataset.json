@@ -1,0 +1,2136 @@
+[
+  {
+    "patient": {
+      "patientId": "P1001",
+      "name": "Ananya Sharma",
+      "age": 58,
+      "gender": "Female",
+      "preferredLanguage": null
+    },
+    "visit": {
+      "visitId": null,
+      "date": null,
+      "department": null
+    },
+    "chiefComplaint": {
+      "complaints": [
+        {
+          "description": null,
+          "duration": null,
+          "onset": null
+        }
+      ]
+    },
+    "historyOfPresentIllness": [
+      {
+        "complaint": null,
+        "onset": null,
+        "duration": null,
+        "location": null,
+        "character": null,
+        "severity": null,
+        "radiation": null,
+        "aggravatingFactors": [],
+        "relievingFactors": [],
+        "associatedSymptoms": [],
+        "progression": null,
+        "rawStatement": "Patient reports joint stiffness and body ache. Taking light diet and resting."
+      }
+    ],
+    "pastMedicalHistory": [
+      {
+        "condition": null,
+        "since": null,
+        "status": null,
+        "details": null
+      }
+    ],
+    "medications": [
+      {
+        "name": "Light Diet And Resting",
+        "dose": null,
+        "frequency": "As directed",
+        "duration": null,
+        "source": "audio_transcript"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": null,
+        "reaction": null,
+        "source": null
+      }
+    ],
+    "familyHistory": [
+      {
+        "condition": null,
+        "relation": null,
+        "details": null
+      }
+    ],
+    "personalHistory": {
+      "diet": null,
+      "appetite": null,
+      "sleep": null,
+      "bowelHabits": null,
+      "urination": null,
+      "physicalActivity": null,
+      "substanceUse": []
+    },
+    "reviewOfSystems": {
+      "general": [],
+      "respiratory": [],
+      "cardiovascular": [],
+      "gastrointestinal": [],
+      "neurological": [],
+      "genitourinary": [],
+      "musculoskeletal": [],
+      "skin": [],
+      "other": []
+    },
+    "ayushAssessment": {
+      "dashavidhaPariksha": {
+        "prakriti": {
+          "value": "vata",
+          "evidence": [
+            {
+              "questionId": "prakriti_q01",
+              "answer": "Broad/heavy build",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "prakriti_q02",
+              "answer": "Usually warm or sensitive",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "prakriti_q03",
+              "answer": "Variable or irregular",
+              "source": "questionnaire",
+              "confidence": 0.95
+            },
+            {
+              "questionId": "prakriti_q04",
+              "answer": "Light or easily disturbed",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "prakriti_q05",
+              "answer": "I usually feel cold easily",
+              "source": "questionnaire",
+              "confidence": 0.85
+            },
+            {
+              "questionId": "prakriti_q06",
+              "answer": "Consistent and active",
+              "source": "questionnaire",
+              "confidence": 0.88
+            }
+          ],
+          "confidence": 0.509
+        },
+        "vikriti": {
+          "value": {
+            "current_changes": [],
+            "primary_concern": null,
+            "onset": null,
+            "progression": null
+          },
+          "evidence": [],
+          "confidence": null
+        },
+        "sara": {
+          "value": "insufficient",
+          "evidence": [
+            {
+              "questionId": "sara_q01",
+              "answer": "Good physical appearance",
+              "source": "questionnaire",
+              "confidence": 0.8
+            },
+            {
+              "questionId": "sara_q02",
+              "answer": "Strong tissue quality",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "sara_q03",
+              "answer": "Not sure",
+              "source": "questionnaire",
+              "confidence": 0.83
+            }
+          ],
+          "confidence": 0.83
+        },
+        "samhanana": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "samhanana_q01",
+              "answer": "Moderately built",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "samhanana_q02",
+              "answer": "Well developed",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "samhanana_q03",
+              "answer": "Yes",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.91
+        },
+        "pramana": {
+          "value": "mostly_balanced",
+          "evidence": [
+            {
+              "questionId": "pramana_q01",
+              "answer": "Height: 171 cm, Weight: 67 kg",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "pramana_q02",
+              "answer": "Mostly proportionate",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "pramana_q03",
+              "answer": "Other significant change",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": 0.86,
+          "measurements": "Height: 171 cm, Weight: 67 kg"
+        },
+        "satmya": {
+          "value": "well_tolerated",
+          "evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Low spicy food",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "satmya_q04",
+              "answer": "Mostly well",
+              "source": "questionnaire",
+              "confidence": 0.81
+            }
+          ],
+          "confidence": 0.81,
+          "dietary_evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Low spicy food",
+              "confidence": 0.82
+            }
+          ]
+        },
+        "sattva": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "sattva_q02",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "sattva_q03",
+              "answer": "Generally confident",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "sattva_q04",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.81
+            }
+          ],
+          "confidence": 0.85,
+          "free_text_evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "confidence": 0.92
+            }
+          ]
+        },
+        "aharaShakti": {
+          "value": "moderate",
+          "evidence": [
+            {
+              "questionId": "aharaShakti_q01",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "aharaShakti_q03",
+              "answer": "Good",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "aharaShakti_q04",
+              "answer": "Mostly regularly",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.91,
+          "free_text_evidence": [
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "confidence": 0.93
+            }
+          ]
+        },
+        "vyayamaShakti": {
+          "value": "moderate",
+          "evidence": [
+            {
+              "questionId": "vyayamaShakti_q01",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "source": "questionnaire",
+              "confidence": 0.83
+            },
+            {
+              "questionId": "vyayamaShakti_q03",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "vyayamaShakti_q04",
+              "answer": "Quickly",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.905,
+          "free_text_evidence": [
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "confidence": 0.83
+            }
+          ]
+        },
+        "vaya": {
+          "value": "middle_age",
+          "evidence": [
+            {
+              "questionId": "vaya_q01",
+              "answer": 58,
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q02",
+              "answer": "Middle age",
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q03",
+              "answer": "No major age-related changes",
+              "source": "questionnaire",
+              "confidence": 1.0
+            }
+          ],
+          "confidence": 1.0,
+          "age": 58.0,
+          "age_group": "middle_age",
+          "stage": "middle_age",
+          "age_evidence": 58,
+          "stage_evidence": "Middle age"
+        }
+      },
+      "agni": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      },
+      "koshtha": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      }
+    }
+  },
+  {
+    "patient": {
+      "patientId": "P1002",
+      "name": "Vikram Singh",
+      "age": 33,
+      "gender": "Male",
+      "preferredLanguage": null
+    },
+    "visit": {
+      "visitId": null,
+      "date": null,
+      "department": null
+    },
+    "chiefComplaint": {
+      "complaints": [
+        {
+          "description": "Skin Rash",
+          "duration": null,
+          "onset": null
+        }
+      ]
+    },
+    "historyOfPresentIllness": [
+      {
+        "complaint": "Skin Rash",
+        "onset": null,
+        "duration": null,
+        "location": null,
+        "character": null,
+        "severity": null,
+        "radiation": null,
+        "aggravatingFactors": [],
+        "relievingFactors": [],
+        "associatedSymptoms": [],
+        "progression": null,
+        "rawStatement": "Patient reports acidity, hyperacidity, and skin rash. Taking light diet and resting."
+      }
+    ],
+    "pastMedicalHistory": [
+      {
+        "condition": null,
+        "since": null,
+        "status": null,
+        "details": null
+      }
+    ],
+    "medications": [
+      {
+        "name": "Light Diet And Resting",
+        "dose": null,
+        "frequency": "As directed",
+        "duration": null,
+        "source": "audio_transcript"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": null,
+        "reaction": null,
+        "source": null
+      }
+    ],
+    "familyHistory": [
+      {
+        "condition": null,
+        "relation": null,
+        "details": null
+      }
+    ],
+    "personalHistory": {
+      "diet": null,
+      "appetite": null,
+      "sleep": null,
+      "bowelHabits": null,
+      "urination": null,
+      "physicalActivity": null,
+      "substanceUse": []
+    },
+    "reviewOfSystems": {
+      "general": [],
+      "respiratory": [],
+      "cardiovascular": [],
+      "gastrointestinal": [],
+      "neurological": [],
+      "genitourinary": [],
+      "musculoskeletal": [],
+      "skin": [],
+      "other": []
+    },
+    "ayushAssessment": {
+      "dashavidhaPariksha": {
+        "prakriti": {
+          "value": "pitta",
+          "evidence": [
+            {
+              "questionId": "prakriti_q01",
+              "answer": "Medium build",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "prakriti_q02",
+              "answer": "Usually warm or sensitive",
+              "source": "questionnaire",
+              "confidence": 0.95
+            },
+            {
+              "questionId": "prakriti_q03",
+              "answer": "Variable or irregular",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "prakriti_q04",
+              "answer": "Light or easily disturbed",
+              "source": "questionnaire",
+              "confidence": 0.97
+            },
+            {
+              "questionId": "prakriti_q05",
+              "answer": "No particular preference",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "prakriti_q06",
+              "answer": "Consistent and active",
+              "source": "questionnaire",
+              "confidence": 0.99
+            }
+          ],
+          "confidence": 0.605
+        },
+        "vikriti": {
+          "value": {
+            "current_changes": [],
+            "primary_concern": null,
+            "onset": null,
+            "progression": null
+          },
+          "evidence": [],
+          "confidence": null
+        },
+        "sara": {
+          "value": "insufficient",
+          "evidence": [
+            {
+              "questionId": "sara_q01",
+              "answer": "Good physical appearance",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "sara_q02",
+              "answer": "Moderate strength",
+              "source": "questionnaire",
+              "confidence": 0.83
+            },
+            {
+              "questionId": "sara_q03",
+              "answer": "Not sure",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": 0.86
+        },
+        "samhanana": {
+          "value": "moderate",
+          "evidence": [
+            {
+              "questionId": "samhanana_q01",
+              "answer": "Broad or heavily built",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "samhanana_q02",
+              "answer": "Moderately developed",
+              "source": "questionnaire",
+              "confidence": 0.84
+            },
+            {
+              "questionId": "samhanana_q03",
+              "answer": "No",
+              "source": "questionnaire",
+              "confidence": 0.88
+            }
+          ],
+          "confidence": 0.847
+        },
+        "pramana": {
+          "value": "balanced",
+          "evidence": [
+            {
+              "questionId": "pramana_q01",
+              "answer": "Height: 177 cm, Weight: 87 kg",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "pramana_q02",
+              "answer": "Generally proportionate",
+              "source": "questionnaire",
+              "confidence": 0.98
+            },
+            {
+              "questionId": "pramana_q03",
+              "answer": "Weight has increased",
+              "source": "questionnaire",
+              "confidence": 0.92
+            }
+          ],
+          "confidence": 0.95,
+          "measurements": "Height: 177 cm, Weight: 87 kg"
+        },
+        "satmya": {
+          "value": "well_tolerated",
+          "evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "satmya_q04",
+              "answer": "Mostly well",
+              "source": "questionnaire",
+              "confidence": 0.89
+            }
+          ],
+          "confidence": 0.89,
+          "dietary_evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Vegetarian diet",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "confidence": 0.92
+            }
+          ]
+        },
+        "sattva": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "sattva_q02",
+              "answer": "Generally confident",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "sattva_q03",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "sattva_q04",
+              "answer": "Usually calm and focused",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "confidence": 0.86
+            }
+          ]
+        },
+        "aharaShakti": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "aharaShakti_q01",
+              "answer": "Good",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Two full meals daily",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "aharaShakti_q03",
+              "answer": "Comfortable and satisfied",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "aharaShakti_q04",
+              "answer": "Mostly regularly",
+              "source": "questionnaire",
+              "confidence": 0.82
+            }
+          ],
+          "confidence": 0.847,
+          "free_text_evidence": [
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Two full meals daily",
+              "confidence": 0.92
+            }
+          ]
+        },
+        "vyayamaShakti": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "vyayamaShakti_q01",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "source": "questionnaire",
+              "confidence": 0.95
+            },
+            {
+              "questionId": "vyayamaShakti_q03",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "vyayamaShakti_q04",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.93
+            }
+          ],
+          "confidence": 0.94,
+          "free_text_evidence": [
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "confidence": 0.95
+            }
+          ]
+        },
+        "vaya": {
+          "value": "adulthood",
+          "evidence": [
+            {
+              "questionId": "vaya_q01",
+              "answer": 33,
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q02",
+              "answer": "Adulthood",
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q03",
+              "answer": "No major age-related changes",
+              "source": "questionnaire",
+              "confidence": 1.0
+            }
+          ],
+          "confidence": 1.0,
+          "age": 33.0,
+          "age_group": "adulthood",
+          "stage": "adulthood",
+          "age_evidence": 33,
+          "stage_evidence": "Adulthood"
+        }
+      },
+      "agni": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      },
+      "koshtha": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      }
+    }
+  },
+  {
+    "patient": {
+      "patientId": "P1003",
+      "name": "Vikram Joshi",
+      "age": 66,
+      "gender": "Female",
+      "preferredLanguage": null
+    },
+    "visit": {
+      "visitId": null,
+      "date": null,
+      "department": null
+    },
+    "chiefComplaint": {
+      "complaints": [
+        {
+          "description": "Headache, Fatigue",
+          "duration": "for 2 day",
+          "onset": null
+        }
+      ]
+    },
+    "historyOfPresentIllness": [
+      {
+        "complaint": "Headache, Fatigue",
+        "onset": null,
+        "duration": "for 2 day",
+        "location": "Head/General",
+        "character": "Dull/Aching",
+        "severity": null,
+        "radiation": null,
+        "aggravatingFactors": [
+          "Stress/Exertion"
+        ],
+        "relievingFactors": [
+          "Rest"
+        ],
+        "associatedSymptoms": [
+          "Fatigue"
+        ],
+        "progression": null,
+        "rawStatement": "Patient reports mild headache and fatigue for 2 days. Taking light diet and resting."
+      }
+    ],
+    "pastMedicalHistory": [
+      {
+        "condition": null,
+        "since": null,
+        "status": null,
+        "details": null
+      }
+    ],
+    "medications": [
+      {
+        "name": "Light Diet And Resting",
+        "dose": null,
+        "frequency": "As directed",
+        "duration": "for 2 day",
+        "source": "audio_transcript"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": null,
+        "reaction": null,
+        "source": null
+      }
+    ],
+    "familyHistory": [
+      {
+        "condition": null,
+        "relation": null,
+        "details": null
+      }
+    ],
+    "personalHistory": {
+      "diet": null,
+      "appetite": null,
+      "sleep": null,
+      "bowelHabits": null,
+      "urination": null,
+      "physicalActivity": null,
+      "substanceUse": []
+    },
+    "reviewOfSystems": {
+      "general": [
+        {
+          "symptom": "Fatigue/General weakness",
+          "status": "Present",
+          "details": "Reported in audio_transcript"
+        }
+      ],
+      "respiratory": [],
+      "cardiovascular": [],
+      "gastrointestinal": [],
+      "neurological": [
+        {
+          "symptom": "Headache/Dizziness",
+          "status": "Present",
+          "details": "Reported in audio_transcript"
+        }
+      ],
+      "genitourinary": [],
+      "musculoskeletal": [],
+      "skin": [],
+      "other": []
+    },
+    "ayushAssessment": {
+      "dashavidhaPariksha": {
+        "prakriti": {
+          "value": "kapha",
+          "evidence": [
+            {
+              "questionId": "prakriti_q01",
+              "answer": "Broad/heavy build",
+              "source": "questionnaire",
+              "confidence": 0.99
+            },
+            {
+              "questionId": "prakriti_q02",
+              "answer": "Usually soft/oily",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "prakriti_q03",
+              "answer": "Variable or irregular",
+              "source": "questionnaire",
+              "confidence": 0.99
+            },
+            {
+              "questionId": "prakriti_q04",
+              "answer": "Deep and prolonged",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "prakriti_q05",
+              "answer": "I generally tolerate cold well",
+              "source": "questionnaire",
+              "confidence": 0.98
+            },
+            {
+              "questionId": "prakriti_q06",
+              "answer": "Variable and quick bursts of activity",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": 0.497
+        },
+        "vikriti": {
+          "value": {
+            "current_changes": [
+              "Headache and fatigue for 2 days"
+            ],
+            "primary_concern": null,
+            "onset": null,
+            "progression": null
+          },
+          "evidence": [
+            {
+              "questionId": "vikriti_q01",
+              "answer": "Headache and fatigue for 2 days",
+              "source": "audio_transcript",
+              "confidence": 0.88
+            }
+          ],
+          "confidence": 0.88
+        },
+        "sara": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "sara_q01",
+              "answer": "Moderate strength",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "sara_q02",
+              "answer": "Good physical appearance",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "sara_q03",
+              "answer": "Mostly",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.9
+        },
+        "samhanana": {
+          "value": "weak",
+          "evidence": [
+            {
+              "questionId": "samhanana_q01",
+              "answer": "Thin or lightly built",
+              "source": "questionnaire",
+              "confidence": 0.84
+            },
+            {
+              "questionId": "samhanana_q02",
+              "answer": "Variable",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "samhanana_q03",
+              "answer": "No",
+              "source": "questionnaire",
+              "confidence": 0.91
+            }
+          ],
+          "confidence": 0.897
+        },
+        "pramana": {
+          "value": "somewhat_unbalanced",
+          "evidence": [
+            {
+              "questionId": "pramana_q01",
+              "answer": "Height: 162 cm, Weight: 69 kg",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "pramana_q02",
+              "answer": "Somewhat disproportionate",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "pramana_q03",
+              "answer": "Other significant change",
+              "source": "questionnaire",
+              "confidence": 0.97
+            }
+          ],
+          "confidence": 0.95,
+          "measurements": "Height: 162 cm, Weight: 69 kg"
+        },
+        "satmya": {
+          "value": "well_tolerated",
+          "evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "satmya_q04",
+              "answer": "Very well",
+              "source": "questionnaire",
+              "confidence": 0.89
+            }
+          ],
+          "confidence": 0.89,
+          "dietary_evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "confidence": 0.89
+            }
+          ]
+        },
+        "sattva": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "I practice meditation and stay calm",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "sattva_q02",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "sattva_q03",
+              "answer": "Usually calm and focused",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "sattva_q04",
+              "answer": "Generally confident",
+              "source": "questionnaire",
+              "confidence": 0.81
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "I practice meditation and stay calm",
+              "confidence": 0.81
+            }
+          ]
+        },
+        "aharaShakti": {
+          "value": "moderate",
+          "evidence": [
+            {
+              "questionId": "aharaShakti_q01",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.84
+            },
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Two full meals daily",
+              "source": "questionnaire",
+              "confidence": 0.83
+            },
+            {
+              "questionId": "aharaShakti_q03",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.91
+            },
+            {
+              "questionId": "aharaShakti_q04",
+              "answer": "Mostly regularly",
+              "source": "questionnaire",
+              "confidence": 0.84
+            }
+          ],
+          "confidence": 0.84,
+          "free_text_evidence": [
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Two full meals daily",
+              "confidence": 0.83
+            }
+          ]
+        },
+        "vyayamaShakti": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "vyayamaShakti_q01",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "30 minutes daily walk",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "vyayamaShakti_q03",
+              "answer": "Quickly",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "vyayamaShakti_q04",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "30 minutes daily walk",
+              "confidence": 0.81
+            }
+          ]
+        },
+        "vaya": {
+          "value": "older_adulthood",
+          "evidence": [
+            {
+              "questionId": "vaya_q01",
+              "answer": 66,
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q02",
+              "answer": "Older adulthood",
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q03",
+              "answer": "No major age-related changes",
+              "source": "questionnaire",
+              "confidence": 1.0
+            }
+          ],
+          "confidence": 1.0,
+          "age": 66.0,
+          "age_group": "older_adulthood",
+          "stage": "older_adulthood",
+          "age_evidence": 66,
+          "stage_evidence": "Older adulthood"
+        }
+      },
+      "agni": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      },
+      "koshtha": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      }
+    }
+  },
+  {
+    "patient": {
+      "patientId": "P1004",
+      "name": "Sneha Verma",
+      "age": 64,
+      "gender": "Male",
+      "preferredLanguage": null
+    },
+    "visit": {
+      "visitId": null,
+      "date": null,
+      "department": null
+    },
+    "chiefComplaint": {
+      "complaints": [
+        {
+          "description": "Cough",
+          "duration": null,
+          "onset": null
+        }
+      ]
+    },
+    "historyOfPresentIllness": [
+      {
+        "complaint": "Cough",
+        "onset": null,
+        "duration": null,
+        "location": null,
+        "character": null,
+        "severity": null,
+        "radiation": null,
+        "aggravatingFactors": [],
+        "relievingFactors": [],
+        "associatedSymptoms": [],
+        "progression": null,
+        "rawStatement": "Patient reports heaviness in chest, lethargy, and cough. Taking light diet and resting."
+      }
+    ],
+    "pastMedicalHistory": [
+      {
+        "condition": null,
+        "since": null,
+        "status": null,
+        "details": null
+      }
+    ],
+    "medications": [
+      {
+        "name": "Light Diet And Resting",
+        "dose": null,
+        "frequency": "As directed",
+        "duration": null,
+        "source": "audio_transcript"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": null,
+        "reaction": null,
+        "source": null
+      }
+    ],
+    "familyHistory": [
+      {
+        "condition": null,
+        "relation": null,
+        "details": null
+      }
+    ],
+    "personalHistory": {
+      "diet": null,
+      "appetite": null,
+      "sleep": null,
+      "bowelHabits": null,
+      "urination": null,
+      "physicalActivity": null,
+      "substanceUse": []
+    },
+    "reviewOfSystems": {
+      "general": [],
+      "respiratory": [],
+      "cardiovascular": [],
+      "gastrointestinal": [],
+      "neurological": [],
+      "genitourinary": [],
+      "musculoskeletal": [],
+      "skin": [],
+      "other": []
+    },
+    "ayushAssessment": {
+      "dashavidhaPariksha": {
+        "prakriti": {
+          "value": "vata",
+          "evidence": [
+            {
+              "questionId": "prakriti_q01",
+              "answer": "Thin/light build",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "prakriti_q02",
+              "answer": "Mixed or variable",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "prakriti_q03",
+              "answer": "Strong and regular",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "prakriti_q04",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.98
+            },
+            {
+              "questionId": "prakriti_q05",
+              "answer": "I usually feel cold easily",
+              "source": "questionnaire",
+              "confidence": 0.92
+            },
+            {
+              "questionId": "prakriti_q06",
+              "answer": "Variable and quick bursts of activity",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": 0.587
+        },
+        "vikriti": {
+          "value": {
+            "current_changes": [],
+            "primary_concern": null,
+            "onset": null,
+            "progression": null
+          },
+          "evidence": [],
+          "confidence": null
+        },
+        "sara": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "sara_q01",
+              "answer": "Good physical appearance",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "sara_q02",
+              "answer": "Strong tissue quality",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "sara_q03",
+              "answer": "Mostly",
+              "source": "questionnaire",
+              "confidence": 0.82
+            }
+          ],
+          "confidence": 0.82
+        },
+        "samhanana": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "samhanana_q01",
+              "answer": "Broad or heavily built",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "samhanana_q02",
+              "answer": "Variable",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "samhanana_q03",
+              "answer": "Yes",
+              "source": "questionnaire",
+              "confidence": 0.86
+            }
+          ],
+          "confidence": 0.89
+        },
+        "pramana": {
+          "value": "mostly_balanced",
+          "evidence": [
+            {
+              "questionId": "pramana_q01",
+              "answer": "Height: 174 cm, Weight: 66 kg",
+              "source": "questionnaire",
+              "confidence": 0.97
+            },
+            {
+              "questionId": "pramana_q02",
+              "answer": "Mostly proportionate",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "pramana_q03",
+              "answer": "Other significant change",
+              "source": "questionnaire",
+              "confidence": 0.87
+            }
+          ],
+          "confidence": 0.88,
+          "measurements": "Height: 174 cm, Weight: 66 kg"
+        },
+        "satmya": {
+          "value": "well_tolerated",
+          "evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "source": "questionnaire",
+              "confidence": 0.83
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Low spicy food",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "satmya_q04",
+              "answer": "Mostly well",
+              "source": "questionnaire",
+              "confidence": 0.81
+            }
+          ],
+          "confidence": 0.81,
+          "dietary_evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Balanced home-cooked meals",
+              "confidence": 0.83
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Vegetarian diet",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Low spicy food",
+              "confidence": 0.81
+            }
+          ]
+        },
+        "sattva": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "sattva_q02",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "sattva_q03",
+              "answer": "Rarely",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "sattva_q04",
+              "answer": "Usually calm and focused",
+              "source": "questionnaire",
+              "confidence": 0.81
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "Focus on problem solving",
+              "confidence": 0.88
+            }
+          ]
+        },
+        "aharaShakti": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "aharaShakti_q01",
+              "answer": "Good",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "aharaShakti_q03",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.89
+            },
+            {
+              "questionId": "aharaShakti_q04",
+              "answer": "Good",
+              "source": "questionnaire",
+              "confidence": 0.89
+            }
+          ],
+          "confidence": 0.9,
+          "free_text_evidence": [
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "confidence": 0.86
+            }
+          ]
+        },
+        "vyayamaShakti": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "vyayamaShakti_q01",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "vyayamaShakti_q03",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "vyayamaShakti_q04",
+              "answer": "Mildly tired but recover quickly",
+              "source": "questionnaire",
+              "confidence": 0.84
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "45 minutes light exercise",
+              "confidence": 0.94
+            }
+          ]
+        },
+        "vaya": {
+          "value": "middle_age",
+          "evidence": [
+            {
+              "questionId": "vaya_q01",
+              "answer": 64,
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q02",
+              "answer": "Middle age",
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q03",
+              "answer": "No major age-related changes",
+              "source": "questionnaire",
+              "confidence": 1.0
+            }
+          ],
+          "confidence": 1.0,
+          "age": 64.0,
+          "age_group": "older_adulthood",
+          "stage": "middle_age",
+          "age_evidence": 64,
+          "stage_evidence": "Middle age"
+        }
+      },
+      "agni": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      },
+      "koshtha": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      }
+    }
+  },
+  {
+    "patient": {
+      "patientId": "P1005",
+      "name": "Pooja Nair",
+      "age": 37,
+      "gender": "Female",
+      "preferredLanguage": null
+    },
+    "visit": {
+      "visitId": null,
+      "date": null,
+      "department": null
+    },
+    "chiefComplaint": {
+      "complaints": [
+        {
+          "description": "Headache, Fatigue",
+          "duration": "for 2 day",
+          "onset": null
+        }
+      ]
+    },
+    "historyOfPresentIllness": [
+      {
+        "complaint": "Headache, Fatigue",
+        "onset": null,
+        "duration": "for 2 day",
+        "location": "Head/General",
+        "character": "Dull/Aching",
+        "severity": null,
+        "radiation": null,
+        "aggravatingFactors": [
+          "Stress/Exertion"
+        ],
+        "relievingFactors": [
+          "Rest"
+        ],
+        "associatedSymptoms": [
+          "Fatigue"
+        ],
+        "progression": null,
+        "rawStatement": "Patient reports mild headache and fatigue for 2 days. Taking light diet and resting."
+      }
+    ],
+    "pastMedicalHistory": [
+      {
+        "condition": null,
+        "since": null,
+        "status": null,
+        "details": null
+      }
+    ],
+    "medications": [
+      {
+        "name": "Light Diet And Resting",
+        "dose": null,
+        "frequency": "As directed",
+        "duration": "for 2 day",
+        "source": "text"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": null,
+        "reaction": null,
+        "source": null
+      }
+    ],
+    "familyHistory": [
+      {
+        "condition": null,
+        "relation": null,
+        "details": null
+      }
+    ],
+    "personalHistory": {
+      "diet": null,
+      "appetite": null,
+      "sleep": null,
+      "bowelHabits": null,
+      "urination": null,
+      "physicalActivity": null,
+      "substanceUse": []
+    },
+    "reviewOfSystems": {
+      "general": [
+        {
+          "symptom": "Fatigue/General weakness",
+          "status": "Present",
+          "details": "Reported in text"
+        }
+      ],
+      "respiratory": [],
+      "cardiovascular": [],
+      "gastrointestinal": [],
+      "neurological": [
+        {
+          "symptom": "Headache/Dizziness",
+          "status": "Present",
+          "details": "Reported in text"
+        }
+      ],
+      "genitourinary": [],
+      "musculoskeletal": [],
+      "skin": [],
+      "other": []
+    },
+    "ayushAssessment": {
+      "dashavidhaPariksha": {
+        "prakriti": {
+          "value": "vata",
+          "evidence": [
+            {
+              "questionId": "prakriti_q01",
+              "answer": "Thin/light build",
+              "source": "questionnaire",
+              "confidence": 0.85
+            },
+            {
+              "questionId": "prakriti_q02",
+              "answer": "Usually dry",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "prakriti_q03",
+              "answer": "Strong and regular",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "prakriti_q04",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.99
+            },
+            {
+              "questionId": "prakriti_q05",
+              "answer": "I usually feel cold easily",
+              "source": "questionnaire",
+              "confidence": 0.98
+            },
+            {
+              "questionId": "prakriti_q06",
+              "answer": "Steady but slower-paced",
+              "source": "questionnaire",
+              "confidence": 0.89
+            }
+          ],
+          "confidence": 0.489
+        },
+        "vikriti": {
+          "value": {
+            "current_changes": [
+              "Headache and fatigue for 2 days"
+            ],
+            "primary_concern": null,
+            "onset": null,
+            "progression": null
+          },
+          "evidence": [
+            {
+              "questionId": "vikriti_q01",
+              "answer": "Headache and fatigue for 2 days",
+              "source": "text",
+              "confidence": 0.94
+            }
+          ],
+          "confidence": 0.94
+        },
+        "sara": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "sara_q01",
+              "answer": "Moderate strength",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "sara_q02",
+              "answer": "Good physical appearance",
+              "source": "questionnaire",
+              "confidence": 0.85
+            },
+            {
+              "questionId": "sara_q03",
+              "answer": "Yes",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.9
+        },
+        "samhanana": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "samhanana_q01",
+              "answer": "Moderately built",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "samhanana_q02",
+              "answer": "Well developed",
+              "source": "questionnaire",
+              "confidence": 0.94
+            },
+            {
+              "questionId": "samhanana_q03",
+              "answer": "Yes",
+              "source": "questionnaire",
+              "confidence": 0.84
+            }
+          ],
+          "confidence": 0.907
+        },
+        "pramana": {
+          "value": "mostly_balanced",
+          "evidence": [
+            {
+              "questionId": "pramana_q01",
+              "answer": "Height: 156 cm, Weight: 85 kg",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "pramana_q02",
+              "answer": "Mostly proportionate",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "pramana_q03",
+              "answer": "Weight has decreased",
+              "source": "questionnaire",
+              "confidence": 0.88
+            }
+          ],
+          "confidence": 0.905,
+          "measurements": "Height: 156 cm, Weight: 85 kg"
+        },
+        "satmya": {
+          "value": "well_tolerated",
+          "evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Low spicy food",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Low spicy food",
+              "source": "questionnaire",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "satmya_q04",
+              "answer": "Mostly well",
+              "source": "questionnaire",
+              "confidence": 0.92
+            }
+          ],
+          "confidence": 0.92,
+          "dietary_evidence": [
+            {
+              "questionId": "satmya_q01",
+              "answer": "Low spicy food",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "satmya_q02",
+              "answer": "Low spicy food",
+              "confidence": 0.87
+            },
+            {
+              "questionId": "satmya_q03",
+              "answer": "Vegetarian diet",
+              "confidence": 0.81
+            }
+          ]
+        },
+        "sattva": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "I practice meditation and stay calm",
+              "source": "questionnaire",
+              "confidence": 0.8
+            },
+            {
+              "questionId": "sattva_q02",
+              "answer": "Usually calm and focused",
+              "source": "questionnaire",
+              "confidence": 0.9
+            },
+            {
+              "questionId": "sattva_q03",
+              "answer": "Generally confident",
+              "source": "questionnaire",
+              "confidence": 0.82
+            },
+            {
+              "questionId": "sattva_q04",
+              "answer": "Generally confident",
+              "source": "questionnaire",
+              "confidence": 0.88
+            }
+          ],
+          "confidence": 0.86,
+          "free_text_evidence": [
+            {
+              "questionId": "sattva_q01",
+              "answer": "I practice meditation and stay calm",
+              "confidence": 0.8
+            }
+          ]
+        },
+        "aharaShakti": {
+          "value": null,
+          "evidence": [
+            {
+              "questionId": "aharaShakti_q01",
+              "answer": "Mostly regularly",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "source": "questionnaire",
+              "confidence": 0.81
+            },
+            {
+              "questionId": "aharaShakti_q03",
+              "answer": "Moderate",
+              "source": "questionnaire",
+              "confidence": 0.88
+            },
+            {
+              "questionId": "aharaShakti_q04",
+              "answer": "Comfortable and satisfied",
+              "source": "questionnaire",
+              "confidence": 0.89
+            }
+          ],
+          "confidence": null,
+          "free_text_evidence": [
+            {
+              "questionId": "aharaShakti_q02",
+              "answer": "Normal meal size",
+              "confidence": 0.81
+            }
+          ]
+        },
+        "vyayamaShakti": {
+          "value": "strong",
+          "evidence": [
+            {
+              "questionId": "vyayamaShakti_q01",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.86
+            },
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "30 minutes daily walk",
+              "source": "questionnaire",
+              "confidence": 0.85
+            },
+            {
+              "questionId": "vyayamaShakti_q03",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.93
+            },
+            {
+              "questionId": "vyayamaShakti_q04",
+              "answer": "Moderately active",
+              "source": "questionnaire",
+              "confidence": 0.9
+            }
+          ],
+          "confidence": 0.86,
+          "free_text_evidence": [
+            {
+              "questionId": "vyayamaShakti_q02",
+              "answer": "30 minutes daily walk",
+              "confidence": 0.85
+            }
+          ]
+        },
+        "vaya": {
+          "value": "adulthood",
+          "evidence": [
+            {
+              "questionId": "vaya_q01",
+              "answer": 37,
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q02",
+              "answer": "Adulthood",
+              "source": "questionnaire",
+              "confidence": 1.0
+            },
+            {
+              "questionId": "vaya_q03",
+              "answer": "No major age-related changes",
+              "source": "questionnaire",
+              "confidence": 1.0
+            }
+          ],
+          "confidence": 1.0,
+          "age": 37.0,
+          "age_group": "adulthood",
+          "stage": "adulthood",
+          "age_evidence": 37,
+          "stage_evidence": "Adulthood"
+        }
+      },
+      "agni": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      },
+      "koshtha": {
+        "value": null,
+        "evidence": [],
+        "confidence": null
+      }
+    }
+  }
+]

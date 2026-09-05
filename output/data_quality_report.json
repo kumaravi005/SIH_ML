@@ -8,16 +8,14 @@
     ]
   },
   "data_integrity": {
-    "data_integrity_score": 40.0,
-    "quality_grade": "Requires Verification",
-    "parameter_completeness_percent": 0.0,
-    "assessed_parameters_count": 0,
-    "deductions_breakdown": [
-      "Missing 10 parameters: -60.0 pts"
-    ]
+    "data_integrity_score": 100.0,
+    "quality_grade": "Excellent",
+    "parameter_completeness_percent": 100.0,
+    "assessed_parameters_count": 10,
+    "deductions_breakdown": []
   },
   "consistency_warnings": [],
   "evidence_source_conflicts": [],
-  "is_valid_for_clinical_use": false,
-  "timestamp": "2026-09-06T02:21:06.316890"
+  "is_valid_for_clinical_use": true,
+  "timestamp": "2026-09-06T04:17:26.535493"
 }

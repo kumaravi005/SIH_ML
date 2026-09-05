@@ -147,11 +147,12 @@ class DataQualityEngine:
         Generates full Data Quality & Anomaly Validation Report.
         """
         ayush = patient_case.get("ayushAssessment", {}) or patient_case.get("ayush_assessment", {})
+        dashavidha = ayush.get("dashavidhaPariksha", ayush)
         evidence = patient_case.get("clinical_evidence")
 
-        warnings = self.check_inter_parameter_consistency(ayush)
+        warnings = self.check_inter_parameter_consistency(dashavidha)
         conflicts = self.check_evidence_source_conflicts(patient_case)
-        integrity = self.compute_data_integrity_score(ayush, evidence)
+        integrity = self.compute_data_integrity_score(dashavidha, evidence)
 
         patient_id = patient_case.get("patient_id") or patient_case.get("patient", {}).get("id") or "UNKNOWN"
 

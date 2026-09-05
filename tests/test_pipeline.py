@@ -480,6 +480,32 @@ class TestAYUSHMLPipeline(unittest.TestCase):
             server.shutdown()
             server.server_close()
 
+    def test_generate_dataset_api_endpoint(self):
+        import threading
+        import time
+        from api import HealthcareMLRequestHandler
+        from http.server import HTTPServer
+
+        server = HTTPServer(("127.0.0.1", 8097), HealthcareMLRequestHandler)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.daemon = True
+        thread.start()
+        time.sleep(0.1)
+
+        try:
+            req = urllib.request.Request(
+                "http://127.0.0.1:8097/generate-dataset",
+                data=json.dumps({"num_samples": 5}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertEqual(data["total_generated"], 5)
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()
