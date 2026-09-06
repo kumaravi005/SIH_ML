@@ -183,6 +183,7 @@ def main():
     parser.add_argument("--predict-prakriti-ml", action="store_true", help="Run Section 14 final ML model inference on patient case")
     parser.add_argument("--monitor-drift", action="store_true", help="Run Section 15 data drift & distribution shift monitoring against N=500 baseline")
     parser.add_argument("--validate-clinical-expert", action="store_true", help="Run Section 16 independent real-world / expert validation & clinical evaluation audit")
+    parser.add_argument("--validate-governance-safety", action="store_true", help="Run Section 17 clinical validation evidence, model governance & production safety audit")
 
     args = parser.parse_args()
 
@@ -277,6 +278,15 @@ def main():
         val_report = engine.run_full_clinical_validation()
         print("Clinical Validation complete!")
         print(json.dumps(val_report["overall_agreement_metrics"], indent=2))
+        return
+
+    if args.validate_governance_safety:
+        from governance_safety_engine import AYUSHGovernanceSafetyEngine
+        print("Executing Section 17 Clinical Validation Evidence, Model Governance & Production Safety Audit...")
+        engine = AYUSHGovernanceSafetyEngine()
+        gov_report = engine.run_full_governance_safety_audit()
+        print("Governance & Production Safety Audit complete!")
+        print(json.dumps(gov_report["calibration_reliability_analysis"], indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"

@@ -90,7 +90,11 @@ class AYUSHClinicalValidationEngine:
         cases = []
         if self.expert_cases_path.exists():
             with open(self.expert_cases_path, "r", encoding="utf-8") as f:
-                cases = json.load(f)
+                data = json.load(f)
+                if isinstance(data, list):
+                    cases = data
+                elif isinstance(data, dict):
+                    cases = data.get("expert_benchmark_cases", [])
 
         if len(cases) < min_samples:
             # Generate additional benchmark cases grounded in clinical rules (seed=555 for expert benchmark)

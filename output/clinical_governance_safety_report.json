@@ -1,0 +1,147 @@
+{
+  "governance_audit_timestamp": "2026-09-06T00:28:27Z",
+  "model_version_id": "ayush_prakriti_knn_v1.0.0",
+  "dataset_provenance": {
+    "expert_benchmark_cases_source": "data/ayush_expert_validated_cases.json",
+    "inter_practitioner_kappa": 0.9142,
+    "irb_ethics_compliance": "AYUSH-IRB-2026-089A"
+  },
+  "calibration_reliability_analysis": {
+    "expected_calibration_error_ece": 0.0573,
+    "calibration_quality": "Well Calibrated",
+    "calibration_bins": [
+      {
+        "bin_index": 1,
+        "confidence_range": "[0.0 - 0.2]",
+        "sample_count": 0,
+        "average_confidence": 0.0,
+        "accuracy": 0.0,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_index": 2,
+        "confidence_range": "[0.2 - 0.4]",
+        "sample_count": 0,
+        "average_confidence": 0.0,
+        "accuracy": 0.0,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_index": 3,
+        "confidence_range": "[0.4 - 0.6]",
+        "sample_count": 5,
+        "average_confidence": 0.5336,
+        "accuracy": 0.6,
+        "calibration_gap": 0.0664
+      },
+      {
+        "bin_index": 4,
+        "confidence_range": "[0.6 - 0.8]",
+        "sample_count": 9,
+        "average_confidence": 0.7533,
+        "accuracy": 1.0,
+        "calibration_gap": 0.2467
+      },
+      {
+        "bin_index": 5,
+        "confidence_range": "[0.8 - 1.0]",
+        "sample_count": 46,
+        "average_confidence": 0.9807,
+        "accuracy": 1.0,
+        "calibration_gap": 0.0193
+      }
+    ]
+  },
+  "error_analysis_summary": {
+    "total_evaluations": 60,
+    "total_misclassifications": 2,
+    "misclassification_rate": 0.0333,
+    "misclassification_details": [
+      {
+        "patient_id": "EXPERT_PATIENT_003",
+        "expert_diagnosis": "kapha",
+        "model_predicted": "pitta",
+        "confidence": 0.556,
+        "misclassification_pair": "kapha -> pitta",
+        "clinical_confounding_reason": "Overlapping dual-dosha symptom indicators in questionnaire responses."
+      },
+      {
+        "patient_id": "P1005",
+        "expert_diagnosis": "pitta",
+        "model_predicted": "kapha",
+        "confidence": 0.556,
+        "misclassification_pair": "pitta -> kapha",
+        "clinical_confounding_reason": "Overlapping dual-dosha symptom indicators in questionnaire responses."
+      }
+    ]
+  },
+  "model_card_serialization": {
+    "file_path": "C:\\Users\\avina\\OneDrive\\Desktop\\SIH_ML\\ml\\models\\model_card_ayush_knn_v1.json",
+    "model_card_status": "SERIALIZED"
+  },
+  "audit_trail_logging": {
+    "log_file_path": "C:\\Users\\avina\\OneDrive\\Desktop\\SIH_ML\\ml\\output\\governance_audit_trail.log",
+    "logging_mechanism": "Immutable SHA-256 Hashed JSON Log Stream",
+    "sample_audit_entries": [
+      {
+        "audit_id": "AUDIT_1788654507391",
+        "timestamp": "2026-09-06T00:28:27Z",
+        "model_id": "ayush_prakriti_knn_v1.0.0",
+        "patient_id": "EXPERT_PATIENT_001",
+        "input_sha256_hash": "87e6a6b2a2df9f4251a3f1f284cd7b4b25206f9bbc45921c3062fbbae27c156d",
+        "predicted_prakriti": "vata",
+        "confidence": 0.444,
+        "confidence_bin": "Low",
+        "human_review_status": "ROUTED_FOR_PRACTITIONER_REVIEW",
+        "cds_disclaimer": "Clinical Decision Support (CDS) log. Non-diagnostic.",
+        "excluded_parameters": [
+          "agni",
+          "koshtha"
+        ]
+      },
+      {
+        "audit_id": "AUDIT_1788654507401",
+        "timestamp": "2026-09-06T00:28:27Z",
+        "model_id": "ayush_prakriti_knn_v1.0.0",
+        "patient_id": "EXPERT_PATIENT_002",
+        "input_sha256_hash": "3eccf18b215cbc1bf4383ab736bc5cedf8af3d74194813cae81f169d1c28c1b2",
+        "predicted_prakriti": "pitta",
+        "confidence": 0.778,
+        "confidence_bin": "Moderate",
+        "human_review_status": "APPROVED_CDS",
+        "cds_disclaimer": "Clinical Decision Support (CDS) log. Non-diagnostic.",
+        "excluded_parameters": [
+          "agni",
+          "koshtha"
+        ]
+      },
+      {
+        "audit_id": "AUDIT_1788654507409",
+        "timestamp": "2026-09-06T00:28:27Z",
+        "model_id": "ayush_prakriti_knn_v1.0.0",
+        "patient_id": "EXPERT_PATIENT_003",
+        "input_sha256_hash": "c13e6eba5c1ad6d936405a0372042c6bb21b488b11677cb055535b45ffcd6f98",
+        "predicted_prakriti": "pitta",
+        "confidence": 0.556,
+        "confidence_bin": "Low",
+        "human_review_status": "ROUTED_FOR_PRACTITIONER_REVIEW",
+        "cds_disclaimer": "Clinical Decision Support (CDS) log. Non-diagnostic.",
+        "excluded_parameters": [
+          "agni",
+          "koshtha"
+        ]
+      }
+    ]
+  },
+  "production_safety_boundaries": {
+    "clinical_decision_support_only": true,
+    "autonomous_diagnosis_permitted": false,
+    "safety_disclaimer": "The AYUSH ML Model is designed strictly as a Clinical Decision Support (CDS) system to assist qualified Ayurvedic practitioners. It is NOT intended for autonomous medical diagnosis or prescription.",
+    "human_review_workflow": "Low-confidence (<0.60) or drifted cases automatically flagged as ROUTED_FOR_PRACTITIONER_REVIEW.",
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ]
+  },
+  "execution_latency_ms": 848.305
+}

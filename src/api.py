@@ -25,6 +25,7 @@ from advanced_ml_engine import AYUSHAdvancedMLEngine
 from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
 from model_serving_drift_engine import AYUSHModelServingDriftEngine
 from clinical_validation_engine import AYUSHClinicalValidationEngine
+from governance_safety_engine import AYUSHGovernanceSafetyEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -332,6 +333,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                 )
 
             pred_res = engine.predict_with_explanation(patient_case)
+            
+            # Log prediction to immutable governance audit trail
+            try:
+                gov_engine = AYUSHGovernanceSafetyEngine()
+                gov_engine.log_prediction_audit(patient_case, pred_res)
+            except Exception as e:
+                print(f"[Warning] Failed to write governance audit log: {e}")
 
             self._set_headers(200)
             self.wfile.write(json.dumps(pred_res, ensure_ascii=False).encode("utf-8"))
@@ -355,6 +363,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(val_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/validate-governance-safety":
+            engine = AYUSHGovernanceSafetyEngine()
+            gov_report = engine.run_full_governance_safety_audit()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(gov_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

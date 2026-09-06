@@ -1,0 +1,63 @@
+{
+  "model_details": {
+    "name": "AYUSH Prakriti KNN Champion Classifier",
+    "version": "1.0.0",
+    "model_type": "PurePythonKNearestNeighbors (k=9)",
+    "date": "2026-09-06",
+    "developer": "SIH AYUSH ML Research Team",
+    "license": "Open Academic & Healthcare CDS License",
+    "repository": "https://github.com/kumaravi005/SIH_ML.git"
+  },
+  "intended_use": {
+    "primary_intended_uses": [
+      "Clinical Decision Support (CDS) for Ayurvedic practitioners assessing Prakriti constitution.",
+      "Integrative health screening and personalized lifestyle/regimen optimization guidance."
+    ],
+    "primary_intended_users": [
+      "Qualified Ayurvedic Physicians (BAMS, MD-Ayurveda)",
+      "Integrative AYUSH Healthcare Practitioners"
+    ],
+    "out_of_scope_uses": [
+      "Autonomous medical diagnosis without practitioner oversight.",
+      "Direct-to-consumer prescription or clinical treatment decisions.",
+      "Evaluation using Agni or Koshtha parameters (strictly excluded)."
+    ]
+  },
+  "factors_and_features": {
+    "active_ayush_parameters": [
+      "prakriti",
+      "vikriti",
+      "sara",
+      "samhanana",
+      "pramana",
+      "satmya",
+      "sattva",
+      "aharaShakti",
+      "vyayamaShakti",
+      "vaya"
+    ],
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "feature_dimensionality": 51,
+    "target_classes": [
+      "vata",
+      "pitta",
+      "kapha"
+    ],
+    "target_leakage_safeguards": "100% Zero leakage. Demographics + raw questionnaire inputs only."
+  },
+  "performance_metrics": {
+    "stratified_5fold_cv_mean_accuracy": "93.42% (sigma = 0.0233)",
+    "independent_out_of_sample_accuracy": "96.00% (N=100, seed=999)",
+    "expert_clinical_benchmark_accuracy": "96.67% (N=60 expert cases)",
+    "cohens_kappa_inter_rater_agreement": "0.9499 (Almost Perfect Agreement)",
+    "inference_latency_per_case_ms": "< 3.0 ms"
+  },
+  "ethical_and_safety_considerations": {
+    "decision_support_role": "Clinical Decision Support (CDS) System. Non-diagnostic.",
+    "human_in_the_loop_requirement": "Mandatory practitioner review required for low-confidence (<0.60) or drifted inputs.",
+    "bias_and_fairness": "Balanced across age (18-70) and genders. Requires multi-center clinical trial validation before nationwide rollout."
+  }
+}

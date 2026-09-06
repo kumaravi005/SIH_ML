@@ -43,6 +43,7 @@ from .ml_robustness_engine import AYUSHMLRobustnessEngine
 from .final_model_trainer import AYUSHFinalModelTrainer
 from .model_serving_drift_engine import AYUSHModelServingDriftEngine
 from .clinical_validation_engine import AYUSHClinicalValidationEngine
+from .governance_safety_engine import AYUSHGovernanceSafetyEngine
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -82,6 +83,7 @@ __all__ = [
     "AYUSHFinalModelTrainer",
     "AYUSHModelServingDriftEngine",
     "AYUSHClinicalValidationEngine",
+    "AYUSHGovernanceSafetyEngine",
     "LLMClinicalExtractor"
 ]
 
