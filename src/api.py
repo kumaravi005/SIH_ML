@@ -29,6 +29,9 @@ from governance_safety_engine import AYUSHGovernanceSafetyEngine
 from conversational_intake_engine import AYUSHConversationalIntakeEngine
 from physician_review_engine import AYUSHPhysicianReviewEngine
 
+GLOBAL_INTAKE_ENGINE = AYUSHConversationalIntakeEngine()
+GLOBAL_REVIEW_ENGINE = AYUSHPhysicianReviewEngine(intake_engine=GLOBAL_INTAKE_ENGINE)
+
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
     """
@@ -83,9 +86,8 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
         elif self.path.startswith("/intake/session/"):
             session_id = self.path.split("/intake/session/")[-1]
             try:
-                engine = AYUSHConversationalIntakeEngine()
-                if session_id in engine.sessions:
-                    state = engine.sessions[session_id]
+                if session_id in GLOBAL_INTAKE_ENGINE.sessions:
+                    state = GLOBAL_INTAKE_ENGINE.sessions[session_id]
                     self._set_headers(200)
                     self.wfile.write(json.dumps(state, ensure_ascii=False).encode("utf-8"))
                 else:
@@ -101,19 +103,17 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             summary_id = parts[1] if len(parts) > 1 else None
             sub_action = parts[2] if len(parts) > 2 else None
 
-            rev_engine = AYUSHPhysicianReviewEngine()
-            if not summary_id or summary_id not in rev_engine.summaries:
-                # If summary_id in global engine or fallback to active engine
+            if not summary_id or summary_id not in GLOBAL_REVIEW_ENGINE.summaries:
                 self._set_headers(404)
                 self.wfile.write(json.dumps({"error": f"Summary '{summary_id}' not found"}).encode("utf-8"))
             else:
                 try:
                     if sub_action == "documents":
-                        docs = rev_engine.get_summary_documents(summary_id)
+                        docs = GLOBAL_REVIEW_ENGINE.get_summary_documents(summary_id)
                         self._set_headers(200)
                         self.wfile.write(json.dumps(docs, ensure_ascii=False).encode("utf-8"))
                     else:
-                        summary = rev_engine.get_summary(summary_id)
+                        summary = GLOBAL_REVIEW_ENGINE.get_summary(summary_id)
                         self._set_headers(200)
                         self.wfile.write(json.dumps(summary, ensure_ascii=False).encode("utf-8"))
                 except Exception as e:
@@ -414,50 +414,45 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(gov_report, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/intake/session":
-            engine = AYUSHConversationalIntakeEngine()
             patient_id = payload.get("patient_id")
             lang = payload.get("language_code", "en-US")
             mode = payload.get("input_mode", "text")
-            session = engine.create_session(patient_id=patient_id, language_code=lang, input_mode=mode)
+            session = GLOBAL_INTAKE_ENGINE.create_session(patient_id=patient_id, language_code=lang, input_mode=mode)
 
             self._set_headers(200)
             self.wfile.write(json.dumps(session, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/intake/message":
-            engine = AYUSHConversationalIntakeEngine()
             session_id = payload.get("session_id")
             raw_response = payload.get("raw_response") or payload.get("text")
             mode = payload.get("input_mode", "text")
-            res = engine.process_message(session_id=session_id, raw_response=raw_response, input_mode=mode)
+            res = GLOBAL_INTAKE_ENGINE.process_message(session_id=session_id, raw_response=raw_response, input_mode=mode)
 
             self._set_headers(200)
             self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/intake/voice":
-            engine = AYUSHConversationalIntakeEngine()
             session_id = payload.get("session_id")
             audio_ref = payload.get("audio_reference") or payload.get("voice_input")
-            res = engine.process_message(session_id=session_id, raw_response=audio_ref, input_mode="voice")
+            res = GLOBAL_INTAKE_ENGINE.process_message(session_id=session_id, raw_response=audio_ref, input_mode="voice")
 
             self._set_headers(200)
             self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/intake/language":
-            engine = AYUSHConversationalIntakeEngine()
             session_id = payload.get("session_id")
             lang_code = payload.get("language_code", "en-US")
-            session = engine.set_language(session_id=session_id, language_code=lang_code)
+            session = GLOBAL_INTAKE_ENGINE.set_language(session_id=session_id, language_code=lang_code)
 
             self._set_headers(200)
             self.wfile.write(json.dumps(session, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/intake/document":
-            engine = AYUSHConversationalIntakeEngine()
             session_id = payload.get("session_id")
             file_path = payload.get("file_path")
             doc_type = payload.get("document_type", "prescription")
             try:
-                doc_entry = engine.attach_document(session_id=session_id, file_path=file_path, document_type=doc_type)
+                doc_entry = GLOBAL_INTAKE_ENGINE.attach_document(session_id=session_id, file_path=file_path, document_type=doc_type)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(doc_entry, ensure_ascii=False).encode("utf-8"))
             except ValueError as ve:
@@ -465,10 +460,9 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": str(ve)}).encode("utf-8"))
 
         elif self.path == "/intake/complete":
-            engine = AYUSHConversationalIntakeEngine()
             session_id = payload.get("session_id")
             try:
-                res = engine.complete_intake(session_id=session_id)
+                res = GLOBAL_INTAKE_ENGINE.complete_intake(session_id=session_id)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
             except KeyError as ke:
@@ -476,10 +470,9 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
 
         elif self.path == "/summary/generate":
-            rev_engine = AYUSHPhysicianReviewEngine()
             session_id = payload.get("session_id")
             try:
-                summary = rev_engine.generate_summary(session_id=session_id)
+                summary = GLOBAL_REVIEW_ENGINE.generate_summary(session_id=session_id)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(summary, ensure_ascii=False).encode("utf-8"))
             except KeyError as ke:
@@ -491,11 +484,10 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
         elif self.path.startswith("/summary/") and self.path.endswith("/approve"):
             summary_id = self.path.split("/summary/")[-1].split("/approve")[0].strip("/")
-            rev_engine = AYUSHPhysicianReviewEngine()
             physician_id = payload.get("physician_id", "DR_AYUSH_001")
             signature = payload.get("physician_signature", "Verified")
             try:
-                approved = rev_engine.approve_summary(summary_id, physician_id=physician_id, physician_signature=signature)
+                approved = GLOBAL_REVIEW_ENGINE.approve_summary(summary_id, physician_id=physician_id, physician_signature=signature)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(approved, ensure_ascii=False).encode("utf-8"))
             except KeyError as ke:
@@ -504,11 +496,10 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
         elif self.path.startswith("/summary/") and self.path.endswith("/reject"):
             summary_id = self.path.split("/summary/")[-1].split("/reject")[0].strip("/")
-            rev_engine = AYUSHPhysicianReviewEngine()
             physician_id = payload.get("physician_id", "DR_AYUSH_001")
             reason = payload.get("rejection_reason", "Requires additional clinical details")
             try:
-                rejected = rev_engine.reject_summary(summary_id, physician_id=physician_id, rejection_reason=reason)
+                rejected = GLOBAL_REVIEW_ENGINE.reject_summary(summary_id, physician_id=physician_id, rejection_reason=reason)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(rejected, ensure_ascii=False).encode("utf-8"))
             except KeyError as ke:
@@ -532,11 +523,10 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
         if self.path.startswith("/summary/"):
             summary_id = self.path.split("/summary/")[-1]
-            rev_engine = AYUSHPhysicianReviewEngine()
             edits = payload.get("physician_edits", payload)
             notes = payload.get("physician_notes")
             try:
-                updated = rev_engine.update_summary(summary_id, physician_edits=edits, physician_notes=notes)
+                updated = GLOBAL_REVIEW_ENGINE.update_summary(summary_id, physician_edits=edits, physician_notes=notes)
                 self._set_headers(200)
                 self.wfile.write(json.dumps(updated, ensure_ascii=False).encode("utf-8"))
             except KeyError as ke:

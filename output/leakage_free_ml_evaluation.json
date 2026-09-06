@@ -15,92 +15,92 @@
     "Model A (KNN)": {
       "accuracy": 0.92,
       "macro_f1_score": 0.9221,
-      "inference_latency_ms": 2.219,
+      "inference_latency_ms": 2.509,
       "fit_time_ms": 0.0,
       "per_class_metrics": {
-        "kapha": {
-          "precision": 0.9167,
-          "recall": 0.9167,
-          "f1_score": 0.9167
+        "vata": {
+          "precision": 0.9286,
+          "recall": 0.963,
+          "f1_score": 0.9455
         },
         "pitta": {
           "precision": 0.9167,
           "recall": 0.8919,
           "f1_score": 0.9041
         },
-        "vata": {
-          "precision": 0.9286,
-          "recall": 0.963,
-          "f1_score": 0.9455
+        "kapha": {
+          "precision": 0.9167,
+          "recall": 0.9167,
+          "f1_score": 0.9167
         }
       }
     },
     "Model B (Gaussian Naive Bayes)": {
       "accuracy": 0.87,
       "macro_f1_score": 0.8642,
-      "inference_latency_ms": 0.08,
+      "inference_latency_ms": 0.078,
       "fit_time_ms": 2.9,
       "per_class_metrics": {
-        "kapha": {
-          "precision": 0.9118,
-          "recall": 0.8611,
-          "f1_score": 0.8857
+        "vata": {
+          "precision": 1.0,
+          "recall": 0.7037,
+          "f1_score": 0.8261
         },
         "pitta": {
           "precision": 0.7872,
           "recall": 1.0,
           "f1_score": 0.8809
         },
-        "vata": {
-          "precision": 1.0,
-          "recall": 0.7037,
-          "f1_score": 0.8261
+        "kapha": {
+          "precision": 0.9118,
+          "recall": 0.8611,
+          "f1_score": 0.8857
         }
       }
     },
     "Model C (Random Forest / DT)": {
       "accuracy": 0.2,
       "macro_f1_score": 0.1498,
-      "inference_latency_ms": 0.0,
-      "fit_time_ms": 0.05,
+      "inference_latency_ms": 0.001,
+      "fit_time_ms": 0.11,
       "per_class_metrics": {
-        "kapha": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1_score": 0.0
+        "vata": {
+          "precision": 0.3226,
+          "recall": 0.7407,
+          "f1_score": 0.4494
         },
         "pitta": {
           "precision": 0.0,
           "recall": 0.0,
           "f1_score": 0.0
         },
-        "vata": {
-          "precision": 0.3226,
-          "recall": 0.7407,
-          "f1_score": 0.4494
+        "kapha": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
         }
       }
     },
     "Model D (Soft-Voting Ensemble)": {
       "accuracy": 0.92,
       "macro_f1_score": 0.9221,
-      "inference_latency_ms": 2.344,
+      "inference_latency_ms": 2.493,
       "fit_time_ms": 0.0,
       "per_class_metrics": {
-        "kapha": {
-          "precision": 0.9167,
-          "recall": 0.9167,
-          "f1_score": 0.9167
+        "vata": {
+          "precision": 0.9286,
+          "recall": 0.963,
+          "f1_score": 0.9455
         },
         "pitta": {
           "precision": 0.9167,
           "recall": 0.8919,
           "f1_score": 0.9041
         },
-        "vata": {
-          "precision": 0.9286,
-          "recall": 0.963,
-          "f1_score": 0.9455
+        "kapha": {
+          "precision": 0.9167,
+          "recall": 0.9167,
+          "f1_score": 0.9167
         }
       }
     }

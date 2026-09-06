@@ -1,5 +1,5 @@
 {
-  "governance_audit_timestamp": "2026-09-06T01:07:05Z",
+  "governance_audit_timestamp": "2026-09-06T01:31:32Z",
   "model_version_id": "ayush_prakriti_knn_v1.0.0",
   "dataset_provenance": {
     "expert_benchmark_cases_source": "data/ayush_expert_validated_cases.json",
@@ -84,8 +84,8 @@
     "logging_mechanism": "Immutable SHA-256 Hashed JSON Log Stream",
     "sample_audit_entries": [
       {
-        "audit_id": "AUDIT_1788656825041",
-        "timestamp": "2026-09-06T01:07:05Z",
+        "audit_id": "AUDIT_1788658292793",
+        "timestamp": "2026-09-06T01:31:32Z",
         "model_id": "ayush_prakriti_knn_v1.0.0",
         "patient_id": "EXPERT_PATIENT_001",
         "input_sha256_hash": "87e6a6b2a2df9f4251a3f1f284cd7b4b25206f9bbc45921c3062fbbae27c156d",
@@ -100,8 +100,8 @@
         ]
       },
       {
-        "audit_id": "AUDIT_1788656825049",
-        "timestamp": "2026-09-06T01:07:05Z",
+        "audit_id": "AUDIT_1788658292801",
+        "timestamp": "2026-09-06T01:31:32Z",
         "model_id": "ayush_prakriti_knn_v1.0.0",
         "patient_id": "EXPERT_PATIENT_002",
         "input_sha256_hash": "3eccf18b215cbc1bf4383ab736bc5cedf8af3d74194813cae81f169d1c28c1b2",
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "audit_id": "AUDIT_1788656825057",
-        "timestamp": "2026-09-06T01:07:05Z",
+        "audit_id": "AUDIT_1788658292809",
+        "timestamp": "2026-09-06T01:31:32Z",
         "model_id": "ayush_prakriti_knn_v1.0.0",
         "patient_id": "EXPERT_PATIENT_003",
         "input_sha256_hash": "c13e6eba5c1ad6d936405a0372042c6bb21b488b11677cb055535b45ffcd6f98",
@@ -143,5 +143,5 @@
       "koshtha"
     ]
   },
-  "execution_latency_ms": 847.53
+  "execution_latency_ms": 860.816
 }
