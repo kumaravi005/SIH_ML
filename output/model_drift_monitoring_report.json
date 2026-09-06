@@ -1,0 +1,541 @@
+{
+  "monitoring_timestamp": "2026-09-06T00:06:21Z",
+  "baseline_training_samples": 500,
+  "incoming_evaluation_samples": 100,
+  "feature_dimension": 51,
+  "statistical_thresholds": {
+    "overall_alpha": 0.05,
+    "bonferroni_adjusted_alpha": 0.00098,
+    "ks_critical_value_threshold": 0.149,
+    "wasserstein_distance_threshold": 0.15
+  },
+  "drift_summary": {
+    "total_features": 51,
+    "drifted_features_count": 0,
+    "drift_percentage": 0.0,
+    "overall_drift_status": "NO_DRIFT",
+    "severity_level": "Low",
+    "action_recommendation": "In-distribution patient data. No operational action required.",
+    "automatic_retraining_triggered": false
+  },
+  "per_feature_drift_details": [
+    {
+      "feature_index": 0,
+      "feature_name": "age",
+      "ks_statistic": 0.118,
+      "ks_p_value": 0.1834,
+      "wasserstein_distance": 0.03,
+      "is_drifted": false,
+      "baseline_mean": 0.4852,
+      "incoming_mean": 0.5122
+    },
+    {
+      "feature_index": 1,
+      "feature_name": "gender",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.5,
+      "incoming_mean": 0.5
+    },
+    {
+      "feature_index": 2,
+      "feature_name": "prakriti_q1",
+      "ks_statistic": 0.05,
+      "ks_p_value": 0.9828,
+      "wasserstein_distance": 0.0247,
+      "is_drifted": false,
+      "baseline_mean": 0.3313,
+      "incoming_mean": 0.3066
+    },
+    {
+      "feature_index": 3,
+      "feature_name": "prakriti_q2",
+      "ks_statistic": 0.068,
+      "ks_p_value": 0.8226,
+      "wasserstein_distance": 0.0315,
+      "is_drifted": false,
+      "baseline_mean": 0.26,
+      "incoming_mean": 0.2575
+    },
+    {
+      "feature_index": 4,
+      "feature_name": "prakriti_q3",
+      "ks_statistic": 0.022,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0165,
+      "is_drifted": false,
+      "baseline_mean": 0.269,
+      "incoming_mean": 0.2525
+    },
+    {
+      "feature_index": 5,
+      "feature_name": "prakriti_q4",
+      "ks_statistic": 0.012,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0085,
+      "is_drifted": false,
+      "baseline_mean": 0.262,
+      "incoming_mean": 0.2625
+    },
+    {
+      "feature_index": 6,
+      "feature_name": "vikriti_q1",
+      "ks_statistic": 0.044,
+      "ks_p_value": 0.9964,
+      "wasserstein_distance": 0.0175,
+      "is_drifted": false,
+      "baseline_mean": 0.2785,
+      "incoming_mean": 0.265
+    },
+    {
+      "feature_index": 7,
+      "feature_name": "vikriti_q2",
+      "ks_statistic": 0.058,
+      "ks_p_value": 0.9352,
+      "wasserstein_distance": 0.024,
+      "is_drifted": false,
+      "baseline_mean": 0.2735,
+      "incoming_mean": 0.2625
+    },
+    {
+      "feature_index": 8,
+      "feature_name": "vikriti_q3",
+      "ks_statistic": 0.002,
+      "ks_p_value": 0.999,
+      "wasserstein_distance": 0.0002,
+      "is_drifted": false,
+      "baseline_mean": 0.0266,
+      "incoming_mean": 0.0264
+    },
+    {
+      "feature_index": 9,
+      "feature_name": "vikriti_q4",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.0,
+      "incoming_mean": 0.0
+    },
+    {
+      "feature_index": 10,
+      "feature_name": "sara_q1",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.0,
+      "incoming_mean": 0.0
+    },
+    {
+      "feature_index": 11,
+      "feature_name": "sara_q2",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.0,
+      "incoming_mean": 0.0
+    },
+    {
+      "feature_index": 12,
+      "feature_name": "sara_q3",
+      "ks_statistic": 0.13,
+      "ks_p_value": 0.1102,
+      "wasserstein_distance": 0.0324,
+      "is_drifted": false,
+      "baseline_mean": 0.5234,
+      "incoming_mean": 0.491
+    },
+    {
+      "feature_index": 13,
+      "feature_name": "sara_q4",
+      "ks_statistic": 0.036,
+      "ks_p_value": 0.9999,
+      "wasserstein_distance": 0.0087,
+      "is_drifted": false,
+      "baseline_mean": 0.5316,
+      "incoming_mean": 0.5244
+    },
+    {
+      "feature_index": 14,
+      "feature_name": "samhanana_q1",
+      "ks_statistic": 0.062,
+      "ks_p_value": 0.8965,
+      "wasserstein_distance": 0.03,
+      "is_drifted": false,
+      "baseline_mean": 0.4867,
+      "incoming_mean": 0.5167
+    },
+    {
+      "feature_index": 15,
+      "feature_name": "samhanana_q2",
+      "ks_statistic": 0.118,
+      "ks_p_value": 0.1834,
+      "wasserstein_distance": 0.0525,
+      "is_drifted": false,
+      "baseline_mean": 0.395,
+      "incoming_mean": 0.4475
+    },
+    {
+      "feature_index": 16,
+      "feature_name": "samhanana_q3",
+      "ks_statistic": 0.044,
+      "ks_p_value": 0.9964,
+      "wasserstein_distance": 0.027,
+      "is_drifted": false,
+      "baseline_mean": 0.367,
+      "incoming_mean": 0.34
+    },
+    {
+      "feature_index": 17,
+      "feature_name": "samhanana_q4",
+      "ks_statistic": 0.024,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.008,
+      "is_drifted": false,
+      "baseline_mean": 0.3353,
+      "incoming_mean": 0.3433
+    },
+    {
+      "feature_index": 18,
+      "feature_name": "pramana_q1",
+      "ks_statistic": 0.03,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0062,
+      "is_drifted": false,
+      "baseline_mean": 0.6302,
+      "incoming_mean": 0.6306
+    },
+    {
+      "feature_index": 19,
+      "feature_name": "pramana_q2",
+      "ks_statistic": 0.066,
+      "ks_p_value": 0.8491,
+      "wasserstein_distance": 0.024,
+      "is_drifted": false,
+      "baseline_mean": 0.33,
+      "incoming_mean": 0.31
+    },
+    {
+      "feature_index": 20,
+      "feature_name": "pramana_q3",
+      "ks_statistic": 0.042,
+      "ks_p_value": 0.9981,
+      "wasserstein_distance": 0.0215,
+      "is_drifted": false,
+      "baseline_mean": 0.377,
+      "incoming_mean": 0.3775
+    },
+    {
+      "feature_index": 21,
+      "feature_name": "pramana_q4",
+      "ks_statistic": 0.066,
+      "ks_p_value": 0.8491,
+      "wasserstein_distance": 0.0247,
+      "is_drifted": false,
+      "baseline_mean": 0.3183,
+      "incoming_mean": 0.343
+    },
+    {
+      "feature_index": 22,
+      "feature_name": "satmya_q1",
+      "ks_statistic": 0.054,
+      "ks_p_value": 0.9639,
+      "wasserstein_distance": 0.0176,
+      "is_drifted": false,
+      "baseline_mean": 0.3212,
+      "incoming_mean": 0.3036
+    },
+    {
+      "feature_index": 23,
+      "feature_name": "satmya_q2",
+      "ks_statistic": 0.088,
+      "ks_p_value": 0.52,
+      "wasserstein_distance": 0.0274,
+      "is_drifted": false,
+      "baseline_mean": 0.3314,
+      "incoming_mean": 0.304
+    },
+    {
+      "feature_index": 24,
+      "feature_name": "satmya_q3",
+      "ks_statistic": 0.062,
+      "ks_p_value": 0.8965,
+      "wasserstein_distance": 0.0265,
+      "is_drifted": false,
+      "baseline_mean": 0.254,
+      "incoming_mean": 0.2275
+    },
+    {
+      "feature_index": 25,
+      "feature_name": "satmya_q4",
+      "ks_statistic": 0.024,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0062,
+      "is_drifted": false,
+      "baseline_mean": 0.8214,
+      "incoming_mean": 0.8152
+    },
+    {
+      "feature_index": 26,
+      "feature_name": "sattva_q1",
+      "ks_statistic": 0.052,
+      "ks_p_value": 0.9745,
+      "wasserstein_distance": 0.0474,
+      "is_drifted": false,
+      "baseline_mean": 0.3706,
+      "incoming_mean": 0.3232
+    },
+    {
+      "feature_index": 27,
+      "feature_name": "sattva_q2",
+      "ks_statistic": 0.036,
+      "ks_p_value": 0.9999,
+      "wasserstein_distance": 0.023,
+      "is_drifted": false,
+      "baseline_mean": 0.423,
+      "incoming_mean": 0.4006
+    },
+    {
+      "feature_index": 28,
+      "feature_name": "sattva_q3",
+      "ks_statistic": 0.026,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.022,
+      "is_drifted": false,
+      "baseline_mean": 0.6082,
+      "incoming_mean": 0.5914
+    },
+    {
+      "feature_index": 29,
+      "feature_name": "sattva_q4",
+      "ks_statistic": 0.04,
+      "ks_p_value": 0.9992,
+      "wasserstein_distance": 0.0244,
+      "is_drifted": false,
+      "baseline_mean": 0.5986,
+      "incoming_mean": 0.623
+    },
+    {
+      "feature_index": 30,
+      "feature_name": "aharaShakti_q1",
+      "ks_statistic": 0.018,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0061,
+      "is_drifted": false,
+      "baseline_mean": 0.5893,
+      "incoming_mean": 0.5832
+    },
+    {
+      "feature_index": 31,
+      "feature_name": "aharaShakti_q2",
+      "ks_statistic": 0.028,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0176,
+      "is_drifted": false,
+      "baseline_mean": 0.6072,
+      "incoming_mean": 0.6248
+    },
+    {
+      "feature_index": 32,
+      "feature_name": "aharaShakti_q3",
+      "ks_statistic": 0.132,
+      "ks_p_value": 0.1007,
+      "wasserstein_distance": 0.0676,
+      "is_drifted": false,
+      "baseline_mean": 0.6519,
+      "incoming_mean": 0.7195
+    },
+    {
+      "feature_index": 33,
+      "feature_name": "aharaShakti_q4",
+      "ks_statistic": 0.044,
+      "ks_p_value": 0.9964,
+      "wasserstein_distance": 0.0115,
+      "is_drifted": false,
+      "baseline_mean": 0.3589,
+      "incoming_mean": 0.3704
+    },
+    {
+      "feature_index": 34,
+      "feature_name": "vyayamaShakti_q1",
+      "ks_statistic": 0.01,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.0028,
+      "is_drifted": false,
+      "baseline_mean": 0.46,
+      "incoming_mean": 0.4572
+    },
+    {
+      "feature_index": 35,
+      "feature_name": "vyayamaShakti_q2",
+      "ks_statistic": 0.048,
+      "ks_p_value": 0.989,
+      "wasserstein_distance": 0.0278,
+      "is_drifted": false,
+      "baseline_mean": 0.5214,
+      "incoming_mean": 0.4992
+    },
+    {
+      "feature_index": 36,
+      "feature_name": "vyayamaShakti_q3",
+      "ks_statistic": 0.058,
+      "ks_p_value": 0.9352,
+      "wasserstein_distance": 0.0259,
+      "is_drifted": false,
+      "baseline_mean": 0.5386,
+      "incoming_mean": 0.532
+    },
+    {
+      "feature_index": 37,
+      "feature_name": "vyayamaShakti_q4",
+      "ks_statistic": 0.054,
+      "ks_p_value": 0.9639,
+      "wasserstein_distance": 0.0313,
+      "is_drifted": false,
+      "baseline_mean": 0.1647,
+      "incoming_mean": 0.141
+    },
+    {
+      "feature_index": 38,
+      "feature_name": "vaya_q1",
+      "ks_statistic": 0.044,
+      "ks_p_value": 0.9964,
+      "wasserstein_distance": 0.01,
+      "is_drifted": false,
+      "baseline_mean": 0.55,
+      "incoming_mean": 0.56
+    },
+    {
+      "feature_index": 39,
+      "feature_name": "vaya_q2",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.32,
+      "incoming_mean": 0.32
+    },
+    {
+      "feature_index": 40,
+      "feature_name": "vaya_q3",
+      "ks_statistic": 0.07,
+      "ks_p_value": 0.7947,
+      "wasserstein_distance": 0.1091,
+      "is_drifted": false,
+      "baseline_mean": 0.9869,
+      "incoming_mean": 1.096
+    },
+    {
+      "feature_index": 41,
+      "feature_name": "vaya_q4",
+      "ks_statistic": 0.08,
+      "ks_p_value": 0.6426,
+      "wasserstein_distance": 0.0858,
+      "is_drifted": false,
+      "baseline_mean": 1.017,
+      "incoming_mean": 0.938
+    },
+    {
+      "feature_index": 42,
+      "feature_name": "note_term_dry",
+      "ks_statistic": 0.044,
+      "ks_p_value": 0.9964,
+      "wasserstein_distance": 0.0501,
+      "is_drifted": false,
+      "baseline_mean": 0.9961,
+      "incoming_mean": 0.966
+    },
+    {
+      "feature_index": 43,
+      "feature_name": "note_term_light",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.0,
+      "incoming_mean": 0.0
+    },
+    {
+      "feature_index": 44,
+      "feature_name": "note_term_cold",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.0,
+      "incoming_mean": 0.0
+    },
+    {
+      "feature_index": 45,
+      "feature_name": "note_term_hot",
+      "ks_statistic": 0.008,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.008,
+      "is_drifted": false,
+      "baseline_mean": 0.498,
+      "incoming_mean": 0.49
+    },
+    {
+      "feature_index": 46,
+      "feature_name": "note_term_sharp",
+      "ks_statistic": 0.006,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.006,
+      "is_drifted": false,
+      "baseline_mean": 0.166,
+      "incoming_mean": 0.16
+    },
+    {
+      "feature_index": 47,
+      "feature_name": "note_term_oily",
+      "ks_statistic": 0.006,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.006,
+      "is_drifted": false,
+      "baseline_mean": 0.166,
+      "incoming_mean": 0.16
+    },
+    {
+      "feature_index": 48,
+      "feature_name": "note_term_heavy",
+      "ks_statistic": 0.01,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.01,
+      "is_drifted": false,
+      "baseline_mean": 0.5,
+      "incoming_mean": 0.51
+    },
+    {
+      "feature_index": 49,
+      "feature_name": "note_term_stable",
+      "ks_statistic": 0.0,
+      "ks_p_value": 0.0,
+      "wasserstein_distance": 0.0,
+      "is_drifted": false,
+      "baseline_mean": 0.5,
+      "incoming_mean": 0.5
+    },
+    {
+      "feature_index": 50,
+      "feature_name": "note_term_soft",
+      "ks_statistic": 0.006,
+      "ks_p_value": 1.0,
+      "wasserstein_distance": 0.006,
+      "is_drifted": false,
+      "baseline_mean": 0.166,
+      "incoming_mean": 0.16
+    }
+  ],
+  "disclaimers": {
+    "synthetic_baseline_limitation": "Drift is evaluated relative to the N=500 synthetic baseline training dataset (seed=42). Drift detection does NOT automatically imply clinical population shift or model invalidity.",
+    "retraining_policy": "Automatic retraining is strictly disabled. Retraining must be a deliberate, validated offline process.",
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ]
+  }
+}

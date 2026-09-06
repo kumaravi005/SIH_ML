@@ -23,6 +23,7 @@ from dataset_generator import AYUSHDatasetGeneratorEngine
 from ml_baseline_model import AYUSHBaselineMLEngine
 from advanced_ml_engine import AYUSHAdvancedMLEngine
 from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
+from model_serving_drift_engine import AYUSHModelServingDriftEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -318,8 +319,7 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(robustness_report, ensure_ascii=False).encode("utf-8"))
 
         elif self.path == "/predict-prakriti-ml":
-            from final_model_trainer import AYUSHFinalModelTrainer
-            trainer = AYUSHFinalModelTrainer()
+            engine = AYUSHModelServingDriftEngine()
 
             patient_case = payload.get("patient_case")
             if not patient_case:
@@ -330,10 +330,23 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     unstructured_inputs=unstructured_inputs
                 )
 
-            pred_res = trainer.predict_case(patient_case)
+            pred_res = engine.predict_with_explanation(patient_case)
 
             self._set_headers(200)
             self.wfile.write(json.dumps(pred_res, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/monitor-drift":
+            engine = AYUSHModelServingDriftEngine()
+
+            incoming_cases = payload.get("incoming_cases")
+            if not incoming_cases:
+                generator = AYUSHDatasetGeneratorEngine(seed=999)
+                incoming_cases = [generator.generate_patient_case(i) for i in range(1, 51)]
+
+            drift_report = engine.detect_data_drift(incoming_cases=incoming_cases)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(drift_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

@@ -41,6 +41,7 @@ from .dataset_quality_alignment_engine import AYUSHDatasetQualityAlignmentEngine
 from .feature_validation_engine import AYUSHFeatureValidationEngine
 from .ml_robustness_engine import AYUSHMLRobustnessEngine
 from .final_model_trainer import AYUSHFinalModelTrainer
+from .model_serving_drift_engine import AYUSHModelServingDriftEngine
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -78,6 +79,7 @@ __all__ = [
     "AYUSHFeatureValidationEngine",
     "AYUSHMLRobustnessEngine",
     "AYUSHFinalModelTrainer",
+    "AYUSHModelServingDriftEngine",
     "LLMClinicalExtractor"
 ]
 
