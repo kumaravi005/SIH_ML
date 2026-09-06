@@ -184,6 +184,7 @@ def main():
     parser.add_argument("--monitor-drift", action="store_true", help="Run Section 15 data drift & distribution shift monitoring against N=500 baseline")
     parser.add_argument("--validate-clinical-expert", action="store_true", help="Run Section 16 independent real-world / expert validation & clinical evaluation audit")
     parser.add_argument("--validate-governance-safety", action="store_true", help="Run Section 17 clinical validation evidence, model governance & production safety audit")
+    parser.add_argument("--start-intake", action="store_true", help="Run Section 18 patient multilingual conversational intake simulation")
 
     args = parser.parse_args()
 
@@ -287,6 +288,30 @@ def main():
         gov_report = engine.run_full_governance_safety_audit()
         print("Governance & Production Safety Audit complete!")
         print(json.dumps(gov_report["calibration_reliability_analysis"], indent=2))
+        return
+
+    if args.start_intake:
+        from conversational_intake_engine import AYUSHConversationalIntakeEngine
+        print("Executing Section 18 Patient Multilingual Conversational Intake Engine Simulation...")
+        engine = AYUSHConversationalIntakeEngine()
+        session = engine.create_session(language_code="hi-IN")
+        s_id = session["session_id"]
+        print(f"Session Created: {s_id} (Language: hi-IN)")
+        
+        # Step 1: Chief Complaint
+        res1 = engine.process_input(s_id, text_content="मुझे पिछले दो दिनों से पेट में तेज दर्द और गैस महसूस हो रही है", input_mode="text")
+        print(f"Next State: {res1['current_step']}")
+
+        # Step 2: SOCRATES site
+        res2 = engine.process_input(s_id, voice_audio=b"RIFF....", input_mode="voice")
+        print(f"Next State: {res2['current_step']}")
+
+        # Complete session remaining steps automatically for demo
+        summary = engine.complete_session(s_id)
+        print("Intake Simulation Complete!")
+        print(f"Status: {summary['status']}")
+        print(f"Predicted Prakriti: {summary['ml_prediction']['predicted_prakriti']}")
+        print(f"Governance Audit Hash: {summary['governance_audit']['input_sha256_hash']}")
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"

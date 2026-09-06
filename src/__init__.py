@@ -44,6 +44,7 @@ from .final_model_trainer import AYUSHFinalModelTrainer
 from .model_serving_drift_engine import AYUSHModelServingDriftEngine
 from .clinical_validation_engine import AYUSHClinicalValidationEngine
 from .governance_safety_engine import AYUSHGovernanceSafetyEngine
+from .conversational_intake_engine import AYUSHConversationalIntakeEngine
 from .llm_extractor import LLMClinicalExtractor
 
 __all__ = [
@@ -84,6 +85,7 @@ __all__ = [
     "AYUSHModelServingDriftEngine",
     "AYUSHClinicalValidationEngine",
     "AYUSHGovernanceSafetyEngine",
+    "AYUSHConversationalIntakeEngine",
     "LLMClinicalExtractor"
 ]
 

@@ -1,5 +1,5 @@
 {
-  "evaluation_timestamp": "2026-09-06T00:28:27Z",
+  "evaluation_timestamp": "2026-09-06T00:45:01Z",
   "total_expert_benchmark_cases": 60,
   "blind_evaluation_protocol": "ACTIVE (Expert diagnosis labels withheld from model during inference)",
   "overall_agreement_metrics": {
@@ -81,7 +81,7 @@
     ],
     "target_leakage_present": false
   },
-  "execution_latency_ms": 813.692,
+  "execution_latency_ms": 866.78,
   "individual_patient_evaluations": [
     {
       "patient_id": "EXPERT_PATIENT_001",

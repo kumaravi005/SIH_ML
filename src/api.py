@@ -26,6 +26,7 @@ from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
 from model_serving_drift_engine import AYUSHModelServingDriftEngine
 from clinical_validation_engine import AYUSHClinicalValidationEngine
 from governance_safety_engine import AYUSHGovernanceSafetyEngine
+from conversational_intake_engine import AYUSHConversationalIntakeEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -78,6 +79,21 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                     "POST /validate-leakage-free-ml"
                 ]
             }).encode("utf-8"))
+        elif self.path.startswith("/intake/session/"):
+            session_id = self.path.split("/intake/session/")[-1]
+            try:
+                engine = AYUSHConversationalIntakeEngine()
+                if session_id in engine.sessions:
+                    state = engine.sessions[session_id]
+                    self._set_headers(200)
+                    self.wfile.write(json.dumps(state, ensure_ascii=False).encode("utf-8"))
+                else:
+                    self._set_headers(404)
+                    self.wfile.write(json.dumps({"error": f"Session {session_id} not found"}).encode("utf-8"))
+            except Exception as e:
+                self._set_headers(500)
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
@@ -370,6 +386,68 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(gov_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/intake/session":
+            engine = AYUSHConversationalIntakeEngine()
+            patient_id = payload.get("patient_id")
+            lang = payload.get("language_code", "en-US")
+            mode = payload.get("input_mode", "text")
+            session = engine.create_session(patient_id=patient_id, language_code=lang, input_mode=mode)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(session, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/intake/message":
+            engine = AYUSHConversationalIntakeEngine()
+            session_id = payload.get("session_id")
+            raw_response = payload.get("raw_response") or payload.get("text")
+            mode = payload.get("input_mode", "text")
+            res = engine.process_message(session_id=session_id, raw_response=raw_response, input_mode=mode)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/intake/voice":
+            engine = AYUSHConversationalIntakeEngine()
+            session_id = payload.get("session_id")
+            audio_ref = payload.get("audio_reference") or payload.get("voice_input")
+            res = engine.process_message(session_id=session_id, raw_response=audio_ref, input_mode="voice")
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/intake/language":
+            engine = AYUSHConversationalIntakeEngine()
+            session_id = payload.get("session_id")
+            lang_code = payload.get("language_code", "en-US")
+            session = engine.set_language(session_id=session_id, language_code=lang_code)
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(session, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/intake/document":
+            engine = AYUSHConversationalIntakeEngine()
+            session_id = payload.get("session_id")
+            file_path = payload.get("file_path")
+            doc_type = payload.get("document_type", "prescription")
+            try:
+                doc_entry = engine.attach_document(session_id=session_id, file_path=file_path, document_type=doc_type)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(doc_entry, ensure_ascii=False).encode("utf-8"))
+            except ValueError as ve:
+                self._set_headers(400)
+                self.wfile.write(json.dumps({"error": str(ve)}).encode("utf-8"))
+
+        elif self.path == "/intake/complete":
+            engine = AYUSHConversationalIntakeEngine()
+            session_id = payload.get("session_id")
+            try:
+                res = engine.complete_intake(session_id=session_id)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
+            except KeyError as ke:
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
 
         else:
             self._set_headers(404)
