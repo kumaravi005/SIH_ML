@@ -35,18 +35,18 @@
       "Model A (KNN)": {
         "accuracy": 0.92,
         "macro_f1_score": 0.9221,
-        "inference_latency_ms": 2.453,
+        "inference_latency_ms": 2.295,
         "fit_time_ms": 0.0,
         "per_class_metrics": {
-          "pitta": {
-            "precision": 0.9167,
-            "recall": 0.8919,
-            "f1_score": 0.9041
-          },
           "kapha": {
             "precision": 0.9167,
             "recall": 0.9167,
             "f1_score": 0.9167
+          },
+          "pitta": {
+            "precision": 0.9167,
+            "recall": 0.8919,
+            "f1_score": 0.9041
           },
           "vata": {
             "precision": 0.9286,
@@ -58,18 +58,18 @@
       "Model B (Gaussian Naive Bayes)": {
         "accuracy": 0.87,
         "macro_f1_score": 0.8642,
-        "inference_latency_ms": 0.084,
-        "fit_time_ms": 3.49,
+        "inference_latency_ms": 0.077,
+        "fit_time_ms": 2.92,
         "per_class_metrics": {
-          "pitta": {
-            "precision": 0.7872,
-            "recall": 1.0,
-            "f1_score": 0.8809
-          },
           "kapha": {
             "precision": 0.9118,
             "recall": 0.8611,
             "f1_score": 0.8857
+          },
+          "pitta": {
+            "precision": 0.7872,
+            "recall": 1.0,
+            "f1_score": 0.8809
           },
           "vata": {
             "precision": 1.0,
@@ -84,12 +84,12 @@
         "inference_latency_ms": 0.0,
         "fit_time_ms": 0.05,
         "per_class_metrics": {
-          "pitta": {
+          "kapha": {
             "precision": 0.0,
             "recall": 0.0,
             "f1_score": 0.0
           },
-          "kapha": {
+          "pitta": {
             "precision": 0.0,
             "recall": 0.0,
             "f1_score": 0.0
@@ -104,18 +104,18 @@
       "Model D (Soft-Voting Ensemble)": {
         "accuracy": 0.92,
         "macro_f1_score": 0.9221,
-        "inference_latency_ms": 2.619,
+        "inference_latency_ms": 2.385,
         "fit_time_ms": 0.0,
         "per_class_metrics": {
-          "pitta": {
-            "precision": 0.9167,
-            "recall": 0.8919,
-            "f1_score": 0.9041
-          },
           "kapha": {
             "precision": 0.9167,
             "recall": 0.9167,
             "f1_score": 0.9167
+          },
+          "pitta": {
+            "precision": 0.9167,
+            "recall": 0.8919,
+            "f1_score": 0.9041
           },
           "vata": {
             "precision": 0.9286,

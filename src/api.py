@@ -27,6 +27,7 @@ from model_serving_drift_engine import AYUSHModelServingDriftEngine
 from clinical_validation_engine import AYUSHClinicalValidationEngine
 from governance_safety_engine import AYUSHGovernanceSafetyEngine
 from conversational_intake_engine import AYUSHConversationalIntakeEngine
+from physician_review_engine import AYUSHPhysicianReviewEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -93,6 +94,31 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
             except Exception as e:
                 self._set_headers(500)
                 self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+
+        elif self.path.startswith("/summary/"):
+            parts = [p for p in self.path.split("/") if p]
+            # /summary/{summary_id} or /summary/{summary_id}/documents
+            summary_id = parts[1] if len(parts) > 1 else None
+            sub_action = parts[2] if len(parts) > 2 else None
+
+            rev_engine = AYUSHPhysicianReviewEngine()
+            if not summary_id or summary_id not in rev_engine.summaries:
+                # If summary_id in global engine or fallback to active engine
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": f"Summary '{summary_id}' not found"}).encode("utf-8"))
+            else:
+                try:
+                    if sub_action == "documents":
+                        docs = rev_engine.get_summary_documents(summary_id)
+                        self._set_headers(200)
+                        self.wfile.write(json.dumps(docs, ensure_ascii=False).encode("utf-8"))
+                    else:
+                        summary = rev_engine.get_summary(summary_id)
+                        self._set_headers(200)
+                        self.wfile.write(json.dumps(summary, ensure_ascii=False).encode("utf-8"))
+                except Exception as e:
+                    self._set_headers(500)
+                    self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
 
         else:
             self._set_headers(404)
@@ -449,6 +475,76 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
                 self._set_headers(404)
                 self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
 
+        elif self.path == "/summary/generate":
+            rev_engine = AYUSHPhysicianReviewEngine()
+            session_id = payload.get("session_id")
+            try:
+                summary = rev_engine.generate_summary(session_id=session_id)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(summary, ensure_ascii=False).encode("utf-8"))
+            except KeyError as ke:
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
+            except Exception as e:
+                self._set_headers(500)
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+
+        elif self.path.startswith("/summary/") and self.path.endswith("/approve"):
+            summary_id = self.path.split("/summary/")[-1].split("/approve")[0].strip("/")
+            rev_engine = AYUSHPhysicianReviewEngine()
+            physician_id = payload.get("physician_id", "DR_AYUSH_001")
+            signature = payload.get("physician_signature", "Verified")
+            try:
+                approved = rev_engine.approve_summary(summary_id, physician_id=physician_id, physician_signature=signature)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(approved, ensure_ascii=False).encode("utf-8"))
+            except KeyError as ke:
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
+
+        elif self.path.startswith("/summary/") and self.path.endswith("/reject"):
+            summary_id = self.path.split("/summary/")[-1].split("/reject")[0].strip("/")
+            rev_engine = AYUSHPhysicianReviewEngine()
+            physician_id = payload.get("physician_id", "DR_AYUSH_001")
+            reason = payload.get("rejection_reason", "Requires additional clinical details")
+            try:
+                rejected = rev_engine.reject_summary(summary_id, physician_id=physician_id, rejection_reason=reason)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(rejected, ensure_ascii=False).encode("utf-8"))
+            except KeyError as ke:
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
+
+        else:
+            self._set_headers(404)
+            self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+
+    def do_PUT(self):
+        content_length = int(self.headers.get("Content-Length", 0))
+        body_str = self.rfile.read(content_length).decode("utf-8") if content_length > 0 else "{}"
+
+        try:
+            payload = json.loads(body_str) if body_str else {}
+        except json.JSONDecodeError:
+            self._set_headers(400)
+            self.wfile.write(json.dumps({"error": "Invalid JSON body"}).encode("utf-8"))
+            return
+
+        if self.path.startswith("/summary/"):
+            summary_id = self.path.split("/summary/")[-1]
+            rev_engine = AYUSHPhysicianReviewEngine()
+            edits = payload.get("physician_edits", payload)
+            notes = payload.get("physician_notes")
+            try:
+                updated = rev_engine.update_summary(summary_id, physician_edits=edits, physician_notes=notes)
+                self._set_headers(200)
+                self.wfile.write(json.dumps(updated, ensure_ascii=False).encode("utf-8"))
+            except KeyError as ke:
+                self._set_headers(404)
+                self.wfile.write(json.dumps({"error": str(ke)}).encode("utf-8"))
+            except ValueError as ve:
+                self._set_headers(400)
+                self.wfile.write(json.dumps({"error": str(ve)}).encode("utf-8"))
         else:
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))

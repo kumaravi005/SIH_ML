@@ -11,20 +11,20 @@
   "accuracy": 0.92,
   "macro_f1_score": 0.9221,
   "per_class_metrics": {
-    "vata": {
-      "precision": 0.9286,
-      "recall": 0.963,
-      "f1_score": 0.9455
+    "kapha": {
+      "precision": 0.9167,
+      "recall": 0.9167,
+      "f1_score": 0.9167
     },
     "pitta": {
       "precision": 0.9167,
       "recall": 0.8919,
       "f1_score": 0.9041
     },
-    "kapha": {
-      "precision": 0.9167,
-      "recall": 0.9167,
-      "f1_score": 0.9167
+    "vata": {
+      "precision": 0.9286,
+      "recall": 0.963,
+      "f1_score": 0.9455
     }
   },
   "status": "PASSED"

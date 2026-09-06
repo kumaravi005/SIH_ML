@@ -185,6 +185,7 @@ def main():
     parser.add_argument("--validate-clinical-expert", action="store_true", help="Run Section 16 independent real-world / expert validation & clinical evaluation audit")
     parser.add_argument("--validate-governance-safety", action="store_true", help="Run Section 17 clinical validation evidence, model governance & production safety audit")
     parser.add_argument("--start-intake", action="store_true", help="Run Section 18 patient multilingual conversational intake simulation")
+    parser.add_argument("--demo-section19", action="store_true", help="Run Section 19 patient intake -> prescription attachment -> AI summary -> physician review & approval simulation")
 
     args = parser.parse_args()
 
@@ -312,6 +313,48 @@ def main():
         print(f"Status: {summary['status']}")
         print(f"Predicted Prakriti: {summary['ml_prediction']['predicted_prakriti']}")
         print(f"Governance Audit Hash: {summary['governance_audit']['input_sha256_hash']}")
+        return
+
+    if args.demo_section19:
+        from conversational_intake_engine import AYUSHConversationalIntakeEngine
+        from physician_review_engine import AYUSHPhysicianReviewEngine
+        print("Executing Section 19 End-to-End Physician Summary, Prescription Attachment & Review Workflow...")
+        
+        intake_eng = AYUSHConversationalIntakeEngine()
+        rev_eng = AYUSHPhysicianReviewEngine(intake_engine=intake_eng)
+
+        # 1. Create Patient Session (Hindi)
+        session = intake_eng.create_session(language_code="hi-IN")
+        s_id = session["session_id"]
+        print(f"[Phase 1] Intake Session Initialized: {s_id} (Language: hi-IN)")
+
+        # 2. Patient Input (Text + Voice)
+        intake_eng.process_input(s_id, text_content="मुझे पिछले दो दिनों से पेट में तेज दर्द और गैस महसूस हो रही है", input_mode="text")
+        intake_eng.process_input(s_id, voice_audio=b"audio_bytes", input_mode="voice")
+        print("[Phase 1] Clinical History & SOCRATES Findings Captured")
+
+        # 3. Prescription Upload (PDF)
+        doc = intake_eng.upload_document(s_id, filename="patient_previous_prescription.pdf", content_type="application/pdf", file_size_bytes=2048)
+        print(f"[Phase 2] Original Prescription Uploaded & Attached: {doc['document']['file_name']} (ID: {doc['document']['document_id']})")
+
+        # 4. Generate AI Summary
+        summ = rev_eng.generate_summary(s_id)
+        summ_id = summ["summary_id"]
+        print(f"[Phase 3 & 4] AI Summary Generated: {summ_id} (Status: {summ['status']})")
+        print(f" -> ML Prakriti Prediction: {summ['structured_content']['ml_prakriti_decision_support']['predicted_prakriti']}")
+        print(f" -> Attached Original Documents Count: {len(summ['structured_content']['original_medical_documents'])}")
+
+        # 5. Physician Edit
+        updated = rev_eng.update_summary(summ_id, physician_edits={"allergy_information": "No known drug allergies (NKDA)"}, physician_notes="Patient case verified by attending Ayurvedic Physician.")
+        print(f"[Phase 5 & 6] Physician Edit Applied (Status: {updated['status']})")
+
+        # 6. Physician Approve & Finalize
+        approved = rev_eng.approve_summary(summ_id, physician_id="DR_AYUSH_CHIEF", physician_signature="Dr. Sharma, MD-Ayurveda")
+        print(f"[Phase 7] Summary Approved & Finalized (Status: {approved['status']})")
+        print(f" -> Approved By: {approved['physician_review']['physician_id']} ({approved['physician_review']['physician_signature']})")
+        print(f" -> Governance Audit SHA-256: {approved['governance_audit']['input_sha256_hash']}")
+        print(f" -> Attached Document Retained: {approved['structured_content']['original_medical_documents'][0]['file_name']}")
+        print("Section 19 End-to-End Physician Workflow Simulation Complete!")
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
