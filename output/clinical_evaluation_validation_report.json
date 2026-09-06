@@ -1,0 +1,687 @@
+{
+  "evaluation_timestamp": "2026-09-06T00:09:35Z",
+  "total_expert_benchmark_cases": 60,
+  "blind_evaluation_protocol": "ACTIVE (Expert diagnosis labels withheld from model during inference)",
+  "overall_agreement_metrics": {
+    "accuracy": 0.9667,
+    "macro_precision": 0.9673,
+    "macro_recall": 0.9673,
+    "macro_f1": 0.9673,
+    "cohens_kappa_agreement": 0.9499,
+    "cohens_kappa_interpretation": "Almost Perfect Agreement"
+  },
+  "confusion_matrix": {
+    "vata": {
+      "vata": 19,
+      "pitta": 0,
+      "kapha": 0
+    },
+    "pitta": {
+      "vata": 0,
+      "pitta": 21,
+      "kapha": 1
+    },
+    "kapha": {
+      "vata": 0,
+      "pitta": 1,
+      "kapha": 18
+    }
+  },
+  "per_class_metrics": {
+    "vata": {
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "f1_score": 1.0,
+      "support": 19
+    },
+    "pitta": {
+      "precision": 0.9545,
+      "recall_sensitivity": 0.9545,
+      "f1_score": 0.9545,
+      "support": 22
+    },
+    "kapha": {
+      "precision": 0.9474,
+      "recall_sensitivity": 0.9474,
+      "f1_score": 0.9474,
+      "support": 19
+    }
+  },
+  "confidence_stratification_analysis": {
+    "high_confidence": {
+      "count": 46,
+      "percentage": 76.67,
+      "accuracy": 1.0
+    },
+    "moderate_confidence": {
+      "count": 9,
+      "percentage": 15.0,
+      "accuracy": 1.0
+    },
+    "low_confidence_flagged": {
+      "count": 5,
+      "percentage": 8.33,
+      "accuracy": 0.6,
+      "action_required": "Mandatory human practitioner review required for low-confidence cases."
+    }
+  },
+  "synthetic_vs_real_transfer_comparison": {
+    "synthetic_out_of_sample_accuracy": 0.96,
+    "expert_benchmark_accuracy": 0.9667,
+    "synthetic_transfer_degradation_gap": -0.0067,
+    "transfer_verdict": "Strong domain transfer. Model generalizes effectively to expert-validated cases."
+  },
+  "clinical_safety_boundary": {
+    "clinical_role": "Clinical Decision Support (CDS) System",
+    "autonomous_diagnosis_permitted": false,
+    "safety_disclaimer": "The AYUSH ML Model is designed strictly as a Clinical Decision Support (CDS) system to assist qualified Ayurvedic practitioners. It is NOT intended for autonomous medical diagnosis or prescription.",
+    "excluded_parameters": [
+      "agni",
+      "koshtha"
+    ],
+    "target_leakage_present": false
+  },
+  "execution_latency_ms": 797.795,
+  "individual_patient_evaluations": [
+    {
+      "patient_id": "EXPERT_PATIENT_001",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.444,
+      "confidence_bin": "Low",
+      "flagged_non_definitive": true,
+      "action_note": "Flagged as non-definitive. Mandatory senior practitioner review required.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "EXPERT_PATIENT_002",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "EXPERT_PATIENT_003",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.556,
+      "confidence_bin": "Low",
+      "flagged_non_definitive": true,
+      "action_note": "Flagged as non-definitive. Mandatory senior practitioner review required.",
+      "is_correct": false
+    },
+    {
+      "patient_id": "P1001",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1002",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1003",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.667,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1004",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1005",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.556,
+      "confidence_bin": "Low",
+      "flagged_non_definitive": true,
+      "action_note": "Flagged as non-definitive. Mandatory senior practitioner review required.",
+      "is_correct": false
+    },
+    {
+      "patient_id": "P1006",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1007",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1008",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1009",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.556,
+      "confidence_bin": "Low",
+      "flagged_non_definitive": true,
+      "action_note": "Flagged as non-definitive. Mandatory senior practitioner review required.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1010",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1011",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1012",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1013",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1014",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1015",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1016",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1017",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1018",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1019",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1020",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1021",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1022",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1023",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1024",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1025",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1026",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1027",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1028",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1029",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1030",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1031",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1032",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1033",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1034",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1035",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1036",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1037",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1038",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1039",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.778,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1040",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1041",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1042",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1043",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1044",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1045",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1046",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1047",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 0.556,
+      "confidence_bin": "Low",
+      "flagged_non_definitive": true,
+      "action_note": "Flagged as non-definitive. Mandatory senior practitioner review required.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1048",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1049",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1050",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1051",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1052",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1053",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 0.667,
+      "confidence_bin": "Moderate",
+      "flagged_non_definitive": false,
+      "action_note": "Moderate confidence. Secondary verification recommended.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1054",
+      "expert_diagnosis": "vata",
+      "model_predicted_prakriti": "vata",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1055",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1056",
+      "expert_diagnosis": "kapha",
+      "model_predicted_prakriti": "kapha",
+      "model_confidence": 1.0,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    },
+    {
+      "patient_id": "P1057",
+      "expert_diagnosis": "pitta",
+      "model_predicted_prakriti": "pitta",
+      "model_confidence": 0.889,
+      "confidence_bin": "High",
+      "flagged_non_definitive": false,
+      "action_note": "High model confidence. Suitable for practitioner review.",
+      "is_correct": true
+    }
+  ]
+}

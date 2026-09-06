@@ -40,7 +40,7 @@
     "independent_samples_eval": 100,
     "independent_accuracy": 0.96,
     "independent_macro_f1": 0.9581,
-    "inference_latency_ms_per_case": 2.839,
+    "inference_latency_ms_per_case": 2.677,
     "per_class_metrics": {
       "kapha": {
         "precision": 1.0,

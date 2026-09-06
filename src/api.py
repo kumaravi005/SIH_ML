@@ -24,6 +24,7 @@ from ml_baseline_model import AYUSHBaselineMLEngine
 from advanced_ml_engine import AYUSHAdvancedMLEngine
 from leakage_free_ml_engine import AYUSHLeakageFreeMLEngine
 from model_serving_drift_engine import AYUSHModelServingDriftEngine
+from clinical_validation_engine import AYUSHClinicalValidationEngine
 
 
 class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
@@ -347,6 +348,13 @@ class HealthcareMLRequestHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps(drift_report, ensure_ascii=False).encode("utf-8"))
+
+        elif self.path == "/validate-clinical-expert":
+            engine = AYUSHClinicalValidationEngine()
+            val_report = engine.run_full_clinical_validation()
+
+            self._set_headers(200)
+            self.wfile.write(json.dumps(val_report, ensure_ascii=False).encode("utf-8"))
 
         else:
             self._set_headers(404)

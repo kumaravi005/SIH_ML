@@ -182,6 +182,7 @@ def main():
     parser.add_argument("--validate-robustness", action="store_true", help="Run K-Fold Cross-Validation, hyperparameter tuning & noise robustness audit")
     parser.add_argument("--predict-prakriti-ml", action="store_true", help="Run Section 14 final ML model inference on patient case")
     parser.add_argument("--monitor-drift", action="store_true", help="Run Section 15 data drift & distribution shift monitoring against N=500 baseline")
+    parser.add_argument("--validate-clinical-expert", action="store_true", help="Run Section 16 independent real-world / expert validation & clinical evaluation audit")
 
     args = parser.parse_args()
 
@@ -267,6 +268,15 @@ def main():
         drift_report = engine.detect_data_drift(incoming_cases=eval_cases)
         print("Data Drift Monitoring complete!")
         print(json.dumps(drift_report["drift_summary"], indent=2))
+        return
+
+    if args.validate_clinical_expert:
+        from clinical_validation_engine import AYUSHClinicalValidationEngine
+        print("Executing Section 16 Independent Real-World / Expert Validation & Clinical Evaluation...")
+        engine = AYUSHClinicalValidationEngine()
+        val_report = engine.run_full_clinical_validation()
+        print("Clinical Validation complete!")
+        print(json.dumps(val_report["overall_agreement_metrics"], indent=2))
         return
 
     default_sample = Path(__file__).resolve().parent.parent / "tests" / "sample_patient_cases.json"
